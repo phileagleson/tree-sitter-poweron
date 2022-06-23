@@ -1,0 +1,21 @@
+===
+MULTIPLE DIVISIONS TEST
+===
+target=account
+setup
+end
+
+DEFINE
+END
+
+print title="test"
+end
+---
+(source_file 
+  (target_division 
+    (record_type))
+  (setup_division)
+  (define_division)
+  (print_division 
+    (string_literal
+      (string_literal))))

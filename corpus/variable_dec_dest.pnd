@@ -1,0 +1,21 @@
+===
+VARIABLE DECLARATION TEST
+===
+TARGET=ACCOUNT
+DEFINE
+ x=NUMBER
+END
+
+PRINT TITLE=VARNAME
+END
+---
+(source_file 
+  (target_division 
+    (record_type))
+  (define_division
+    (define_statement
+    (variable_declaration
+      (identifier)
+      (data_type))))
+  (print_division
+    (identifier)))

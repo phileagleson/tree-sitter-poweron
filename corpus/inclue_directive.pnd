@@ -1,0 +1,30 @@
+===
+INCLUDE DIRECTIVE TEST
+===
+
+TARGET=ACCOUNT
+
+DEFINE
+ #INCLUDE "OTHERPOWERON"
+
+ x=number
+END
+
+PRINT TITLE="TEST"
+END
+---
+(source_file
+  (target_division
+    (record_type))
+  (define_division
+    (define_statement
+      (include_directive
+        (string_literal
+          (string_literal))))
+    (define_statement
+      (variable_declaration
+        (identifier)
+        (data_type))))
+  (print_division
+    (string_literal
+      (string_literal))))

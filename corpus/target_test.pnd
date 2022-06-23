@@ -1,0 +1,14 @@
+======
+TARGET DIVISION TEST
+======
+TARGET=ACCOUNT
+
+PRINT TITLE="Some Title"
+END
+---
+(source_file 
+  (target_division
+    (record_type))
+  (print_division
+    (string_literal
+      (string_literal))))

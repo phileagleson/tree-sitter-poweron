@@ -1,0 +1,34 @@
+===
+MULTIDIMENSION ARRAY TEST
+===
+
+TARGET=ACCOUNT
+
+DEFINE
+ #INCLUDE "OTHERPOWERON"
+
+ x=number array(3, 40)
+END
+
+PRINT TITLE="TEST"
+END
+---
+(source_file
+      (target_division
+        (record_type))
+      (define_division
+        (define_statement
+          (include_directive
+            (string_literal
+              (string_literal))))
+        (define_statement
+          (variable_declaration
+            (identifier)
+            (data_type)
+            (array_type
+              (number)
+              (number)))))
+      (print_division
+        (string_literal
+          (string_literal)))
+)

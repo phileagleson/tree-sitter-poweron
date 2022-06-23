@@ -1,0 +1,18 @@
+TARGET=ACCOUNT
+
+DEFINE
+ x=NUMBER
+ forward=number 
+END
+
+SETUP
+FOR x = 1 to 3
+ DO
+  IF X < 3 THEN
+   fowrard=x
+ END
+END
+
+PRINT TITLE="TEST"
+forward=1
+END

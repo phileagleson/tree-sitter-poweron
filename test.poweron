@@ -1,0 +1,3 @@
+print title="My title"
+  x=number
+end

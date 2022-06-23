@@ -1,0 +1,13 @@
+======
+PRINT TITLE = Variable Test
+======
+TARGET=ACCOUNT
+
+PRINT TITLE=VARNAME
+END
+---
+(source_file
+  (target_division 
+    (record_type))
+  (print_division 
+    (identifier)))

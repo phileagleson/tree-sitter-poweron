@@ -1,0 +1,36 @@
+===
+COMMENTS TEST
+===
+[comment at top]
+subroutine demand windows
+TARGET=ACCOUNT
+
+DEFINE
+ [comment in define]
+ x=NUMBER [comment on line]
+end
+
+PRINT TITLE="TEST"
+[comment in print]
+END
+---
+(source_file
+      (comment)
+      (special_keywords)
+      (special_keywords)
+      (special_keywords)
+      (target_division
+        (record_type))
+      (define_division
+        (define_statement
+          (comment))
+        (define_statement
+          (variable_declaration
+            (identifier)
+            (data_type)))
+        (define_statement
+          (comment)))
+      (print_division
+        (string_literal
+          (string_literal))
+        (comment)))
