@@ -13,12 +13,14 @@ module.exports = grammar({
     ],
 
     conflicts: $ => [
-        [$.primary_expression, $._lhs_expression],
+        //[$.primary_expression, $._lhs_expression],
+        //[$.identifier, $._array_identifier],
     ],
 
     precedences: $ => [
         [
             'member',
+            'keyword',
             'binary_times',
             'binary_plus',
             'binary_relation',
@@ -33,7 +35,7 @@ module.exports = grammar({
     rules: {
         source_file: $ => seq(
             optional(
-                repeat( $.special_keywords),
+                repeat($.special_keywords),
             ),
             $.target_division,
             optional(
@@ -43,25 +45,33 @@ module.exports = grammar({
                 $.print_division,
                 $.letter_division,
             ),
+            repeat($.statement),
         ),
 
 
-        word:$ => $.keyword,
+        word: $ => $.keyword,
 
-        keyword: $ => choice(
+        keyword: $ => prec.right(choice(
             caseInsensitive('for'),
             caseInsensitive('if'),
             caseInsensitive('to'),
-            caseInsensitive('do'),
-            caseInsensitive('end'),
-            caseInsensitive('procedure'),
+            caseInsensitive('call'),
+            //    caseInsensitive('do'),
+            //caseInsensitive('procedure'),
             caseInsensitive('then'),
-
-        ),
+            caseInsensitive('call'),
+            caseInsensitive('suppressnewline'),
+            //caseInsensitive('newline'),
+            //caseInsensitive('setup'),
+            //  caseInsensitive('print'),
+            // caseInsensitive('title'),
+            // caseInsensitive('select'),
+            // caseInsensitive('total'),
+            // caseInsensitive('target'),
+        )),
 
 
         _optional_divisions: $ => choice(
-            $.setup_division,
             $.define_division,
             $.setup_division,
             $.select_division,
@@ -69,13 +79,12 @@ module.exports = grammar({
             $.total_division,
         ),
 
-        target_division: $ =>  seq(
+        target_division: $ => seq(
             caseInsensitive('target'),
             "=",
             $.record_type,
             optional($.record_type),
             optional($.record_type),
-            //optional($.comment)
         ),
 
         define_division: $ => seq(
@@ -87,12 +96,10 @@ module.exports = grammar({
         define_statement: $ => choice(
             $.include_directive,
             $.variable_declaration,
-            //$.comment
         ),
 
         setup_division: $ => seq(
             caseInsensitive('setup'),
-            //TODO: add statemnts
             repeat($.statement),
             caseInsensitive('end')
         ),
@@ -120,13 +127,14 @@ module.exports = grammar({
         ),
 
         print_division: $ => seq(
-            caseInsensitive('print title'),
+            caseInsensitive('print'),
+            caseInsensitive('title'),
             '=',
             choice(
                 $.identifier,
                 $.string_literal,
             ),
-            repeat($.statement),
+            repeat1($.statement),
             caseInsensitive('end')
         ),
 
@@ -284,14 +292,30 @@ module.exports = grammar({
             '"'
         ),
 
-        unescaped_double_string_fragment: $ => 
-        token.immediate(prec(1, /[^"\\]+/)),
+        unescaped_double_string_fragment: $ =>
+            token.immediate(prec(1, /[^"\\]+/)),
 
-        identifier: $ => {
-            const alpha =        /[^\x00-\x1F\s\p{Zs}0-9:;`"'@=#.),|^&<=>+\-*/\\%?!~()\[\]{}\uFEFF\u2060\u200B]|\\u[0-9a-fA-F]{4}|\\u\{[0-9a-fA-F]+\}/
+        _identifier: $ => {
+            const alpha = /[^\x00-\x1F\s\p{Zs}0-9:;`"'@=#.),|^&<=>+\-*/\\%?!~()\[\]{}\uFEFF\u2060\u200B]|\\u[0-9a-fA-F]{4}|\\u\{[0-9a-fA-F]+\}/
             const alphanumeric = /[^\x00-\x1F\s\p{Zs}:;`"'@=#.,|^&<=>+\-*/\\%?!~()\[\]{}\uFEFF\u2060\u200B]|\\u[0-9a-fA-F]{4}|\\u\{[0-9a-fA-F]+\}/
-            return  prec(-1, token(seq(alpha, repeat(alphanumeric))))
+            return prec(-1, token(seq(alpha, repeat(alphanumeric))))
         },
+
+        identifier: $ => choice(
+            $._identifier,
+            $._array_identifier,
+        ),
+
+        _array_identifier: $ => prec(10, seq(
+            $._identifier,
+            '(',
+            choice($.number, $._identifier),
+            repeat(seq(
+                ',',
+                choice($.number, $._identifier),
+            )),
+            ')'
+        )),
 
         number: $ => {
             const hex_literal = seq(
@@ -339,7 +363,7 @@ module.exports = grammar({
             ),
         ),
 
-        include_directive: $=> seq(
+        include_directive: $ => seq(
             '#',
             caseInsensitive("include"),
             $.string_literal
@@ -390,28 +414,27 @@ module.exports = grammar({
             $.include_directive,
         ),
 
-        assignment_expression: $ => prec.right('assign', seq(
+        assignment_expression: $ => prec.left('assign', seq(
             field('left', choice(
-                $.parenthesized_expression, 
                 $._lhs_expression
             )),
             '=',
             field('right', $.expression)
         )),
 
-        _lhs_expression: $ => choice(
+        _lhs_expression: $ => prec.left(5, choice(
             $.identifier
-        ),
+        )),
 
         parenthesized_expression: $ => seq(
             '(',
-            $._expressions,
+            $.expression,
             ')'
         ),
 
-        _expressions: $ => choice(
+        /* _expressions: $ => choice(
             $.expression,
-        ),
+        ), */
 
         binary_expression: $ => choice(
             ...[
@@ -425,7 +448,7 @@ module.exports = grammar({
                 ['<>', 'binary_equality'],
                 ['>', 'binary_relation'],
                 ['<', 'binary_relation'],
-            ].map(([operator, precedence]) => 
+            ].map(([operator, precedence]) =>
                 prec.left(precedence, seq(
                     field('left', $.expression),
                     field('operator', operator),
@@ -436,33 +459,46 @@ module.exports = grammar({
 
         primary_expression: $ => choice(
             $.parenthesized_expression,
+            $.keyword,
             $.identifier,
             $.number,
             $.string_literal,
         ),
 
-        for_statement: $ =>  seq(
+        for_statement: $ => seq(
             caseInsensitive('for'),
             field('initializer', $.identifier),
             '=',
-            choice($.number,$.identifier),
+            choice($.number, $.identifier),
             caseInsensitive('to'),
-            choice($.number,$.identifier),
-            $.block
+            choice($.number, $.identifier),
+            seq(
+                caseInsensitive('do'),
+                repeat($.statement),
+                caseInsensitive('end')
+            )
         ),
 
-        if_statment: $ => seq(
+        if_statement: $ => seq(
             caseInsensitive('if'),
             $.expression,
             caseInsensitive('then'),
             choice(
                 $.expression,
-                $.block,
+                seq(
+                    caseInsensitive('do'),
+                    repeat($.statement),
+                    caseInsensitive('end')
+                ),
                 seq(
                     caseInsensitive('else'),
                     choice(
                         $.expression,
-                        $.block,
+                        seq(
+                            caseInsensitive('do'),
+                            repeat($.statement),
+                            caseInsensitive('end')
+                        ),
                     ),
                 ),
             ),
@@ -470,16 +506,20 @@ module.exports = grammar({
 
         statement: $ => choice(
             $.for_statement,
-            $.if_statment,
+            $.if_statement,
             $.expression,
             $.procedure_definition,
             $.procedure_call,
         ),
 
         procedure_definition: $ => seq(
-            caseInsensitive('procedure'),
+            caseInsensitive('procedure '),
             $.identifier,
-            $.block
+            seq(
+                repeat($.statement),
+                caseInsensitive('end')
+            )
+
         ),
 
         procedure_call: $ => seq(
@@ -487,11 +527,6 @@ module.exports = grammar({
             $.identifier
         ),
 
-        block: $ => seq(
-            caseInsensitive('do'),
-            repeat($.statement),
-            caseInsensitive('end')
-        )
 
     }
 });

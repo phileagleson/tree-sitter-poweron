@@ -30,6 +30,10 @@
         "named": true
       },
       {
+        "type": "keyword",
+        "named": true
+      },
+      {
         "type": "number",
         "named": true
       },
@@ -56,7 +60,7 @@
         "named": true
       },
       {
-        "type": "if_statment",
+        "type": "if_statement",
         "named": true
       },
       {
@@ -94,10 +98,6 @@
         "types": [
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expression",
             "named": true
           }
         ]
@@ -187,21 +187,6 @@
     }
   },
   {
-    "type": "block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "statement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "data_type",
     "named": true,
     "fields": {}
@@ -260,15 +245,15 @@
       "required": true,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "statement",
           "named": true
         }
       ]
@@ -277,10 +262,20 @@
   {
     "type": "identifier",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "if_statment",
+    "type": "if_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -288,11 +283,7 @@
       "required": true,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "expression",
+          "type": "statement",
           "named": true
         }
       ]
@@ -399,11 +390,11 @@
       "required": true,
       "types": [
         {
-          "type": "block",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "statement",
           "named": true
         }
       ]
@@ -473,6 +464,10 @@
         },
         {
           "type": "special_keywords",
+          "named": true
+        },
+        {
+          "type": "statement",
           "named": true
         },
         {
