@@ -9,7 +9,8 @@ module.exports = grammar({
     supertypes: $ => [
         $.expression,
         $.primary_expression,
-        $.statement
+        $.statement,
+        $.define_statement,
     ],
 
     conflicts: $ => [
@@ -19,6 +20,7 @@ module.exports = grammar({
 
     precedences: $ => [
         [
+            'special',
             'member',
             'keyword',
             'binary_times',
@@ -53,21 +55,22 @@ module.exports = grammar({
 
         keyword: $ => prec.right(choice(
             caseInsensitive('for'),
+            caseInsensitive('while'),
             caseInsensitive('if'),
-            caseInsensitive('to'),
             caseInsensitive('call'),
-            //    caseInsensitive('do'),
-            //caseInsensitive('procedure'),
-            caseInsensitive('then'),
+            caseInsensitive('filereadline'),
+            caseInsensitive('fileopen'),
+            caseInsensitive('format'),
             caseInsensitive('call'),
             caseInsensitive('suppressnewline'),
-            //caseInsensitive('newline'),
-            //caseInsensitive('setup'),
-            //  caseInsensitive('print'),
-            // caseInsensitive('title'),
-            // caseInsensitive('select'),
-            // caseInsensitive('total'),
-            // caseInsensitive('target'),
+            caseInsensitive('newline'),
+            caseInsensitive('segment'),
+            caseInsensitive('charactersearch'),
+            caseInsensitive('length'),
+            caseInsensitive('value'),
+            caseInsensitive('money'),
+            caseInsensitive('rate'),
+            caseInsensitive('datevalue'),
         )),
 
 
@@ -94,7 +97,7 @@ module.exports = grammar({
         ),
 
         define_statement: $ => choice(
-            $.include_directive,
+            $.include_statement,
             $.variable_declaration,
         ),
 
@@ -284,16 +287,12 @@ module.exports = grammar({
             ')'
         ),
 
-        string_literal: $ => seq(
+        string_literal: $ => (seq(
             '"',
-            repeat(choice(
-                alias($.unescaped_double_string_fragment, $.string_literal),
-            )),
+            token.immediate(repeat(prec(1, /[^"\[\]]+/))),
             '"'
-        ),
+        )),
 
-        unescaped_double_string_fragment: $ =>
-            token.immediate(prec(1, /[^"\\]+/)),
 
         _identifier: $ => {
             const alpha = /[^\x00-\x1F\s\p{Zs}0-9:;`"'@=#.),|^&<=>+\-*/\\%?!~()\[\]{}\uFEFF\u2060\u200B]|\\u[0-9a-fA-F]{4}|\\u\{[0-9a-fA-F]+\}/
@@ -348,11 +347,42 @@ module.exports = grammar({
             return token(choice(
                 hex_literal,
                 decimal_literal,
+                signed_integer,
                 binary_literal,
                 octal_literal,
                 bigint_literal,
             ))
         },
+
+        money: $ => {
+            return token(seq(
+                /[+-]?/,
+                '$',
+                /[0-9]+\.[0-9]{2}/
+            ))
+        },
+
+        date: $ => token(choice(
+            "'--/--/----'",
+            "'--/--/--'",
+            seq(
+                "'",
+                /[0-9]{2}/,
+                "/",
+                /[0-9]{2}/,
+                "/",
+                /(?:\d{4}|\d{2})/,
+                "'"
+            )
+        )),
+
+        rate: $ => token(seq(
+            /(?:\d{3}|\d{2}|\d{1})/,
+            '.',
+            /(?:\d{3}|\d{2}|\d{1})/,
+            '%'
+        )),
+
 
         variable_declaration: $ => seq(
             $.identifier,
@@ -363,7 +393,7 @@ module.exports = grammar({
             ),
         ),
 
-        include_directive: $ => seq(
+        include_statement: $ => seq(
             '#',
             caseInsensitive("include"),
             $.string_literal
@@ -400,18 +430,125 @@ module.exports = grammar({
             caseInsensitive('windowsprint'),
         ),
 
+        special_function: $ => choice(
+            $._fileopen,
+            $._filereadline,
+            $._segment,
+            $._charactersearch,
+            $._length,
+            $._format,
+            $._value,
+            $._money,
+            $._rate,
+            $._datevalue,
+        ),
+
+        _datevalue: $ => seq(
+            caseInsensitive('datevalue'),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        _rate: $ => seq(
+            caseInsensitive('rate'),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        _money: $ => seq(
+            caseInsensitive('money'),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        _value: $ => seq(
+            caseInsensitive('value'),
+            '(',
+            $.expression,
+            //   choice($.identifier, $.string_literal),
+            ')',
+        ),
+
+        _format: $ => seq(
+            caseInsensitive('format'),
+            '(',
+            choice($.identifier, $.string_literal),
+            ',',
+            choice(
+                $.identifier,
+                $.number,
+                $.money,
+                $.rate,
+                $.database_field,
+            ),
+            ')',
+        ),
+
+        _segment: $ => seq(
+            caseInsensitive('segment'),
+            '(',
+            choice($.string_literal, $.identifier),
+            ',',
+            $.expression,
+            ',',
+            $.expression,
+            ')'
+        ),
+
+        _charactersearch: $ => seq(
+            caseInsensitive('charactersearch'),
+            '(',
+            choice($.string_literal, $.identifier),
+            ',',
+            choice($.string_literal, $.identifier),
+            ')'
+        ),
+
+        _length: $ => seq(
+            caseInsensitive('length'),
+            '(',
+            choice($.string_literal, $.identifier),
+            ')'
+        ),
+
+        _fileopen: $ => seq(
+            caseInsensitive('fileopen'),
+            '(',
+            choice($.identifier, $.string_literal),
+            ',',
+            choice($.identifier, $.string_literal),
+            ',',
+            choice($.identifier, $.string_literal),
+            ',',
+            choice($.identifier, $.string_literal),
+            ',',
+            choice($.identifier, $.string_literal),
+            ')',
+        ),
+
+        _filereadline: $ => seq(
+            caseInsensitive('filereadline'),
+            '(',
+            choice($.identifier, $.string_literal),
+            ',',
+            choice($.identifier, $.string_literal),
+            ',',
+            choice($.identifier, $.string_literal),
+            ')'
+        ),
+
         comment: $ => token(choice(
-            seq(
-                '[',
-                /.*/,
-                ']'),
+            seq('[', /.*/, ']'),
         )),
 
         expression: $ => choice(
             $.primary_expression,
             $.assignment_expression,
             $.binary_expression,
-            $.include_directive,
+            $.include_statement,
         ),
 
         assignment_expression: $ => prec.left('assign', seq(
@@ -431,10 +568,6 @@ module.exports = grammar({
             $.expression,
             ')'
         ),
-
-        /* _expressions: $ => choice(
-            $.expression,
-        ), */
 
         binary_expression: $ => choice(
             ...[
@@ -462,7 +595,11 @@ module.exports = grammar({
             $.keyword,
             $.identifier,
             $.number,
+            $.money,
+            $.date,
+            $.rate,
             $.string_literal,
+            $.special_function
         ),
 
         for_statement: $ => seq(
@@ -477,6 +614,14 @@ module.exports = grammar({
                 repeat($.statement),
                 caseInsensitive('end')
             )
+        ),
+
+        while_statement: $ => seq(
+            caseInsensitive('while'),
+            field('condition', $.expression),
+            caseInsensitive('do'),
+            repeat($.statement),
+            caseInsensitive('end'),
         ),
 
         if_statement: $ => seq(
@@ -507,6 +652,7 @@ module.exports = grammar({
         statement: $ => choice(
             $.for_statement,
             $.if_statement,
+            $.while_statement,
             $.expression,
             $.procedure_definition,
             $.procedure_call,

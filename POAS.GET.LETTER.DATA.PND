@@ -64,7 +64,7 @@ PROCEDURE INITIALIZEARRAYS
    ENVARGCHAR(X) = ""
    ENVARGCODE(X) = 9999
    ENVARGMONEY(X) = $0.00
-   ENVARGDATE(X) = '--/--/----'
+   ENVARGDATE(X) = '12/22/2022'
    ENVARGRATE(X) = 000.000%
   END
 END
@@ -127,9 +127,7 @@ PROCEDURE PARSEBUFFER
 END
 
 
-[
- Call the procedures required to build the response JSON.
-]
+[ Call the procedures required to build the response JSON. ]
 PROCEDURE POASGETLETTEBUILDJSON
  CALL POASGETLETTEBUILDJSONHEADER
  IF STATUSTYPE<>STATUSTYPEERROR THEN
@@ -142,9 +140,7 @@ PROCEDURE POASGETLETTEBUILDJSON
  CALL POASJSONOUTPUTJSON
 END
 
-[
- Create the JSON response header.
-]
+[ Create the JSON response header. ]
 PROCEDURE POASGETLETTEBUILDJSONHEADER
  MAINOBJNAME="getLetterFileDataRs"
  CALL POASJSONHEADER
@@ -156,9 +152,7 @@ PROCEDURE POASGETLETTEBUILDJSONHEADER
  [ Any additional header information here ]
 END
 
-[
- Create the JSON response body.  The body contains <describe contents here>.
-]
+[ Create the JSON response body.  The body contains <describe contents here>. ]
 PROCEDURE POASGETLETTEBUILDJSONBODY
 
   FOR X = 1 TO 10
