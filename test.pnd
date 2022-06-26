@@ -10,6 +10,11 @@ FOR x = 1 to 3
  DO
   IF X < 3 THEN
    fowrard=x
+
+  IF X = 2 THEN
+   DO
+    foward = 5
+   END
  END
 END
 

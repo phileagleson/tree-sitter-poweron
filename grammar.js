@@ -15,7 +15,9 @@ module.exports = grammar({
 
     conflicts: $ => [
         //[$.primary_expression, $._lhs_expression],
-        //[$.identifier, $._array_identifier],
+        //        [$.keyword, $.procedure_definition],
+        //        [$.keyword, $.while_statement],
+        //       [$.keyword, $.for_statement],
     ],
 
     precedences: $ => [
@@ -53,10 +55,14 @@ module.exports = grammar({
 
         word: $ => $.keyword,
 
-        keyword: $ => prec.right(choice(
+        keyword: $ => prec(-1, choice(
             caseInsensitive('for'),
             caseInsensitive('while'),
             caseInsensitive('if'),
+            caseInsensitive('do'),
+            caseInsensitive('end'),
+            caseInsensitive('else'),
+            caseInsensitive('then'),
             caseInsensitive('call'),
             caseInsensitive('filereadline'),
             caseInsensitive('fileopen'),
@@ -624,29 +630,48 @@ module.exports = grammar({
             caseInsensitive('end'),
         ),
 
-        if_statement: $ => seq(
+        if_statement: $ => choice(
+            $.if_statement_no_block,
+            $.if_statement_block,
+            $.if_else_no_block,
+            $.if_else_block,
+        ),
+
+        if_statement_no_block: $ => seq(
             caseInsensitive('if'),
             $.expression,
             caseInsensitive('then'),
-            choice(
-                $.expression,
-                seq(
-                    caseInsensitive('do'),
-                    repeat($.statement),
-                    caseInsensitive('end')
-                ),
-                seq(
-                    caseInsensitive('else'),
-                    choice(
-                        $.expression,
-                        seq(
-                            caseInsensitive('do'),
-                            repeat($.statement),
-                            caseInsensitive('end')
-                        ),
-                    ),
-                ),
-            ),
+            $.expression
+        ),
+
+        if_else_block: $ => prec(10, seq(
+            $.if_statement,
+            caseInsensitive('else'),
+            caseInsensitive('do'),
+            repeat($.statement),
+            caseInsensitive('end')
+        )),
+
+        if_else_no_block: $ => seq(
+            $.if_statement,
+            caseInsensitive('else'),
+            $.statement,
+        ),
+
+        else_if: $ => seq(
+            $.if_statement,
+            caseInsensitive('else'),
+            $.if_statement
+        ),
+
+
+        if_statement_block: $ => seq(
+            caseInsensitive('if'),
+            $.expression,
+            caseInsensitive('then'),
+            caseInsensitive('do'),
+            repeat($.statement),
+            caseInsensitive('end')
         ),
 
         statement: $ => choice(
