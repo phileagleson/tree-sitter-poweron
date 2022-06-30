@@ -41,14 +41,14 @@ module.exports = grammar({
             optional(
                 repeat($.special_keywords),
             ),
-            $.target_division,
+            optional($.target_division),
             optional(
                 repeat($._optional_divisions)
             ),
-            choice(
+            optional(choice(
                 $.print_division,
                 $.letter_division,
-            ),
+            )),
             repeat($.statement),
         ),
 
@@ -558,11 +558,15 @@ module.exports = grammar({
         ),
 
         assignment_expression: $ => prec.left('assign', seq(
-            field('left', choice(
+            // field('left', choice(
+            //     $._lhs_expression
+            // )),
+            choice(
                 $._lhs_expression
-            )),
+            ),
             '=',
-            field('right', $.expression)
+            //field('right', $.expression)
+            $.expression
         )),
 
         _lhs_expression: $ => prec.left(5, choice(
@@ -610,7 +614,8 @@ module.exports = grammar({
 
         for_statement: $ => seq(
             caseInsensitive('for'),
-            field('initializer', $.identifier),
+            //field('initializer', $.identifier),
+            $.identifier,
             '=',
             choice($.number, $.identifier),
             caseInsensitive('to'),
@@ -631,20 +636,20 @@ module.exports = grammar({
         ),
 
         if_statement: $ => choice(
-            $.if_statement_no_block,
-            $.if_statement_block,
-            $.if_else_no_block,
-            $.if_else_block,
+            $._if_statement_no_block,
+            $._if_statement_block,
+            $._if_else_no_block,
+            $._if_else_block,
         ),
 
-        if_statement_no_block: $ => seq(
+        _if_statement_no_block: $ => seq(
             caseInsensitive('if'),
             $.expression,
             caseInsensitive('then'),
             $.expression
         ),
 
-        if_else_block: $ => prec(10, seq(
+        _if_else_block: $ => prec(10, seq(
             $.if_statement,
             caseInsensitive('else'),
             caseInsensitive('do'),
@@ -652,20 +657,20 @@ module.exports = grammar({
             caseInsensitive('end')
         )),
 
-        if_else_no_block: $ => seq(
+        _if_else_no_block: $ => seq(
             $.if_statement,
             caseInsensitive('else'),
             $.statement,
         ),
 
-        else_if: $ => seq(
+        _else_if: $ => seq(
             $.if_statement,
             caseInsensitive('else'),
             $.if_statement
         ),
 
 
-        if_statement_block: $ => seq(
+        _if_statement_block: $ => seq(
             caseInsensitive('if'),
             $.expression,
             caseInsensitive('then'),
