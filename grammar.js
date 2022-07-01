@@ -243,6 +243,7 @@ module.exports = grammar({
             caseInsensitive('share analysisgroup'),
             caseInsensitive('share analysisplan'),
             caseInsensitive('share'),
+            caseInsensitive('share name'),
             caseInsensitive('savings'),
             caseInsensitive('site'),
             caseInsensitive('site cashordertype'),
@@ -402,14 +403,24 @@ module.exports = grammar({
         include_statement: $ => seq(
             '#',
             caseInsensitive("include"),
-            $.string_literal
+            field("poweron", $.string_literal)
         ),
 
         database_field: $ => seq(
             $.record_type,
+            optional($.record_type),
+            optional($.record_type),
             ':',
-            $.identifier
+            $.field_name
         ),
+
+        field_name: $ => prec.left(seq(
+            alias($.identifier, $.name),
+            optional(":"),
+            optional(field("index", $.number)),
+            optional(":"),
+            optional(field("index", $.number)),
+        )),
 
 
         special_keywords: $ => choice(
