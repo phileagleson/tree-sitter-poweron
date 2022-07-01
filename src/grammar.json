@@ -199,45 +199,49 @@
       ]
     },
     "target_division": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[tT][aA][rR][gG][eE][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "record_type"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "record_type"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "record_type"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[tT][aA][rR][gG][eE][tT]"
+          },
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "SYMBOL",
+            "name": "record_type"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "record_type"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "record_type"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "define_division": {
       "type": "SEQ",
@@ -403,453 +407,456 @@
       ]
     },
     "record_type": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[aA][cC][cC][eE][sS][sS]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][cC][cC][oO][uU][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][cC][hH][aA][dD][dD][eE][nN][dD][aA]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][cC][hH][aA][dD][dD][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][cC][hH][eE][dD][iI][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][cC][hH][iI][tT][eE][mM]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][cC][tT][iI][vV][iI][tT][yY]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][gG][rR][eE][eE][mM][eE][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][gG][rR][eE][eE][mM][eE][nN][tT][  ][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[aA][tT][mM][dD][iI][aA][lL][oO][gG]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[bB][aA][tT][cC][hH][aA][cC][hH][oO][rR][iI][gG]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][aA][rR][dD]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][aA][sS][hH][lL][eE][tT][tT][oO][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][aA][sS][hH][oO][rR][dD][eE][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][dD][mM][dD][iI][aA][lL][oO][gG]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][hH][eE][cC][kK]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][hH][eE][cC][kK][oO][rR][dD][eE][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][oO][lL][lL][aA][tT][eE][rR][aA][lL]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][oO][lL][lL][aA][tT][eE][rR][aA][lL][  ][cC][oO][lL][lL][hH][oO][lL][dD]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][oO][lL][lL][aA][tT][eE][rR][aA][lL][  ][dD][oO][cC][uU][mM][eE][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][oO][mM][mM][eE][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][oO][rR][pP][tT][rR][aA][nN][sS][fF][eE][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][pP][wW][oO][rR][kK][cC][aA][rR][dD]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][rR][eE][dD][rR][eE][pP]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][rR][eE][dD][rR][eE][pP][  ][iI][tT][eE][mM]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][tT][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][tT][rR][aA][cC][cC][oO][uU][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][tT][rR][bB][rR][aA][nN][cC][hH]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][tT][rR][fF][oO][rR][eE][iI][gG][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][tT][rR][pP][eE][rR][sS][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[cC][tT][rR][pP][eE][rR][sS][oO][nN][  ][cC][tT][rR][tT][rR][aA][nN][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[dD][eE][aA][lL][eE][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][fF][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[bB][iI][lL][lL]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][aA][yY][rR][oO][lL][lL]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][fF][tT][  ][aA][dD][dD][eE][nN][dD][aA][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][sS][cC][rR][oO][wW]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][sS][cC][rR][oO][wW][aA][nN][aA][lL][yY][sS][iI][sS]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][xX][cC][pP][aA][dD][dD][eE][nN][dD][aA]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][xX][cC][pP][aA][dD][dD][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][xX][cC][pP][iI][tT][eE][mM]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][xX][tT][eE][rR][nN][aA][lL][aA][cC][cC][oO][uU][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][xX][tT][eE][rR][nN][aA][lL][lL][oO][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[fF][mM][hH][iI][sS][tT][oO][rR][yY]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[gG][lL][aA][cC][cC][oO][uU][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[gG][lL][sS][uU][bB][aA][cC][cC][oO][uU][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[gG][lL][tT][rR][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[hH][oO][lL][dD]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[hH][oO][uU][sS][eE][hH][oO][lL][dD]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[iI][nN][vV][eE][nN][tT][oO][rR][yY]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[iI][nN][vV][oO][iI][cC][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[iI][rR][sS]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[iI][rR][aA]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[iI][rR][sS][  ][dD][iI][sS][tT][rR][iI][bB][uU][tT][iI][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][aA][nN][  ][bB][aA][nN][kK][rR][uU][pP][tT][cC][yY][  ][pP][rR][eE][--][pP][eE][tT][iI][tT][iI][oO][nN][bB][aA][lL]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][nN][sS][eE][gG][mM][eE][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][aA][nN][  ][bB][aA][nN][kK][rR][uU][pP][tT][cC][yY]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][aA][nN][aA][pP][pP]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][aA][nN][aA][pP][pP][  ][fF][iI][nN][aA][nN][cC][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][aA][nN][aA][pP][pP][  ][pP][eE][rR][sS][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][oO][kK][uU][pP]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[mM][bB][rR][aA][dD][dD][rR][eE][sS][sS]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[mM][eE][mM][bB][eE][rR][rR][eE][cC]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[nN][aA][mM][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[nN][oO][nN][aA][cC][cC][tT][nN][aA][mM][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[nN][oO][tT][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[oO][fF][aA][cC][dD][eE][tT][aA][iI][lL][sS]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][nN][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][nN][tT][  ][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][tT][iI][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][oO][oO][lL]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][tT][iI][oO][nN][lL][oO][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][oO][oO][lL][lL][oO][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][aA][yY][eE][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][lL][eE][dD][gG][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][oO][rR][tT][fF][oO][lL][iI][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[pP][rR][eE][fF][eE][rR][eE][nN][cC][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[rR][eE][cC][eE][iI][vV][eE][dD][iI][tT][eE][mM]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[rR][eE][mM][iI][tT][tT][aA][nN][cC][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[rR][eE][sS][eE][rR][vV][eE][dD][pP][lL][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[rR][eE][sS][eE][rR][vV][eE][dD][pP][lL][aA][nN][  ][lL][oO][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[rR][eE][sS][eE][rR][vV][eE][dD][pP][lL][aA][nN][  ][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][cC][hH][eE][dD][uU][lL][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][hH][aA][rR][eE][  ][aA][nN][aA][lL][yY][sS][iI][sS]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][hH][aA][rR][eE][  ][aA][nN][aA][lL][yY][sS][iI][sS][gG][rR][oO][uU][pP]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][hH][aA][rR][eE][  ][aA][nN][aA][lL][yY][sS][iI][sS][pP][lL][aA][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][hH][aA][rR][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][aA][vV][iI][nN][gG][sS]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][iI][tT][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[sS][iI][tT][eE][  ][cC][aA][sS][hH][oO][rR][dD][eE][rR][tT][yY][pP][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[tT][rR][aA][cC][kK][iI][nN][gG]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[tT][rR][aA][nN][sS][fF][eE][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[uU][sS][eE][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[vV][eE][nN][dD][oO][rR]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][eE][sS][tT][eE][rR][nN][uU][nN][iI][oO][nN]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][aA][dD][vV]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][fF][iI][aA][dD][vV]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][fF][iI][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][dD][rR][aA][wW][dD][oO][wW][nN][dD][eE][bB][iI][tT][aA][cC][cC][tT][aA][dD][vV]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][fF][iI][tT][oO][fF][iI][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][iI][nN][tT][eE][rR][mM][eE][dD][fF][iI][aA][dD][vV]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][iI][nN][tT][eE][rR][mM][eE][dD][fF][iI][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][rR][eE][cC][eE][iI][vV][eE][rR][fF][iI][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][sS][eE][rR][vV][iI][cC][eE][mM][eE][sS][sS][aA][gG][eE]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][rR][eE][  ][uU][sS][cC][aA][uU][dD][iI][tT][iI][nN][fF][oO]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][oO][rR][kK][lL][iI][sS][tT][eE][dD][iI][tT]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[wW][oO][rR][kK][lL][iI][sS][tT][eE][dD][iI][tT][  ][wW][oO][rR][kK][lL][iI][sS][tT][fF][iI][eE][lL][dD]"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[aA][cC][cC][eE][sS][sS]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][cC][cC][oO][uU][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][cC][hH][aA][dD][dD][eE][nN][dD][aA]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][cC][hH][aA][dD][dD][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][cC][hH][eE][dD][iI][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][cC][hH][iI][tT][eE][mM]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][cC][tT][iI][vV][iI][tT][yY]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][gG][rR][eE][eE][mM][eE][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][gG][rR][eE][eE][mM][eE][nN][tT][  ][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[aA][tT][mM][dD][iI][aA][lL][oO][gG]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[bB][aA][tT][cC][hH][aA][cC][hH][oO][rR][iI][gG]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][aA][rR][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][aA][sS][hH][lL][eE][tT][tT][oO][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][aA][sS][hH][oO][rR][dD][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][dD][mM][dD][iI][aA][lL][oO][gG]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][hH][eE][cC][kK]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][hH][eE][cC][kK][oO][rR][dD][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][oO][lL][lL][aA][tT][eE][rR][aA][lL]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][oO][lL][lL][aA][tT][eE][rR][aA][lL][  ][cC][oO][lL][lL][hH][oO][lL][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][oO][lL][lL][aA][tT][eE][rR][aA][lL][  ][dD][oO][cC][uU][mM][eE][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][oO][mM][mM][eE][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][oO][rR][pP][tT][rR][aA][nN][sS][fF][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][pP][wW][oO][rR][kK][cC][aA][rR][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][rR][eE][dD][rR][eE][pP]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][rR][eE][dD][rR][eE][pP][  ][iI][tT][eE][mM]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][tT][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][tT][rR][aA][cC][cC][oO][uU][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][tT][rR][bB][rR][aA][nN][cC][hH]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][tT][rR][fF][oO][rR][eE][iI][gG][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][tT][rR][pP][eE][rR][sS][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][tT][rR][pP][eE][rR][sS][oO][nN][  ][cC][tT][rR][tT][rR][aA][nN][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][eE][aA][lL][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][fF][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[bB][iI][lL][lL]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][aA][yY][rR][oO][lL][lL]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][fF][tT][  ][aA][dD][dD][eE][nN][dD][aA][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][sS][cC][rR][oO][wW]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][sS][cC][rR][oO][wW][aA][nN][aA][lL][yY][sS][iI][sS]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][xX][cC][pP][aA][dD][dD][eE][nN][dD][aA]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][xX][cC][pP][aA][dD][dD][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][xX][cC][pP][iI][tT][eE][mM]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][xX][tT][eE][rR][nN][aA][lL][aA][cC][cC][oO][uU][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][xX][tT][eE][rR][nN][aA][lL][lL][oO][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[fF][mM][hH][iI][sS][tT][oO][rR][yY]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[gG][lL][aA][cC][cC][oO][uU][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[gG][lL][sS][uU][bB][aA][cC][cC][oO][uU][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[gG][lL][tT][rR][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[hH][oO][lL][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[hH][oO][uU][sS][eE][hH][oO][lL][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[iI][nN][vV][eE][nN][tT][oO][rR][yY]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[iI][nN][vV][oO][iI][cC][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[iI][rR][sS]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[iI][rR][aA]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[iI][rR][sS][  ][dD][iI][sS][tT][rR][iI][bB][uU][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][oO][aA][nN][  ][bB][aA][nN][kK][rR][uU][pP][tT][cC][yY][  ][pP][rR][eE][--][pP][eE][tT][iI][tT][iI][oO][nN][bB][aA][lL]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][nN][sS][eE][gG][mM][eE][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][oO][aA][nN][  ][bB][aA][nN][kK][rR][uU][pP][tT][cC][yY]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][oO][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][oO][aA][nN][aA][pP][pP]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][oO][aA][nN][aA][pP][pP][  ][fF][iI][nN][aA][nN][cC][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][oO][aA][nN][aA][pP][pP][  ][pP][eE][rR][sS][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][oO][oO][kK][uU][pP]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[mM][bB][rR][aA][dD][dD][rR][eE][sS][sS]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[mM][eE][mM][bB][eE][rR][rR][eE][cC]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[nN][aA][mM][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[nN][oO][nN][aA][cC][cC][tT][nN][aA][mM][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[nN][oO][tT][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[oO][fF][aA][cC][dD][eE][tT][aA][iI][lL][sS]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][nN][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][nN][tT][  ][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][oO][oO][lL]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][aA][rR][tT][iI][cC][iI][pP][aA][tT][iI][oO][nN][lL][oO][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][oO][oO][lL][lL][oO][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][aA][yY][eE][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][lL][eE][dD][gG][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][oO][rR][tT][fF][oO][lL][iI][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[pP][rR][eE][fF][eE][rR][eE][nN][cC][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[rR][eE][cC][eE][iI][vV][eE][dD][iI][tT][eE][mM]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[rR][eE][mM][iI][tT][tT][aA][nN][cC][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[rR][eE][sS][eE][rR][vV][eE][dD][pP][lL][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[rR][eE][sS][eE][rR][vV][eE][dD][pP][lL][aA][nN][  ][lL][oO][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[rR][eE][sS][eE][rR][vV][eE][dD][pP][lL][aA][nN][  ][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][cC][hH][eE][dD][uU][lL][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][hH][aA][rR][eE][  ][aA][nN][aA][lL][yY][sS][iI][sS]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][hH][aA][rR][eE][  ][aA][nN][aA][lL][yY][sS][iI][sS][gG][rR][oO][uU][pP]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][hH][aA][rR][eE][  ][aA][nN][aA][lL][yY][sS][iI][sS][pP][lL][aA][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][hH][aA][rR][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][aA][vV][iI][nN][gG][sS]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][iI][tT][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[sS][iI][tT][eE][  ][cC][aA][sS][hH][oO][rR][dD][eE][rR][tT][yY][pP][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[tT][rR][aA][cC][kK][iI][nN][gG]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[tT][rR][aA][nN][sS][fF][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[uU][sS][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[vV][eE][nN][dD][oO][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][eE][sS][tT][eE][rR][nN][uU][nN][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][aA][dD][vV]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][fF][iI][aA][dD][vV]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][fF][iI][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][bB][eE][nN][eE][fF][iI][cC][iI][aA][rR][yY][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][dD][rR][aA][wW][dD][oO][wW][nN][dD][eE][bB][iI][tT][aA][cC][cC][tT][aA][dD][vV]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][fF][iI][tT][oO][fF][iI][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][iI][nN][tT][eE][rR][mM][eE][dD][fF][iI][aA][dD][vV]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][iI][nN][tT][eE][rR][mM][eE][dD][fF][iI][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][rR][eE][cC][eE][iI][vV][eE][rR][fF][iI][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][sS][eE][rR][vV][iI][cC][eE][mM][eE][sS][sS][aA][gG][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][iI][rR][eE][  ][uU][sS][cC][aA][uU][dD][iI][tT][iI][nN][fF][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][oO][rR][kK][lL][iI][sS][tT][eE][dD][iI][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][oO][rR][kK][lL][iI][sS][tT][eE][dD][iI][tT][  ][wW][oO][rR][kK][lL][iI][sS][tT][fF][iI][eE][lL][dD]"
+          }
+        ]
+      }
     },
     "data_type": {
       "type": "CHOICE",
@@ -2345,6 +2352,10 @@
         {
           "type": "SYMBOL",
           "name": "include_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "database_field"
         }
       ]
     },

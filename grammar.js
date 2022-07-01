@@ -88,13 +88,13 @@ module.exports = grammar({
             $.total_division,
         ),
 
-        target_division: $ => seq(
+        target_division: $ => prec.left(seq(
             caseInsensitive('target'),
             "=",
             $.record_type,
             optional($.record_type),
             optional($.record_type),
-        ),
+        )),
 
         define_division: $ => seq(
             caseInsensitive('define'),
@@ -154,7 +154,7 @@ module.exports = grammar({
         ),
 
 
-        record_type: $ => choice(
+        record_type: $ => token(choice(
             caseInsensitive('access'),
             caseInsensitive('account'),
             caseInsensitive('achaddenda'),
@@ -266,7 +266,7 @@ module.exports = grammar({
             caseInsensitive('wire uscauditinfo'),
             caseInsensitive('worklistedit'),
             caseInsensitive('worklistedit worklistfield'),
-        ),
+        )),
 
         data_type: $ => choice(
             caseInsensitive('character'),
@@ -555,6 +555,7 @@ module.exports = grammar({
             $.assignment_expression,
             $.binary_expression,
             $.include_statement,
+            $.database_field,
         ),
 
         assignment_expression: $ => prec.left('assign', seq(

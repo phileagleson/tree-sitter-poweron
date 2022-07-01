@@ -26,6 +26,10 @@
         "named": true
       },
       {
+        "type": "database_field",
+        "named": true
+      },
+      {
         "type": "include_statement",
         "named": true
       },
@@ -417,11 +421,6 @@
     }
   },
   {
-    "type": "record_type",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "select_division",
     "named": true,
     "fields": {}
@@ -505,10 +504,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "database_field",
-          "named": true
-        },
         {
           "type": "expression",
           "named": true
@@ -701,6 +696,10 @@
   },
   {
     "type": "rate",
+    "named": true
+  },
+  {
+    "type": "record_type",
     "named": true
   }
 ]
