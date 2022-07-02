@@ -77,6 +77,7 @@ module.exports = grammar({
             caseInsensitive('money'),
             caseInsensitive('rate'),
             caseInsensitive('datevalue'),
+            caseInsensitive('abs'),
         )),
 
 
@@ -309,11 +310,15 @@ module.exports = grammar({
 
         identifier: $ => choice(
             $._identifier,
-            $._array_identifier,
+            $.array_identifier,
         ),
 
-        _array_identifier: $ => prec(10, seq(
-            $._identifier,
+        array_identifier: $ => prec(10, seq(
+            field("name", alias($._identifier, $.identifier)),
+            field("index", $.subIndex)
+        )),
+
+        subIndex: $ => seq(
             '(',
             choice($.number, $._identifier),
             repeat(seq(
@@ -321,7 +326,7 @@ module.exports = grammar({
                 choice($.number, $._identifier),
             )),
             ')'
-        )),
+        ),
 
         number: $ => {
             const hex_literal = seq(
@@ -447,7 +452,7 @@ module.exports = grammar({
             caseInsensitive('windowsprint'),
         ),
 
-        special_function: $ => choice(
+        poweron_function: $ => choice(
             $._fileopen,
             $._filereadline,
             $._segment,
@@ -458,6 +463,13 @@ module.exports = grammar({
             $._money,
             $._rate,
             $._datevalue,
+            $._abs,
+        ),
+        _abs: $ => seq(
+            caseInsensitive('abs'),
+            '(',
+            $.expression,
+            ')',
         ),
 
         _datevalue: $ => seq(
@@ -557,8 +569,13 @@ module.exports = grammar({
             ')'
         ),
 
-        comment: $ => token(choice(
-            seq('[', /.*/, ']'),
+        // comment: $ => token(choice(
+        //    seq('[', /.*/gm, ']'),
+        //))
+        comment: $ => token(seq(
+            '[',
+            /(\n*.*\s*)/gm,
+            ']'
         )),
 
         expression: $ => choice(
@@ -621,7 +638,7 @@ module.exports = grammar({
             $.date,
             $.rate,
             $.string_literal,
-            $.special_function
+            $.poweron_function
         ),
 
         for_statement: $ => seq(
