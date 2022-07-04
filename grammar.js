@@ -18,6 +18,7 @@ module.exports = grammar({
         //        [$.keyword, $.procedure_definition],
         //        [$.keyword, $.while_statement],
         //       [$.keyword, $.for_statement],
+        [$.define_statement, $.expression]
     ],
 
     precedences: $ => [
@@ -33,6 +34,7 @@ module.exports = grammar({
             'logical_or',
         ],
         ['assign', $.primary_expression],
+        ['declaration', $.define_statement],
     ],
 
 
@@ -49,7 +51,10 @@ module.exports = grammar({
                 $.print_division,
                 $.letter_division,
             )),
-            repeat($.statement),
+            repeat(choice(
+                $.statement,
+                $.variable_declaration
+            )),
         ),
 
 
@@ -75,6 +80,7 @@ module.exports = grammar({
             caseInsensitive('length'),
             caseInsensitive('value'),
             caseInsensitive('money'),
+            caseInsensitive('number'),
             caseInsensitive('rate'),
             caseInsensitive('datevalue'),
             caseInsensitive('abs'),
@@ -396,14 +402,14 @@ module.exports = grammar({
         )),
 
 
-        variable_declaration: $ => seq(
+        variable_declaration: $ => prec(10, seq(
             $.identifier,
             '=',
             choice(
                 seq($.data_type, optional($.array_type)),
                 $.string_literal
             ),
-        ),
+        )),
 
         include_statement: $ => seq(
             '#',
