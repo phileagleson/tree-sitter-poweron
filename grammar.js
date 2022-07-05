@@ -13,6 +13,7 @@ module.exports = grammar({
         $.define_statement,
     ],
 
+
     conflicts: $ => [
         //[$.primary_expression, $._lhs_expression],
         //        [$.keyword, $.procedure_definition],
@@ -63,6 +64,7 @@ module.exports = grammar({
         keyword: $ => prec(-1, choice(
             caseInsensitive('for'),
             caseInsensitive('anyservice'),
+            caseInsensitive('ctrlchr'),
             caseInsensitive('while'),
             caseInsensitive('if'),
             caseInsensitive('do'),
@@ -277,7 +279,7 @@ module.exports = grammar({
             caseInsensitive('worklistedit worklistfield'),
         )),
 
-        data_type: $ => choice(
+        data_type: $ => prec.right(choice(
             caseInsensitive('character'),
             caseInsensitive('code'),
             caseInsensitive('date'),
@@ -285,7 +287,7 @@ module.exports = grammar({
             caseInsensitive('money'),
             caseInsensitive('number'),
             caseInsensitive('rate'),
-        ),
+        )),
 
         array_type: $ => seq(
             caseInsensitive('array'),
@@ -408,7 +410,8 @@ module.exports = grammar({
             '=',
             choice(
                 seq($.data_type, optional($.array_type)),
-                $.string_literal
+                $.string_literal,
+                $.poweron_function,
             ),
         )),
 
@@ -471,7 +474,7 @@ module.exports = grammar({
             //$._col
             //$._copyapp
             //$._createfinancefromcredrep
-            //$._ctrlchr
+            $.ctrlchr,
             //$._datasize
             //$._datefn
             //$._dateoffset
@@ -540,6 +543,13 @@ module.exports = grammar({
             $._value,
             $._money,
             $._ratefn,
+        ),
+
+        ctrlchr: $ => seq(
+            caseInsensitive("ctrlchr"),
+            '(',
+            $.number,
+            ')'
         ),
 
         anyservice: $ => seq(
@@ -658,11 +668,9 @@ module.exports = grammar({
         // comment: $ => token(choice(
         //    seq('[', /.*/gm, ']'),
         //))
-        comment: $ => token(seq(
-            '[',
-            /(\n*.*\s*)/gm,
-            ']'
-        )),
+        comment: $ => token(
+            /[\[]{1}[\s\w:\.\{\}\-",\/=]*[\]]{1}/gm
+        ),
 
         expression: $ => choice(
             $.primary_expression,
