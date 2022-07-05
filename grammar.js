@@ -62,6 +62,7 @@ module.exports = grammar({
 
         keyword: $ => prec(-1, choice(
             caseInsensitive('for'),
+            caseInsensitive('anyservice'),
             caseInsensitive('while'),
             caseInsensitive('if'),
             caseInsensitive('do'),
@@ -459,18 +460,97 @@ module.exports = grammar({
         ),
 
         poweron_function: $ => choice(
-            $._fileopen,
-            $._filereadline,
-            $._segment,
+            $._abs,
+            $.anyservice,
+            //$._anywarning,
+            //$._capitalize
+            //$._characterread
             $._charactersearch,
+            //$._charvalue
+            //$._coderead
+            //$._col
+            //$._copyapp
+            //$._createfinancefromcredrep
+            //$._ctrlchr
+            //$._datasize
+            //$._datefn
+            //$._dateoffset
+            //$._dateread
+            $._datevalue,
+            //$._day
+            //$._dayofweek
+            //$._dialogpromptchar
+            //$._dialogpromptcode
+            //$._dialogpromptcombooption
+            //$._dialogpromptcombostart
+            //$._dialogpromptdate
+            //$._dialogpromptlistoption
+            //$._dialogpromptliststart
+            //$._dialogpromptmoney
+            //$._dialogpromptnumber
+            //$._dialogpromptpassword
+            //$._dialogpromptrate
+            //$._dialogpromptyesno
+            //$._dialogstart
+            //$._dialogstartgroupbox
+            //$._dialogtextlistoption
+            //$._dialogtextliststart
+            //$._dim
+            //$._divprojectinit
+            //$._emailline
+            //$._emailsend
+            //$._emailstart
+            //$._entercharacter
+            //$._entercode
+            //$._enterdate
+            //$._entermoney
+            //$._enterrate
+            //$._enteryesno
+            //$._execute
+            //$._exp
+            //$._filearchiveadd
+            //$._filearchiveextract
+            //$._fileclose
+            //$._filecreate
+            //$._filedecrypt
+            //$._filedelete
+            //$._fileencrypt
+            //$._filegetpos
+            //$._filelistclose
+            //$._filelistopen
+            //$._filelistread
+            $._fileopen,
+            //$._fileread
+            $._filereadline,
+            //$._filesetpos
+            //$._filewrite
+            //$._filewriteline
+            //$._floatfn
+            //$._floatvalue
+            //$._floor
+            //$._fmperform
+            $.for_loop,
+            //$._format
+            //$._for_record
+            //$._for_record_with
+            //$._ftpclose
+            $._segment,
             $._length,
             $._format,
             $._value,
             $._money,
-            $._rate,
-            $._datevalue,
-            $._abs,
+            $._ratefn,
         ),
+
+        anyservice: $ => seq(
+            caseInsensitive("anyservice"),
+            '(',
+            $.record_type,
+            ',',
+            $.number,
+            ')'
+        ),
+
         _abs: $ => seq(
             caseInsensitive('abs'),
             '(',
@@ -485,7 +565,7 @@ module.exports = grammar({
             ')',
         ),
 
-        _rate: $ => seq(
+        _ratefn: $ => seq(
             caseInsensitive('rate'),
             '(',
             $.expression,
@@ -647,7 +727,21 @@ module.exports = grammar({
             $.poweron_function
         ),
 
-        for_statement: $ => seq(
+        /* for_statement: $ => seq(
+            caseInsensitive('for'),
+            //field('initializer', $.identifier),
+            $.identifier,
+            '=',
+            choice($.number, $.identifier),
+            caseInsensitive('to'),
+            choice($.number, $.identifier),
+            seq(
+                caseInsensitive('do'),
+                repeat($.statement),
+                caseInsensitive('end')
+            )
+        ), */
+        for_loop: $ => seq(
             caseInsensitive('for'),
             //field('initializer', $.identifier),
             $.identifier,
@@ -661,6 +755,7 @@ module.exports = grammar({
                 caseInsensitive('end')
             )
         ),
+
 
         while_statement: $ => seq(
             caseInsensitive('while'),
@@ -715,7 +810,7 @@ module.exports = grammar({
         ),
 
         statement: $ => choice(
-            $.for_statement,
+            //            $.for_statement,
             $.if_statement,
             $.while_statement,
             $.expression,

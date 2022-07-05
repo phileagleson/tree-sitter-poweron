@@ -90,10 +90,6 @@
         "named": true
       },
       {
-        "type": "for_statement",
-        "named": true
-      },
-      {
         "type": "if_statement",
         "named": true
       },
@@ -110,6 +106,25 @@
         "named": true
       }
     ]
+  },
+  {
+    "type": "anyservice",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "record_type",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "array_identifier",
@@ -309,7 +324,7 @@
     }
   },
   {
-    "type": "for_statement",
+    "type": "for_loop",
     "named": true,
     "fields": {},
     "children": {
@@ -440,7 +455,15 @@
       "required": true,
       "types": [
         {
+          "type": "anyservice",
+          "named": true
+        },
+        {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "for_loop",
           "named": true
         },
         {

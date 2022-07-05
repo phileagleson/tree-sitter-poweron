@@ -101,6 +101,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[aA][nN][yY][sS][eE][rR][vV][iI][cC][eE]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[wW][hH][iI][lL][eE]"
           },
           {
@@ -1990,6 +1994,22 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "_abs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "anyservice"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_charactersearch"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_datevalue"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_fileopen"
         },
         {
@@ -1998,11 +2018,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_segment"
+          "name": "for_loop"
         },
         {
           "type": "SYMBOL",
-          "name": "_charactersearch"
+          "name": "_segment"
         },
         {
           "type": "SYMBOL",
@@ -2022,15 +2042,36 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_rate"
+          "name": "_ratefn"
+        }
+      ]
+    },
+    "anyservice": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[aA][nN][yY][sS][eE][rR][vV][iI][cC][eE]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "SYMBOL",
-          "name": "_datevalue"
+          "name": "record_type"
+        },
+        {
+          "type": "STRING",
+          "value": ","
         },
         {
           "type": "SYMBOL",
-          "name": "_abs"
+          "name": "number"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
@@ -2076,7 +2117,7 @@
         }
       ]
     },
-    "_rate": {
+    "_ratefn": {
       "type": "SEQ",
       "members": [
         {
@@ -2960,7 +3001,7 @@
         }
       ]
     },
-    "for_statement": {
+    "for_loop": {
       "type": "SEQ",
       "members": [
         {
@@ -3202,10 +3243,6 @@
     "statement": {
       "type": "CHOICE",
       "members": [
-        {
-          "type": "SYMBOL",
-          "name": "for_statement"
-        },
         {
           "type": "SYMBOL",
           "name": "if_statement"
