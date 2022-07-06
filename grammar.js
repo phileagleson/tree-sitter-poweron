@@ -279,15 +279,25 @@ module.exports = grammar({
             caseInsensitive('worklistedit worklistfield'),
         )),
 
-        data_type: $ => prec.right(choice(
-            caseInsensitive('character'),
-            caseInsensitive('code'),
-            caseInsensitive('date'),
-            caseInsensitive('float'),
-            caseInsensitive('money'),
-            caseInsensitive('number'),
-            caseInsensitive('rate'),
-        )),
+        data_type: $ => prec.right(seq(
+            choice(
+                caseInsensitive('character'),
+                caseInsensitive('code'),
+                caseInsensitive('date'),
+                caseInsensitive('float'),
+                caseInsensitive('money'),
+                caseInsensitive('number'),
+                caseInsensitive('rate'),
+            ),
+            optional(
+                seq(
+                    '(',
+                    field("size", $.number),
+                    ')'
+                )
+            )
+        )
+        ),
 
         array_type: $ => seq(
             caseInsensitive('array'),
@@ -409,9 +419,12 @@ module.exports = grammar({
             $.identifier,
             '=',
             choice(
-                seq($.data_type, optional($.array_type)),
+                seq(
+                    $.data_type,
+                    optional($.array_type)),
                 $.string_literal,
                 $.poweron_function,
+                $.number
             ),
         )),
 
@@ -626,9 +639,9 @@ module.exports = grammar({
         _charactersearch: $ => seq(
             caseInsensitive('charactersearch'),
             '(',
-            choice($.string_literal, $.identifier),
+            choice($.string_literal, $.identifier, $.expression),
             ',',
-            choice($.string_literal, $.identifier),
+            choice($.string_literal, $.identifier, $.expression),
             ')'
         ),
 
@@ -665,11 +678,8 @@ module.exports = grammar({
             ')'
         ),
 
-        // comment: $ => token(choice(
-        //    seq('[', /.*/gm, ']'),
-        //))
         comment: $ => token(
-            /[\[]{1}[\s\w:\.\{\}\-",\/=]*[\]]{1}/gm
+            /[\[]{1}[\s\w:\.\{\}\-",\/=:\*#\$\^\?\(\)"\\\|;!<>]*[\]]{1}/gm
         ),
 
         expression: $ => choice(
@@ -713,7 +723,9 @@ module.exports = grammar({
                 ['=', 'binary_equality'],
                 ['<>', 'binary_equality'],
                 ['>', 'binary_relation'],
+                ['>=', 'binary_relation'],
                 ['<', 'binary_relation'],
+                ['<=', 'binary_relation'],
             ].map(([operator, precedence]) =>
                 prec.left(precedence, seq(
                     field('left', $.expression),
@@ -723,7 +735,7 @@ module.exports = grammar({
             )
         ),
 
-        primary_expression: $ => choice(
+        primary_expression: $ => prec.left(choice(
             $.parenthesized_expression,
             $.keyword,
             $.identifier,
@@ -733,7 +745,7 @@ module.exports = grammar({
             $.rate,
             $.string_literal,
             $.poweron_function
-        ),
+        )),
 
         /* for_statement: $ => seq(
             caseInsensitive('for'),

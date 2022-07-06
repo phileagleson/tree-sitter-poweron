@@ -225,6 +225,10 @@
             "named": false
           },
           {
+            "type": "<=",
+            "named": false
+          },
+          {
             "type": "<>",
             "named": false
           },
@@ -234,6 +238,10 @@
           },
           {
             "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
             "named": false
           },
           {
@@ -276,7 +284,18 @@
   {
     "type": "data_type",
     "named": true,
-    "fields": {}
+    "fields": {
+      "size": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "database_field",
@@ -711,6 +730,10 @@
           "named": true
         },
         {
+          "type": "number",
+          "named": true
+        },
+        {
           "type": "poweron_function",
           "named": true
         },
@@ -792,6 +815,10 @@
     "named": false
   },
   {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "<>",
     "named": false
   },
@@ -801,6 +828,10 @@
   },
   {
     "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
     "named": false
   },
   {
