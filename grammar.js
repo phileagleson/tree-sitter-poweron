@@ -568,7 +568,10 @@ module.exports = grammar({
         ctrlchr: $ => seq(
             caseInsensitive("ctrlchr"),
             '(',
-            $.number,
+            choice(
+                $.number,
+                $.identifier,
+            ),
             ')'
         ),
 
