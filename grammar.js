@@ -62,31 +62,38 @@ module.exports = grammar({
         word: $ => $.keyword,
 
         keyword: $ => prec(-1, choice(
-            caseInsensitive('for'),
+            caseInsensitive('abs'),
             caseInsensitive('anyservice'),
-            caseInsensitive('ctrlchr'),
-            caseInsensitive('while'),
-            caseInsensitive('if'),
-            caseInsensitive('do'),
-            caseInsensitive('end'),
-            caseInsensitive('else'),
-            caseInsensitive('then'),
+            caseInsensitive('anywarning'),
             caseInsensitive('call'),
-            caseInsensitive('filereadline'),
-            caseInsensitive('fileopen'),
-            caseInsensitive('format'),
-            caseInsensitive('call'),
-            caseInsensitive('suppressnewline'),
-            caseInsensitive('newline'),
-            caseInsensitive('segment'),
+            caseInsensitive('capitalize'),
+            caseInsensitive('characterread'),
             caseInsensitive('charactersearch'),
+            caseInsensitive('chrvalue'),
+            caseInsensitive('coderead'),
+            caseInsensitive('col'),
+            caseInsensitive('copyapp'),
+            caseInsensitive('createfinancefromcredrep'),
+            caseInsensitive('ctrlchr'),
+            caseInsensitive('datevalue'),
+            caseInsensitive('do'),
+            caseInsensitive('else'),
+            caseInsensitive('end'),
+            caseInsensitive('fileopen'),
+            caseInsensitive('filereadline'),
+            caseInsensitive('for'),
+            caseInsensitive('format'),
+            caseInsensitive('if'),
             caseInsensitive('length'),
-            caseInsensitive('value'),
             caseInsensitive('money'),
+            caseInsensitive('newline'),
             caseInsensitive('number'),
             caseInsensitive('rate'),
-            caseInsensitive('datevalue'),
-            caseInsensitive('abs'),
+            caseInsensitive('segment'),
+            caseInsensitive('suppressnewline'),
+            caseInsensitive('then'),
+            caseInsensitive('value'),
+            caseInsensitive('while'),
         )),
 
 
@@ -443,7 +450,7 @@ module.exports = grammar({
         ),
 
         field_name: $ => prec.left(seq(
-            alias($.identifier, $.name),
+            alias($.identifier, $.field_name),
             optional(":"),
             optional(field("index", $.number)),
             optional(":"),
@@ -478,15 +485,15 @@ module.exports = grammar({
         poweron_function: $ => choice(
             $._abs,
             $.anyservice,
-            //$._anywarning,
-            //$._capitalize
-            //$._characterread
-            $._charactersearch,
-            //$._charvalue
-            //$._coderead
-            //$._col
-            //$._copyapp
-            //$._createfinancefromcredrep
+            $.anywarning,
+            $.capitalize,
+            $.characterread,
+            $.charactersearch,
+            $.chrvalue,
+            $.coderead,
+            $.col,
+            $.copyapp,
+            $.createfinancefromcredrep,
             $.ctrlchr,
             //$._datasize
             //$._datefn
@@ -565,6 +572,80 @@ module.exports = grammar({
             ')'
         ),
 
+        createfinancefromcredrep: $ => seq(
+            caseInsensitive("createfinancefromcredrep"),
+            '(',
+            choice($.number, $.identifier), // checkprivilegesflag
+            choice($.string_literal, $.identifier), // appid
+            choice($.number, $.identifier), // credinreportlocator
+            choice($.number, $.identifier), // skipblankdescriptionflag
+            choice($.number, $.identifier), // skipzerobalanceflag
+            $.identifier, // errortext
+            ')',
+        ),
+
+        coderead: $ => seq(
+            caseInsensitive("coderead"),
+            '(',
+            $.expression,
+            ')'
+        ),
+
+        col: $ => prec.left(seq(
+            caseInsensitive("col"),
+            '=',
+            $.number,
+            /\s/,
+            $.expression
+        )),
+
+        copyapp: $ => seq(
+            caseInsensitive("copyapp"),
+            '(',
+            choice($.string_literal, $.identifier), // sourceappid
+            choice($.string_literal, $.identifier), // destacct
+            choice($.string_literal, $.identifier), // destappid
+            choice($.number, $.identifier), // moveflag
+            choice($.number, $.identifier), // personflag
+            choice($.number, $.identifier), // finflag
+            choice($.number, $.identifier), // trackingflag
+            choice($.number, $.identifier), // noteflag
+            choice($.number, $.identifier), // preferenceflag
+            choice($.number, $.identifier), // cbiflag
+            $.identifier, // errortext
+            ')'
+        ),
+
+        chrvalue: $ => seq(
+            caseInsensitive("chrvalue"),
+            '(',
+            $.expression,
+            ')'
+        ),
+
+        characterread: $ => seq(
+            caseInsensitive("characterread"),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        capitalize: $ => seq(
+            caseInsensitive("capitalize"),
+            '(',
+            $.expression,
+            ')'
+        ),
+
+        anywarning: $ => seq(
+            caseInsensitive("anywarning"),
+            '(',
+            $.record_type,
+            ',',
+            $.number,
+            ')'
+        ),
+
         anyservice: $ => seq(
             caseInsensitive("anyservice"),
             '(',
@@ -636,7 +717,7 @@ module.exports = grammar({
             ')'
         ),
 
-        _charactersearch: $ => seq(
+        charactersearch: $ => seq(
             caseInsensitive('charactersearch'),
             '(',
             choice($.string_literal, $.identifier, $.expression),
@@ -711,6 +792,7 @@ module.exports = grammar({
             $.expression,
             ')'
         ),
+
 
         binary_expression: $ => choice(
             ...[
