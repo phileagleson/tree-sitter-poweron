@@ -108,6 +108,21 @@
     ]
   },
   {
+    "type": "abs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "anyservice",
     "named": true,
     "fields": {},
@@ -484,6 +499,21 @@
     }
   },
   {
+    "type": "datevalue",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "define_division",
     "named": true,
     "fields": {},
@@ -529,6 +559,44 @@
     }
   },
   {
+    "type": "fileopen",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filereadline",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "for_loop",
     "named": true,
     "fields": {},
@@ -546,6 +614,41 @@
         },
         {
           "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "format",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "database_field",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "money",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "rate",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         }
       ]
@@ -603,6 +706,25 @@
     "fields": {}
   },
   {
+    "type": "length",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "letter_division",
     "named": true,
     "fields": {},
@@ -616,6 +738,21 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "moneyfn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -641,9 +778,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "abs",
+          "named": true
+        },
         {
           "type": "anyservice",
           "named": true
@@ -689,7 +830,15 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "datevalue",
+          "named": true
+        },
+        {
+          "type": "fileopen",
+          "named": true
+        },
+        {
+          "type": "filereadline",
           "named": true
         },
         {
@@ -697,23 +846,27 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "format",
           "named": true
         },
         {
-          "type": "money",
+          "type": "length",
           "named": true
         },
         {
-          "type": "number",
+          "type": "moneyfn",
           "named": true
         },
         {
-          "type": "rate",
+          "type": "ratefn",
           "named": true
         },
         {
-          "type": "string_literal",
+          "type": "segment",
+          "named": true
+        },
+        {
+          "type": "value",
           "named": true
         }
       ]
@@ -771,6 +924,44 @@
         },
         {
           "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ratefn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "segment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         }
       ]
@@ -900,6 +1091,21 @@
     "type": "total_division",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "variable_declaration",

@@ -483,7 +483,7 @@ module.exports = grammar({
         ),
 
         poweron_function: $ => choice(
-            $._abs,
+            $.abs,
             $.anyservice,
             $.anywarning,
             $.capitalize,
@@ -499,7 +499,7 @@ module.exports = grammar({
             //$._datefn
             //$._dateoffset
             //$._dateread
-            $._datevalue,
+            $.datevalue,
             //$._day
             //$._dayofweek
             //$._dialogpromptchar
@@ -542,9 +542,9 @@ module.exports = grammar({
             //$._filelistclose
             //$._filelistopen
             //$._filelistread
-            $._fileopen,
+            $.fileopen,
             //$._fileread
-            $._filereadline,
+            $.filereadline,
             //$._filesetpos
             //$._filewrite
             //$._filewriteline
@@ -557,12 +557,12 @@ module.exports = grammar({
             //$._for_record
             //$._for_record_with
             //$._ftpclose
-            $._segment,
-            $._length,
-            $._format,
-            $._value,
-            $._money,
-            $._ratefn,
+            $.segment,
+            $.length,
+            $.format,
+            $.value,
+            $.moneyfn,
+            $.ratefn,
         ),
 
         ctrlchr: $ => seq(
@@ -576,10 +576,15 @@ module.exports = grammar({
             caseInsensitive("createfinancefromcredrep"),
             '(',
             choice($.number, $.identifier), // checkprivilegesflag
+            ',',
             choice($.string_literal, $.identifier), // appid
+            ',',
             choice($.number, $.identifier), // credinreportlocator
+            ',',
             choice($.number, $.identifier), // skipblankdescriptionflag
+            ',',
             choice($.number, $.identifier), // skipzerobalanceflag
+            ',',
             $.identifier, // errortext
             ')',
         ),
@@ -603,15 +608,25 @@ module.exports = grammar({
             caseInsensitive("copyapp"),
             '(',
             choice($.string_literal, $.identifier), // sourceappid
+            ',',
             choice($.string_literal, $.identifier), // destacct
+            ',',
             choice($.string_literal, $.identifier), // destappid
+            ',',
             choice($.number, $.identifier), // moveflag
+            ',',
             choice($.number, $.identifier), // personflag
+            ',',
             choice($.number, $.identifier), // finflag
+            ',',
             choice($.number, $.identifier), // trackingflag
+            ',',
             choice($.number, $.identifier), // noteflag
+            ',',
             choice($.number, $.identifier), // preferenceflag
+            ',',
             choice($.number, $.identifier), // cbiflag
+            ',',
             $.identifier, // errortext
             ')'
         ),
@@ -655,35 +670,35 @@ module.exports = grammar({
             ')'
         ),
 
-        _abs: $ => seq(
+        abs: $ => seq(
             caseInsensitive('abs'),
             '(',
             $.expression,
             ')',
         ),
 
-        _datevalue: $ => seq(
+        datevalue: $ => seq(
             caseInsensitive('datevalue'),
             '(',
             $.expression,
             ')',
         ),
 
-        _ratefn: $ => seq(
+        ratefn: $ => seq(
             caseInsensitive('rate'),
             '(',
             $.expression,
             ')',
         ),
 
-        _money: $ => seq(
+        moneyfn: $ => seq(
             caseInsensitive('money'),
             '(',
             $.expression,
             ')',
         ),
 
-        _value: $ => seq(
+        value: $ => seq(
             caseInsensitive('value'),
             '(',
             $.expression,
@@ -691,7 +706,7 @@ module.exports = grammar({
             ')',
         ),
 
-        _format: $ => seq(
+        format: $ => seq(
             caseInsensitive('format'),
             '(',
             choice($.identifier, $.string_literal),
@@ -706,7 +721,7 @@ module.exports = grammar({
             ')',
         ),
 
-        _segment: $ => seq(
+        segment: $ => seq(
             caseInsensitive('segment'),
             '(',
             choice($.string_literal, $.identifier),
@@ -726,14 +741,14 @@ module.exports = grammar({
             ')'
         ),
 
-        _length: $ => seq(
+        length: $ => seq(
             caseInsensitive('length'),
             '(',
             choice($.string_literal, $.identifier),
             ')'
         ),
 
-        _fileopen: $ => seq(
+        fileopen: $ => seq(
             caseInsensitive('fileopen'),
             '(',
             choice($.identifier, $.string_literal),
@@ -748,7 +763,7 @@ module.exports = grammar({
             ')',
         ),
 
-        _filereadline: $ => seq(
+        filereadline: $ => seq(
             caseInsensitive('filereadline'),
             '(',
             choice($.identifier, $.string_literal),
