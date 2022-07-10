@@ -75,7 +75,31 @@ module.exports = grammar({
             caseInsensitive('copyapp'),
             caseInsensitive('createfinancefromcredrep'),
             caseInsensitive('ctrlchr'),
+            caseInsensitive("datasize"),
+            caseInsensitive('date'),
+            caseInsensitive('dateoffset'),
             caseInsensitive('datevalue'),
+            caseInsensitive('dateread'),
+            caseInsensitive('day'),
+            caseInsensitive('dialogpromptchar'),
+            caseInsensitive('dialogpromptcode'),
+            caseInsensitive('dialogpromptcombooption'),
+            caseInsensitive('dialogpromptcombostart'),
+            caseInsensitive('dialogpromptlistoption'),
+            caseInsensitive('dialogpromptdate'),
+            caseInsensitive('dialogpromptliststart'),
+            caseInsensitive('dialogpromptmoney'),
+            caseInsensitive('dialogpromptnumber'),
+            caseInsensitive('dialogpromptrate'),
+            caseInsensitive('dialogpromptpassowrd'),
+            caseInsensitive('dialogpromptyesno'),
+            caseInsensitive('dialogstart'),
+            caseInsensitive('dialogstartgroupbox'),
+            caseInsensitive('dialogtextlistoption'),
+            caseInsensitive('dialogtextliststart'),
+            caseInsensitive('dim'),
+            caseInsensitive('divprojectinit'),
+            caseInsensitive('dayofweek'),
             caseInsensitive('do'),
             caseInsensitive('else'),
             caseInsensitive('end'),
@@ -495,31 +519,31 @@ module.exports = grammar({
             $.copyapp,
             $.createfinancefromcredrep,
             $.ctrlchr,
-            //$._datasize
-            //$._datefn
-            //$._dateoffset
-            //$._dateread
+            $.datasize,
+            $.datefn,
+            $.dateoffset,
+            $.dateread,
             $.datevalue,
-            //$._day
-            //$._dayofweek
-            //$._dialogpromptchar
-            //$._dialogpromptcode
-            //$._dialogpromptcombooption
-            //$._dialogpromptcombostart
-            //$._dialogpromptdate
-            //$._dialogpromptlistoption
-            //$._dialogpromptliststart
-            //$._dialogpromptmoney
-            //$._dialogpromptnumber
-            //$._dialogpromptpassword
-            //$._dialogpromptrate
-            //$._dialogpromptyesno
-            //$._dialogstart
-            //$._dialogstartgroupbox
-            //$._dialogtextlistoption
-            //$._dialogtextliststart
-            //$._dim
-            //$._divprojectinit
+            $.day,
+            $.dayofweek,
+            $.dialogpromptchar,
+            $.dialogpromptcode,
+            $.dialogpromptcombooption,
+            $.dialogpromptcombostart,
+            $.dialogpromptdate,
+            $.dialogpromptlistoption,
+            $.dialogpromptliststart,
+            $.dialogpromptmoney,
+            $.dialogpromptnumber,
+            $.dialogpromptpassword,
+            $.dialogpromptrate,
+            $.dialogpromptyesno,
+            $.dialogstart,
+            $.dialogstartgroupbox,
+            $.dialogtextlistoption,
+            $.dialogtextliststart,
+            $.dim,
+            $.divprojectinit,
             //$._emailline
             //$._emailsend
             //$._emailstart
@@ -565,6 +589,271 @@ module.exports = grammar({
             $.ratefn,
         ),
 
+        divprojectinit: $ => seq(
+            caseInsensitive("divprojectinit"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ')',
+        ),
+
+        dim: $ => prec.left(seq(
+            caseInsensitive("dim"),
+            '=',
+            choice(
+                $.number,
+                $.identifier
+            ),
+            /\s/,
+            $.expression
+        )),
+
+        dialogtextliststart: $ => seq(
+            caseInsensitive("dialogtextliststart"),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        dialogtextlistoption: $ => seq(
+            caseInsensitive("dialogtextlistoption"),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        dialogstartgroupbox: $ => seq(
+            caseInsensitive("dialogstartgroupbox"),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        dialogstart: $ => seq(
+            caseInsensitive("dialogstart"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ',',
+            $.expression,
+            ')',
+        ),
+
+        dialogpromptyesno: $ => seq(
+            caseInsensitive("dialogpromptyesno"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ')',
+        ),
+
+        dialogpromptpassword: $ => seq(
+            caseInsensitive("dialogpromptpassword"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            optional(
+                seq(
+                    ',',
+                    $.expression
+                ),
+            ),
+            ')',
+        ),
+
+        dialogpromptmoney: $ => seq(
+            caseInsensitive("dialogpromptmoney"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ')',
+        ),
+
+
+        dialogpromptnumber: $ => seq(
+            caseInsensitive("dialogpromptnumber"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ')',
+        ),
+
+        dialogpromptrate: $ => seq(
+            caseInsensitive("dialogpromptrate"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ')',
+        ),
+
+        dialogpromptliststart: $ => seq(
+            caseInsensitive("dialogpromptliststart"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ')',
+        ),
+
+
+        dialogpromptlistoption: $ => seq(
+            caseInsensitive("dialogpromptlistoption"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            optional(
+                seq(
+                    ',',
+                    $.expression
+                ),
+            ),
+            ')',
+        ),
+
+        dialogpromptdate: $ => seq(
+            caseInsensitive("dialogpromptdate"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            optional(
+                seq(
+                    ',',
+                    $.expression
+                ),
+            ),
+            ')',
+        ),
+
+
+
+        dialogpromptcombostart: $ => seq(
+            caseInsensitive("dialogpromptcombostart"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            optional(
+                seq(
+                    ',',
+                    $.expression
+                ),
+            ),
+            ')',
+        ),
+
+
+
+        dialogpromptcombooption: $ => seq(
+            caseInsensitive("dialogpromptcombooption"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            optional(
+                seq(
+                    ',',
+                    $.expression
+                ),
+            ),
+            ')',
+        ),
+
+
+        dialogpromptcode: $ => seq(
+            caseInsensitive("dialogpromptcode"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            optional(
+                seq(
+                    ',',
+                    $.expression
+                ),
+            ),
+            ')',
+        ),
+
+
+        dialogpromptchar: $ => seq(
+            caseInsensitive("dialogpromptchar"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            optional(
+                seq(
+                    ',',
+                    $.expression
+                ),
+            ),
+            ')',
+        ),
+
+        dayofweek: $ => seq(
+            caseInsensitive("dayofweek"),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+
+        day: $ => seq(
+            caseInsensitive("day"),
+            '(',
+            $.expression,
+            ')',
+        ),
+
+        dateread: $ => seq(
+            caseInsensitive("dateread"),
+            '(',
+            $.expression,
+            ')'
+        ),
+
+        dateoffset: $ => seq(
+            caseInsensitive("dateoffset"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ',',
+            $.expression,
+            ')'
+        ),
+
+        datefn: $ => seq(
+            caseInsensitive("date"),
+            '(',
+            $.expression,
+            ',',
+            $.expression,
+            ',',
+            $.expression,
+            ')'
+        ),
+
+        datasize: $ => prec.left(seq(
+            caseInsensitive("datasize"),
+            '=',
+            choice(
+                $.number,
+                $.identifier
+            ),
+            /\s/,
+            $.expression
+        )),
+
         ctrlchr: $ => seq(
             caseInsensitive("ctrlchr"),
             '(',
@@ -602,7 +891,10 @@ module.exports = grammar({
         col: $ => prec.left(seq(
             caseInsensitive("col"),
             '=',
-            $.number,
+            choice(
+                $.number,
+                $.identifier,
+            ),
             /\s/,
             $.expression
         )),

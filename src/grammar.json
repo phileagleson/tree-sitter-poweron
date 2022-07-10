@@ -149,7 +149,103 @@
           },
           {
             "type": "PATTERN",
+            "value": "[dD][aA][tT][aA][sS][iI][zZ][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][aA][tT][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][aA][tT][eE][oO][fF][fF][sS][eE][tT]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[dD][aA][tT][eE][vV][aA][lL][uU][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][aA][tT][eE][rR][eE][aA][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][aA][yY]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][hH][aA][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][dD][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][oO][pP][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][sS][tT][aA][rR][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][dD][aA][tT][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][mM][oO][nN][eE][yY]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][nN][uU][mM][bB][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][rR][aA][tT][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][pP][aA][sS][sS][oO][wW][rR][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][yY][eE][sS][nN][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT][gG][rR][oO][uU][pP][bB][oO][xX]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][mM]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][vV][pP][rR][oO][jJ][eE][cC][tT][iI][nN][iI][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][aA][yY][oO][fF][wW][eE][eE][kK]"
           },
           {
             "type": "PATTERN",
@@ -2120,7 +2216,103 @@
         },
         {
           "type": "SYMBOL",
+          "name": "datasize"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "datefn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dateoffset"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dateread"
+        },
+        {
+          "type": "SYMBOL",
           "name": "datevalue"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "day"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dayofweek"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptchar"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptcode"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptcombooption"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptcombostart"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptdate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptlistoption"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptliststart"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptmoney"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptnumber"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptpassword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptrate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptyesno"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogstart"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogstartgroupbox"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogtextlistoption"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogtextliststart"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dim"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "divprojectinit"
         },
         {
           "type": "SYMBOL",
@@ -2159,6 +2351,843 @@
           "name": "ratefn"
         }
       ]
+    },
+    "divprojectinit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][vV][pP][rR][oO][jJ][eE][cC][tT][iI][nN][iI][tT]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dim": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][mM]"
+          },
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\s"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "dialogtextliststart": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogtextlistoption": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogstartgroupbox": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT][gG][rR][oO][uU][pP][bB][oO][xX]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogstart": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptyesno": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][yY][eE][sS][nN][oO]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptpassword": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][pP][aA][sS][sS][wW][oO][rR][dD]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptmoney": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][mM][oO][nN][eE][yY]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptnumber": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][nN][uU][mM][bB][eE][rR]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptrate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][rR][aA][tT][eE]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptliststart": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptlistoption": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptdate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][dD][aA][tT][eE]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptcombostart": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][sS][tT][aA][rR][tT]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptcombooption": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][oO][pP][tT][iI][oO][nN]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptcode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][dD][eE]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dialogpromptchar": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][hH][aA][rR]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dayofweek": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][aA][yY][oO][fF][wW][eE][eE][kK]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "day": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][aA][yY]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dateread": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][aA][tT][eE][rR][eE][aA][dD]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "dateoffset": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][aA][tT][eE][oO][fF][fF][sS][eE][tT]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "datefn": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[dD][aA][tT][eE]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "datasize": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[dD][aA][tT][aA][sS][iI][zZ][eE]"
+          },
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\s"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
     },
     "ctrlchr": {
       "type": "SEQ",
@@ -2332,8 +3361,17 @@
             "value": "="
           },
           {
-            "type": "SYMBOL",
-            "name": "number"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
           },
           {
             "type": "PATTERN",
