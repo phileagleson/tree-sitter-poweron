@@ -1492,7 +1492,7 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "fmperformoptions",
           "named": true
         },
         {
@@ -1513,6 +1513,21 @@
         },
         {
           "type": "setwarn",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fmperformoptions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -3468,6 +3483,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
         {
           "type": "keyword",
           "named": true

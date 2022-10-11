@@ -1,4 +1,4 @@
-//! This crate provides POWERON language support for the [tree-sitter][] parsing library.
+//! This crate provides poweron language support for the [tree-sitter][] parsing library.
 //!
 //! Typically, you will use the [language][language func] function to add this language to a
 //! tree-sitter [Parser][], and then use the parser to parse some code:
@@ -6,7 +6,7 @@
 //! ```
 //! let code = "";
 //! let mut parser = tree_sitter::Parser::new();
-//! parser.set_language(tree_sitter_POWERON::language()).expect("Error loading POWERON grammar");
+//! parser.set_language(tree_sitter_poweron::language()).expect("Error loading poweron grammar");
 //! let tree = parser.parse(code, None).unwrap();
 //! ```
 //!
