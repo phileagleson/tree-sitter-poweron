@@ -1,0 +1,17 @@
+{
+  "name": "phileagleson/tree-sitter-poweron",
+  "version": "1.0.5",
+  "description": "",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Phil Eagleson <phileagleson@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.16.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  }
+}
