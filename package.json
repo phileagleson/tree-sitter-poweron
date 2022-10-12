@@ -9,9 +9,9 @@
   "author": "Phil Eagleson <phileagleson@icloud.com>",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.16.0"
+    "nan": "^2.14.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.6"
+    "tree-sitter-cli": "^0.19.1"
   }
 }
