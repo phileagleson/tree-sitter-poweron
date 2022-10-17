@@ -1,14 +1,32 @@
 #include "parser.h"
-#include <cctype>
 #include <stdio.h>
 #include <stdlib.h>
-#include <wctype.h>
 
 namespace {
 
 enum TokenType { COMMENT, STRING_LITERAL, COL, DATASIZE };
 
 struct Scanner {
+  char toLower(char c) {
+    char C;
+    int asciival = (int)c;
+    if ((int)c < 65 || (int)c > 90) {
+      C = c;
+    } else {
+      C = (char)((int)c - 32);
+    }
+
+    return C;
+  }
+
+  bool isWspace(char c) {
+    int ascii = (int)c;
+    if (ascii == 32 || ascii == 9 || ascii == 10 || ascii == 11 ||
+        ascii == 12 || ascii == 13) {
+      return true;
+    }
+    return false;
+  }
   unsigned serialize(char *buffer) { return 0; }
 
   void deserialize(const char *buffer, unsigned length) {}
@@ -18,11 +36,11 @@ struct Scanner {
     bool match_found = false;
     for (int i = 0; i < 9; i++) {
       if (i == 8) {
-        while (iswspace(lexer->lookahead) && lexer->lookahead != 0) {
+        while (isWspace(lexer->lookahead) && lexer->lookahead != 0) {
           lexer->advance(lexer, false);
         }
       }
-      if (tolower(lexer->lookahead) == datasize[i]) {
+      if (toLower(lexer->lookahead) == datasize[i]) {
         match_found = true;
         lexer->advance(lexer, false);
       } else {
@@ -40,11 +58,11 @@ struct Scanner {
     bool match_found = false;
     for (int i = 0; i < 4; i++) {
       if (i == 3) {
-        while (iswspace(lexer->lookahead) && lexer->lookahead != 0) {
+        while (isWspace(lexer->lookahead) && lexer->lookahead != 0) {
           lexer->advance(lexer, false);
         }
       }
-      if (tolower(lexer->lookahead) == col[i]) {
+      if (toLower(lexer->lookahead) == col[i]) {
         match_found = true;
         lexer->advance(lexer, false);
       } else {
@@ -58,7 +76,7 @@ struct Scanner {
   }
 
   bool scan(TSLexer *lexer, const bool *valid_symbols) {
-    while (iswspace(lexer->lookahead)) {
+    while (isWspace(lexer->lookahead)) {
       lexer->advance(lexer, true);
     }
 
@@ -74,7 +92,7 @@ struct Scanner {
       return true;
     }
 
-    if (tolower(next_char) == 'd') {
+    if (toLower(next_char) == 'd') {
       bool is_datasize = scan_datasize(lexer);
       if (is_datasize) {
         lexer->result_symbol = DATASIZE;
@@ -83,7 +101,7 @@ struct Scanner {
       return false;
     }
 
-    if (tolower(next_char) == 'c') {
+    if (toLower(next_char) == 'c') {
       bool is_col = scan_col(lexer);
       if (is_col) {
         lexer->result_symbol = COL;
@@ -118,7 +136,7 @@ struct Scanner {
         lexer->advance(lexer, false);
         return true;
       } else {
-        if (iswspace(lexer->lookahead)) {
+        if (isWspace(lexer->lookahead)) {
         } else {
         }
         continue;

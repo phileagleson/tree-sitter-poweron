@@ -693,10 +693,14 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "define_statement",
+          "named": true
+        },
+        {
+          "type": "end_block",
           "named": true
         }
       ]
@@ -1492,6 +1496,10 @@
           "named": true
         },
         {
+          "type": "end_block",
+          "named": true
+        },
+        {
           "type": "fmperformoptions",
           "named": true
         },
@@ -1513,6 +1521,10 @@
         },
         {
           "type": "setwarn",
+          "named": true
+        },
+        {
+          "type": "start_block",
           "named": true
         }
       ]
@@ -1547,7 +1559,15 @@
       "required": true,
       "types": [
         {
+          "type": "end_block",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "start_block",
           "named": true
         },
         {
@@ -1592,6 +1612,14 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
+        {
+          "type": "start_block",
+          "named": true
+        },
         {
           "type": "statement",
           "named": true
@@ -1638,6 +1666,14 @@
       "required": true,
       "types": [
         {
+          "type": "end_block",
+          "named": true
+        },
+        {
+          "type": "start_block",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -1652,6 +1688,14 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
+        {
+          "type": "start_block",
+          "named": true
+        },
         {
           "type": "statement",
           "named": true
@@ -1950,8 +1994,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "expression",
           "named": true
@@ -2173,6 +2221,14 @@
       "required": true,
       "types": [
         {
+          "type": "end_block",
+          "named": true
+        },
+        {
+          "type": "start_block",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -2312,6 +2368,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "expression",
           "named": true
@@ -3322,6 +3382,10 @@
       "required": true,
       "types": [
         {
+          "type": "end_block",
+          "named": true
+        },
+        {
           "type": "printkeywords",
           "named": true
         },
@@ -3399,6 +3463,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -3596,8 +3664,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "statement",
           "named": true
@@ -3630,8 +3702,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "statement",
           "named": true
@@ -3660,8 +3736,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "statement",
           "named": true
@@ -3796,8 +3876,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "statement",
           "named": true
@@ -3826,8 +3910,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
         {
           "type": "expression",
           "named": true
@@ -3849,11 +3937,19 @@
       "required": true,
       "types": [
         {
+          "type": "end_block",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
         {
           "type": "setexp",
+          "named": true
+        },
+        {
+          "type": "start_block",
           "named": true
         },
         {
@@ -3960,8 +4056,16 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "end_block",
+          "named": true
+        },
+        {
+          "type": "start_block",
+          "named": true
+        },
         {
           "type": "statement",
           "named": true
@@ -4263,6 +4367,10 @@
     "named": true
   },
   {
+    "type": "end_block",
+    "named": true
+  },
+  {
     "type": "money",
     "named": true
   },
@@ -4280,6 +4388,10 @@
   },
   {
     "type": "record_type",
+    "named": true
+  },
+  {
+    "type": "start_block",
     "named": true
   },
   {

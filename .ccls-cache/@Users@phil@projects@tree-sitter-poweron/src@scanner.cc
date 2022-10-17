@@ -1,5 +1,4 @@
-#include "tree_sitter/parser.h"
-#include <cctype>
+#include "parser.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <wctype.h>
@@ -9,6 +8,26 @@ namespace {
 enum TokenType { COMMENT, STRING_LITERAL, COL, DATASIZE };
 
 struct Scanner {
+  char toLower(char c) {
+    char C;
+    int asciival = (int)c;
+    if ((int)c < 65 || (int)c > 90) {
+      C = c;
+    } else {
+      C = (char)((int)c - 32);
+    }
+
+    return C;
+  }
+
+  bool isWspace(char c) {
+    int ascii = (int)c;
+    if (ascii == 32 || ascii == 9 || ascii == 10 || ascii == 11 ||
+        ascii == 12 || ascii == 13) {
+      return true;
+    }
+    return false;
+  }
   unsigned serialize(char *buffer) { return 0; }
 
   void deserialize(const char *buffer, unsigned length) {}
@@ -22,7 +41,7 @@ struct Scanner {
           lexer->advance(lexer, false);
         }
       }
-      if (tolower(lexer->lookahead) == datasize[i]) {
+      if (toLower(lexer->lookahead) == datasize[i]) {
         match_found = true;
         lexer->advance(lexer, false);
       } else {
@@ -44,7 +63,7 @@ struct Scanner {
           lexer->advance(lexer, false);
         }
       }
-      if (tolower(lexer->lookahead) == col[i]) {
+      if (toLower(lexer->lookahead) == col[i]) {
         match_found = true;
         lexer->advance(lexer, false);
       } else {
@@ -74,7 +93,7 @@ struct Scanner {
       return true;
     }
 
-    if (tolower(next_char) == 'd') {
+    if (toLower(next_char) == 'd') {
       bool is_datasize = scan_datasize(lexer);
       if (is_datasize) {
         lexer->result_symbol = DATASIZE;
@@ -83,7 +102,7 @@ struct Scanner {
       return false;
     }
 
-    if (tolower(next_char) == 'c') {
+    if (toLower(next_char) == 'c') {
       bool is_col = scan_col(lexer);
       if (is_col) {
         lexer->result_symbol = COL;

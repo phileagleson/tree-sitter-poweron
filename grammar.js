@@ -66,6 +66,8 @@ module.exports = grammar({
       $._ops,
       $.keyword,
       $._print_keywords,
+      $.end_block,
+      $.start_block,
     ),
 
     _ops: $ => choice(
@@ -152,13 +154,11 @@ module.exports = grammar({
       caseInsensitive('dialogtextliststart'),
       caseInsensitive('dim'),
       caseInsensitive('divprojectinit'),
-      caseInsensitive('do'),
       caseInsensitive('each'),
       caseInsensitive('else'),
       caseInsensitive('emailline'),
       caseInsensitive('emailsend'),
       caseInsensitive('emailstart'),
-      caseInsensitive('end'),
       caseInsensitive('entercharacter'),
       caseInsensitive('entercode'),
       caseInsensitive('enterdate'),
@@ -322,8 +322,11 @@ module.exports = grammar({
     define_division: $ => seq(
       caseInsensitive('define'),
       repeat($.define_statement),
-      caseInsensitive('end')
+      $.end_block
     ),
+
+    start_block: $ => caseInsensitive('do'),
+    end_block: $ => caseInsensitive('end'),
 
     define_statement: $ => choice(
       $.include_statement,
@@ -333,19 +336,19 @@ module.exports = grammar({
     setup_division: $ => seq(
       caseInsensitive('setup'),
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     select_division: $ => seq(
       caseInsensitive('select'),
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     sort_division: $ => seq(
       caseInsensitive('sort'),
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     letter_division: $ => seq(
@@ -355,7 +358,7 @@ module.exports = grammar({
       $.expression,
       /\n/,
       repeat1($.expression),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     print_division: $ => prec.right(seq(
@@ -365,13 +368,13 @@ module.exports = grammar({
       repeat($.printkeywords),
       /\n/,
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     )),
 
     total_division: $ => seq(
       caseInsensitive('total'),
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     printkeywords: $ => (choice
@@ -1158,15 +1161,15 @@ module.exports = grammar({
       optional(seq(',', $.expression)),
       optional(seq(',', $.expression)),
       ')',
-      caseInsensitive('do'),
+      $.start_block,
       repeat($.setexp),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     trailers: $ => seq(
       caseInsensitive('trailers'),
       repeat($.expression),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     totalfn: $ => prec.left(seq(
@@ -1415,7 +1418,7 @@ module.exports = grammar({
     headers: $ => seq(
       caseInsensitive('headers'),
       repeat($.expression),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     header: $ => prec.left(seq(
@@ -1626,18 +1629,18 @@ module.exports = grammar({
       caseInsensitive('with'),
       $.expression,
       $.expression,
-      caseInsensitive('do'),
+      $.start_block,
       repeat($.statement),
-      caseInsensitive('end'),
+      $.end_block,
     ),
 
     forrecord: $ => seq(
       caseInsensitive('for'),
       $.record_type,
       $.expression,
-      caseInsensitive('do'),
+      $.start_block,
       repeat($.statement),
-      caseInsensitive('end'),
+      $.end_block,
     ),
 
     format: $ => seq(
@@ -1659,9 +1662,9 @@ module.exports = grammar({
           $.expression
         )
       ),
-      caseInsensitive('do'),
+      $.start_block,
       repeat($.statement),
-      caseInsensitive('end'),
+      $.end_block,
     ),
 
     uppercase: $ => seq(
@@ -1677,14 +1680,14 @@ module.exports = grammar({
       optional(caseInsensitive('targetfile')),
       $.recordPath,
       $.fmperformoptions,
-      caseInsensitive('do'),
+      $.start_block,
       repeat(choice(
         $.setexp,
         $.removequeue,
         $.setwarn,
         $.clearwarn,
       )),
-      caseInsensitive('end'),
+      $.end_block,
     )),
 
     fmperformoptions: $ => seq(
@@ -2684,9 +2687,9 @@ module.exports = grammar({
         )
       ),
       seq(
-        caseInsensitive('do'),
+        $.start_block,
         repeat($.statement),
-        caseInsensitive('end')
+        $.end_block,
       )
     ),
 
@@ -2694,9 +2697,9 @@ module.exports = grammar({
     while_statement: $ => seq(
       caseInsensitive('while'),
       field('condition', $.expression),
-      caseInsensitive('do'),
+      $.start_block,
       repeat($.statement),
-      caseInsensitive('end'),
+      $.end_block,
     ),
 
     if_statement: $ => choice(
@@ -2718,9 +2721,9 @@ module.exports = grammar({
       caseInsensitive('if'),
       $.expression,
       caseInsensitive('then'),
-      caseInsensitive('do'),
+      $.start_block,
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     _if_else_block: $ => prec(10, seq(
@@ -2729,9 +2732,9 @@ module.exports = grammar({
         $._if_statement_no_block,
       ),
       caseInsensitive('else'),
-      caseInsensitive('do'),
+      $.start_block,
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     )),
 
     _if_else_no_block: $ => seq(
@@ -2824,7 +2827,7 @@ module.exports = grammar({
       caseInsensitive('procedure '),
       $.identifier,
       repeat($.statement),
-      caseInsensitive('end')
+      $.end_block,
     ),
 
     procedure_call: $ => seq(

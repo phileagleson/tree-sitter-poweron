@@ -1,5 +1,5 @@
 {
-  "name": "phileagleson/tree-sitter-poweron",
+  "name": "tree-sitter-poweron",
   "version": "1.0.5",
   "description": "",
   "main": "bindings/node",
