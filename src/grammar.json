@@ -869,10 +869,6 @@
           },
           {
             "type": "PATTERN",
-            "value": "[sS][eE][gG][mM][eE][nN][tT]"
-          },
-          {
-            "type": "PATTERN",
             "value": "[sS][eE][lL][eE][cC][tT]"
           },
           {
@@ -2001,10 +1997,6 @@
           {
             "type": "PATTERN",
             "value": "[sS][aA][vV][iI][nN][gG][sS]"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[sS][cC][hH][eE][dD][uU][lL][eE]"
           },
           {
             "type": "PATTERN",
