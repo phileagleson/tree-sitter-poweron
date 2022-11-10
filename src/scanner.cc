@@ -10,10 +10,10 @@ struct Scanner {
   char toLower(char c) {
     char C;
     int asciival = (int)c;
-    if ((int)c < 65 || (int)c > 90) {
+    if (asciival < 65 || asciival > 90) {
       C = c;
     } else {
-      C = (char)((int)c - 32);
+      C = (char)(asciival + 32);
     }
 
     return C;
