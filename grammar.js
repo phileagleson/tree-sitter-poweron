@@ -2053,6 +2053,10 @@ module.exports = grammar({
       $.expression,
       ',',
       $.expression,
+      optional(seq(
+        ',',
+        $.expression,
+      )),
       ')',
     ),
 
@@ -2062,8 +2066,10 @@ module.exports = grammar({
       $.expression,
       ',',
       $.expression,
-      ',',
-      $.expression,
+      optional(seq(
+        ',',
+        $.expression,
+      )),
       ')',
     ),
 
@@ -2086,8 +2092,10 @@ module.exports = grammar({
       $.expression,
       ',',
       $.expression,
-      ',',
-      $.expression,
+      optional(seq(
+        ',',
+        $.expression,
+      )),
       ')',
     ),
 
@@ -2097,8 +2105,10 @@ module.exports = grammar({
       $.expression,
       ',',
       $.expression,
-      ',',
-      $.expression,
+      optional(seq(
+        ',',
+        $.expression,
+      )),
       ')',
     ),
 
@@ -2108,8 +2118,10 @@ module.exports = grammar({
       $.expression,
       ',',
       $.expression,
-      ',',
-      $.expression,
+      optional(seq(
+        ',',
+        $.expression,
+      )),
       ')',
     ),
 
@@ -2119,8 +2131,10 @@ module.exports = grammar({
       $.expression,
       ',',
       $.expression,
-      ',',
-      $.expression,
+      optional(seq(
+        ',',
+        $.expression,
+      )),
       ')',
     ),
 
