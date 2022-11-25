@@ -2763,7 +2763,7 @@ module.exports = grammar({
       caseInsensitive('if'),
       $.expression,
       caseInsensitive('then'),
-      $.expression
+      $.statement
     ),
 
     _if_statement_block: $ => seq(
@@ -2792,7 +2792,7 @@ module.exports = grammar({
         $._if_statement_no_block,
       ),
       caseInsensitive('else'),
-      $.expression,
+      $.statement,
     ),
 
     _else_if: $ => prec.left(10, seq(
@@ -2800,10 +2800,10 @@ module.exports = grammar({
         $._if_statement_block,
         $._if_statement_no_block,
       ),
-      repeat1(seq(
+      repeat1(prec.left(20, seq(
         caseInsensitive('else'),
         choice($._if_statement_no_block, $._if_statement_block)
-      )))),
+      ))))),
 
 
     statement: $ => choice(
