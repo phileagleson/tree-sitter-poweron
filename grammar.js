@@ -758,6 +758,8 @@ module.exports = grammar({
         $.poweron_function,
         $.number,
         $.identifier,
+        $.date,
+        $.rate
       ),
     )),
 

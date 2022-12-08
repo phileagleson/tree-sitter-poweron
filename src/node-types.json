@@ -4021,6 +4021,10 @@
           "named": true
         },
         {
+          "type": "date",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -4030,6 +4034,10 @@
         },
         {
           "type": "poweron_function",
+          "named": true
+        },
+        {
+          "type": "rate",
           "named": true
         },
         {
