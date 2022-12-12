@@ -265,6 +265,7 @@ module.exports = grammar({
       caseInsensitive('repeatchr'),
       caseInsensitive('revise'),
       caseInsensitive('screenxypos'),
+      caseInsensitive('segment'),
       caseInsensitive('select'),
       caseInsensitive('set'),
       caseInsensitive('setwarning'),
@@ -2706,6 +2707,7 @@ module.exports = grammar({
     )),
 
     primary_expression: $ => prec.left(choice(
+      $.poweron_function,
       $.parenthesized_expression,
       $.keyword,
       $.identifier,
@@ -2714,7 +2716,6 @@ module.exports = grammar({
       $.date,
       $.rate,
       $.string_literal,
-      $.poweron_function
     )),
 
     for_statement: $ => choice(
