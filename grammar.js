@@ -797,7 +797,7 @@ module.exports = grammar({
   )),
 
 
-  special_keywords: $ => token(choice(
+  special_keywords: $ => choice(
    caseInsensitive('accountchange'),
    caseInsensitive('acs'),
    caseInsensitive('application'),
@@ -820,7 +820,7 @@ module.exports = grammar({
    caseInsensitive('validation'),
    caseInsensitive('windows'),
    caseInsensitive('windowsprint'),
-  )),
+  ),
 
   poweron_function: $ => choice(
    $.abs,

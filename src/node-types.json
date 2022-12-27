@@ -3928,6 +3928,11 @@
     }
   },
   {
+    "type": "special_keywords",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "stopblink",
     "named": true,
     "fields": {}
@@ -4526,10 +4531,6 @@
   },
   {
     "type": "record_type",
-    "named": true
-  },
-  {
-    "type": "special_keywords",
     "named": true
   },
   {
