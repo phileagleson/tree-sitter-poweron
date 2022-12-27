@@ -797,9 +797,10 @@ module.exports = grammar({
   )),
 
 
-  special_keywords: $ => choice(
+  special_keywords: $ => token(choice(
    caseInsensitive('accountchange'),
    caseInsensitive('acs'),
+   caseInsensitive('application'),
    caseInsensitive('atmdialog'),
    caseInsensitive('audio'),
    caseInsensitive('cardcreationwizard'),
@@ -819,7 +820,7 @@ module.exports = grammar({
    caseInsensitive('validation'),
    caseInsensitive('windows'),
    caseInsensitive('windowsprint'),
-  ),
+  )),
 
   poweron_function: $ => choice(
    $.abs,
@@ -947,6 +948,8 @@ module.exports = grammar({
    $.outputclose,
    $.outputopen,
    $.outputswitch,
+   $.overdrawavailableinit,
+   $.overdrawavailablecalc,
    $.passwordhash,
    $.popupmessage,
    $.print,
@@ -996,6 +999,10 @@ module.exports = grammar({
    $.expression,
    ')',
   ),
+
+  overdrawavailableinit: $ => caseInsensitive('overdrawavailableinit'),
+
+  overdrawavailablecalc: $ => caseInsensitive('overdrawavailablecalc'),
 
   systemdate: $ => caseInsensitive('systemdate'),
 

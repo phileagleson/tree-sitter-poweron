@@ -3339,6 +3339,14 @@
           "named": true
         },
         {
+          "type": "overdrawavailablecalc",
+          "named": true
+        },
+        {
+          "type": "overdrawavailableinit",
+          "named": true
+        },
+        {
           "type": "passwordhash",
           "named": true
         },
@@ -3918,11 +3926,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "special_keywords",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "stopblink",
@@ -4510,11 +4513,23 @@
     "named": false
   },
   {
+    "type": "overdrawavailablecalc",
+    "named": true
+  },
+  {
+    "type": "overdrawavailableinit",
+    "named": true
+  },
+  {
     "type": "rate",
     "named": true
   },
   {
     "type": "record_type",
+    "named": true
+  },
+  {
+    "type": "special_keywords",
     "named": true
   },
   {
