@@ -425,6 +425,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[dD][oO]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[eE][aA][cC][hH]"
           },
           {
@@ -442,6 +446,10 @@
           {
             "type": "PATTERN",
             "value": "[eE][mM][aA][iI][lL][sS][tT][aA][rR][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][nN][dD]"
           },
           {
             "type": "PATTERN",
@@ -6746,6 +6754,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "clearwarn"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "insertqueue"
                 }
               ]
             }
@@ -10499,7 +10511,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "statement"
         },
         {
           "type": "PATTERN",
@@ -10520,7 +10532,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "statement"
         },
         {
           "type": "PATTERN",
@@ -10563,52 +10575,72 @@
             ]
           },
           {
-            "type": "PATTERN",
-            "value": "[eE][lL][sS][eE]"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "start_block"
-          },
-          {
-            "type": "REPEAT",
+            "type": "REPEAT1",
             "content": {
-              "type": "SYMBOL",
-              "name": "statement"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[eE][lL][sS][eE]"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "start_block"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "statement"
+                  }
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "end_block"
+                }
+              ]
             }
-          },
-          {
-            "type": "SYMBOL",
-            "name": "end_block"
           }
         ]
       }
     },
     "if_else_no_block": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "if_statement_block"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "if_statement_no_block"
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "if_statement_block"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "if_statement_no_block"
+              }
+            ]
+          },
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[eE][lL][sS][eE]"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "statement"
+                }
+              ]
             }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "[eE][lL][sS][eE]"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "statement"
-        }
-      ]
+          }
+        ]
+      }
     },
     "else_if": {
       "type": "PREC_LEFT",
@@ -10642,17 +10674,8 @@
                     "value": "[eE][lL][sS][eE]"
                   },
                   {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "if_statement_no_block"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "if_statement_block"
-                      }
-                    ]
+                    "type": "SYMBOL",
+                    "name": "statement"
                   }
                 ]
               }

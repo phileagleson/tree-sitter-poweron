@@ -154,11 +154,13 @@ module.exports = grammar({
    caseInsensitive('dialogtextliststart'),
    caseInsensitive('dim'),
    caseInsensitive('divprojectinit'),
+   caseInsensitive('do'),
    caseInsensitive('each'),
    caseInsensitive('else'),
    caseInsensitive('emailline'),
    caseInsensitive('emailsend'),
    caseInsensitive('emailstart'),
+   caseInsensitive('end'),
    caseInsensitive('entercharacter'),
    caseInsensitive('entercode'),
    caseInsensitive('enterdate'),
@@ -1731,6 +1733,7 @@ module.exports = grammar({
     $.removequeue,
     $.setwarn,
     $.clearwarn,
+    $.insertqueue,
    )),
    $.end_block,
   )),
@@ -2771,14 +2774,14 @@ module.exports = grammar({
 
   if_statement_no_block: $ => seq(
    caseInsensitive('if'),
-   $.expression,
+   $.statement,
    caseInsensitive('then'),
    $.statement
   ),
 
   if_statement_block: $ => seq(
    caseInsensitive('if'),
-   $.expression,
+   $.statement,
    caseInsensitive('then'),
    $.start_block,
    repeat($.statement),
@@ -2790,20 +2793,25 @@ module.exports = grammar({
     $.if_statement_block,
     $.if_statement_no_block,
    ),
-   caseInsensitive('else'),
-   $.start_block,
-   repeat($.statement),
-   $.end_block,
+   repeat1(seq(
+    caseInsensitive('else'),
+    $.start_block,
+    repeat($.statement),
+    $.end_block,
+   ))
   )),
 
-  if_else_no_block: $ => seq(
+  if_else_no_block: $ => prec.left(seq(
    choice(
     $.if_statement_block,
     $.if_statement_no_block,
    ),
-   caseInsensitive('else'),
-   $.statement,
-  ),
+   repeat1(seq(
+    caseInsensitive('else'),
+    $.statement,
+   )
+   )
+  )),
 
   else_if: $ => prec.left(10, seq(
    choice(
@@ -2812,7 +2820,8 @@ module.exports = grammar({
    ),
    repeat1(prec.left(20, seq(
     caseInsensitive('else'),
-    choice($.if_statement_no_block, $.if_statement_block)
+    $.statement
+    // choice($.if_statement_no_block, $.if_statement_block)
    ))))),
 
 
