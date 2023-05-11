@@ -39,13 +39,16 @@ module.exports = grammar({
    'logical_and',
    'logical_or',
   ],
+  ['define', $.define_statement],
   ['assign', $.primary_expression],
-  ['declaration', $.define_statement],
  ],
 
 
  rules: {
-  source_file: $ => seq(
+  source_file: $ =>
+  choice(
+  repeat($.define_statement),
+  seq(
    repeat($.special_keywords),
    optional($.target_division),
    optional(
@@ -59,9 +62,8 @@ module.exports = grammar({
     $.total_division,
    ),
    repeat($.statement,),
-  ),
+  )),
 
-  dummy_rule: $ => /\w+/,
   word: $ => choice(
    $._ops,
    $.keyword,
@@ -330,10 +332,10 @@ module.exports = grammar({
   start_block: $ => caseInsensitive('do'),
   end_block: $ => caseInsensitive('end'),
 
-  define_statement: $ => choice(
+  define_statement: $ => prec.left('define',choice(
    $.include_statement,
    $.variable_declaration,
-  ),
+  )),
 
   setup_division: $ => seq(
    caseInsensitive('setup'),
@@ -355,7 +357,6 @@ module.exports = grammar({
 
   letter_division: $ => seq(
    caseInsensitive('letter title'),
-   '=',
    '=',
    $.expression,
    /\n/,

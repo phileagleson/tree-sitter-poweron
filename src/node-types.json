@@ -3902,6 +3902,10 @@
           "named": true
         },
         {
+          "type": "define_statement",
+          "named": true
+        },
+        {
           "type": "letter_division",
           "named": true
         },

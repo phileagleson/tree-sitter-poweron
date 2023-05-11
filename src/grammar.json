@@ -2,87 +2,95 @@
   "name": "poweron",
   "rules": {
     "source_file": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "special_keywords"
+            "name": "define_statement"
           }
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "target_division"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
               "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
-                "name": "_optional_divisions"
+                "name": "special_keywords"
               }
             },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
             {
               "type": "CHOICE",
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "print_division"
+                  "name": "target_division"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "letter_division"
+                  "type": "BLANK"
                 }
               ]
             },
             {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "total_division"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_optional_divisions"
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             },
             {
-              "type": "BLANK"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "print_division"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "letter_division"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "total_division"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "statement"
+              }
             }
           ]
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "statement"
-          }
         }
       ]
-    },
-    "dummy_rule": {
-      "type": "PATTERN",
-      "value": "\\w+"
     },
     "word": {
       "type": "CHOICE",
@@ -1117,17 +1125,21 @@
       "value": "[eE][nN][dD]"
     },
     "define_statement": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "include_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "variable_declaration"
-        }
-      ]
+      "type": "PREC_LEFT",
+      "value": "define",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "include_statement"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "variable_declaration"
+          }
+        ]
+      }
     },
     "setup_division": {
       "type": "SEQ",
@@ -1195,10 +1207,6 @@
         {
           "type": "PATTERN",
           "value": "[lL][eE][tT][tT][eE][rR][  ][tT][iI][tT][lL][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "="
         },
         {
           "type": "STRING",
@@ -11009,21 +11017,21 @@
     [
       {
         "type": "STRING",
-        "value": "assign"
+        "value": "define"
       },
       {
         "type": "SYMBOL",
-        "name": "primary_expression"
+        "name": "define_statement"
       }
     ],
     [
       {
         "type": "STRING",
-        "value": "declaration"
+        "value": "assign"
       },
       {
         "type": "SYMBOL",
-        "name": "define_statement"
+        "name": "primary_expression"
       }
     ]
   ],
