@@ -3079,6 +3079,10 @@
               {
                 "type": "SYMBOL",
                 "name": "rate"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "at_keywords"
               }
             ]
           }

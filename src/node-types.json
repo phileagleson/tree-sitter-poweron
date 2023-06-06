@@ -4166,6 +4166,10 @@
           "named": true
         },
         {
+          "type": "at_keywords",
+          "named": true
+        },
+        {
           "type": "data_type",
           "named": true
         },
