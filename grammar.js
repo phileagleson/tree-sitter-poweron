@@ -1094,6 +1094,10 @@ module.exports = grammar({
    caseInsensitive('yesnoread'),
    '(',
    $.expression,
+   repeat(seq(
+    ',',
+    $.expression
+   )),
    ')',
   ),
 
@@ -1268,6 +1272,10 @@ module.exports = grammar({
    caseInsensitive('rateread'),
    '(',
    $.expression,
+   repeat(seq(
+    ',',
+    $.expression
+   )),
    ')',
   ),
 
@@ -1357,6 +1365,10 @@ module.exports = grammar({
    caseInsensitive('numberread'),
    '(',
    $.expression,
+   repeat(seq(
+    ',',
+    $.expression
+   )),
    ')',
   ),
 
@@ -1378,6 +1390,10 @@ module.exports = grammar({
    caseInsensitive('moneyread'),
    '(',
    $.expression,
+   repeat(seq(
+    ',',
+    $.expression
+   )),
    ')',
   ),
 
@@ -2411,6 +2427,10 @@ module.exports = grammar({
    caseInsensitive("dateread"),
    '(',
    $.expression,
+   repeat(seq(
+    ',',
+    $.expression
+   )),
    ')'
   ),
 
@@ -2479,6 +2499,10 @@ module.exports = grammar({
    caseInsensitive("coderead"),
    '(',
    $.expression,
+   repeat(seq(
+    ',',
+    $.expression
+   )),
    ')'
   ),
 
