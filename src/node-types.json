@@ -1655,6 +1655,10 @@
         {
           "type": "statement",
           "named": true
+        },
+        {
+          "type": "until_expression",
+          "named": true
         }
       ]
     }
@@ -4103,6 +4107,21 @@
         },
         {
           "type": "tran_code",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "until_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
           "named": true
         }
       ]
