@@ -288,6 +288,7 @@ module.exports = grammar({
       caseInsensitive('total'),
       caseInsensitive('trailers'),
       caseInsensitive('tranperform'),
+      caseInsensitive('until'),
       caseInsensitive('uppercase'),
       caseInsensitive('validatefieldset'),
       caseInsensitive('value'),

@@ -961,6 +961,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[uU][nN][tT][iI][lL]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[uU][pP][pP][eE][rR][cC][aA][sS][eE]"
           },
           {
