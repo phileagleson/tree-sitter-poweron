@@ -3082,6 +3082,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "money"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "rate"
               },
               {

@@ -764,6 +764,7 @@ module.exports = grammar({
         $.number,
         $.identifier,
         $.date,
+        $.money,
         $.rate,
         $.at_keywords
       ),
