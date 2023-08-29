@@ -142,6 +142,9 @@ module.exports = grammar({
       caseInsensitive('dialogpromptcode'),
       caseInsensitive('dialogpromptcombooption'),
       caseInsensitive('dialogpromptcombostart'),
+      caseInsensitive('dialogclose'),
+      caseInsensitive('dialogdisplay'),
+      caseInsensitive('dialogpromptcomboend'),
       caseInsensitive('dialogpromptdate'),
       caseInsensitive('dialogpromptlistoption'),
       caseInsensitive('dialogpromptliststart'),
@@ -852,6 +855,9 @@ module.exports = grammar({
       $.dialogpromptcode,
       $.dialogpromptcombooption,
       $.dialogpromptcombostart,
+      $.dialogpromptcomboend,
+      $.dialogclose,
+      $.dialogdisplay,
       $.dialogpromptdate,
       $.dialogpromptlistoption,
       $.dialogpromptliststart,
@@ -1790,7 +1796,7 @@ module.exports = grammar({
         ),
         optional(
           choice(
-            alias($._identifier, $.identifier),
+            prec.right(1000, $.identifier),
             $.string_literal,
             $.number,
             $.keyword,
@@ -2366,6 +2372,11 @@ module.exports = grammar({
       ),
       ')',
     ),
+
+    dialogpromptcomboend: $ => caseInsensitive("dialogpromptcomboend"),
+    dialogclose: $ => caseInsensitive("dialogclose"),
+    dialogdisplay: $ => caseInsensitive("dialogdisplay"),
+      
 
 
 
