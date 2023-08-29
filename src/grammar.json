@@ -377,6 +377,18 @@
           },
           {
             "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][cC][lL][oO][sS][eE]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][dD][iI][sS][pP][lL][aA][yY]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][eE][nN][dD]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][dD][aA][tT][eE]"
           },
           {
@@ -3394,6 +3406,18 @@
         {
           "type": "SYMBOL",
           "name": "dialogpromptcombostart"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogpromptcomboend"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogclose"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dialogdisplay"
         },
         {
           "type": "SYMBOL",
@@ -6988,13 +7012,12 @@
                       "type": "CHOICE",
                       "members": [
                         {
-                          "type": "ALIAS",
+                          "type": "PREC_RIGHT",
+                          "value": 1000,
                           "content": {
                             "type": "SYMBOL",
-                            "name": "_identifier"
-                          },
-                          "named": true,
-                          "value": "identifier"
+                            "name": "identifier"
+                          }
                         },
                         {
                           "type": "SYMBOL",
@@ -8927,6 +8950,18 @@
           "value": ")"
         }
       ]
+    },
+    "dialogpromptcomboend": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][eE][nN][dD]"
+    },
+    "dialogclose": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][cC][lL][oO][sS][eE]"
+    },
+    "dialogdisplay": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][dD][iI][sS][pP][lL][aA][yY]"
     },
     "dialogpromptcombooption": {
       "type": "SEQ",
