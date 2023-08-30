@@ -7012,12 +7012,13 @@
                       "type": "CHOICE",
                       "members": [
                         {
-                          "type": "PREC_RIGHT",
-                          "value": 1000,
+                          "type": "ALIAS",
                           "content": {
                             "type": "SYMBOL",
-                            "name": "identifier"
-                          }
+                            "name": "_identifier"
+                          },
+                          "named": true,
+                          "value": "identifier"
                         },
                         {
                           "type": "SYMBOL",
@@ -10757,28 +10758,32 @@
           {
             "type": "REPEAT1",
             "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[eE][lL][sS][eE]"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "start_block"
-                },
-                {
-                  "type": "REPEAT",
-                  "content": {
+              "type": "PREC_RIGHT",
+              "value": 30,
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "PATTERN",
+                    "value": "[eE][lL][sS][eE]"
+                  },
+                  {
                     "type": "SYMBOL",
-                    "name": "statement"
+                    "name": "start_block"
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "statement"
+                    }
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "end_block"
                   }
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "end_block"
-                }
-              ]
+                ]
+              }
             }
           }
         ]
@@ -10806,17 +10811,21 @@
           {
             "type": "REPEAT1",
             "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[eE][lL][sS][eE]"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "statement"
-                }
-              ]
+              "type": "PREC_RIGHT",
+              "value": 30,
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "PATTERN",
+                    "value": "[eE][lL][sS][eE]"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "statement"
+                  }
+                ]
+              }
             }
           }
         ]

@@ -1796,7 +1796,7 @@ module.exports = grammar({
         ),
         optional(
           choice(
-            prec.right(1000, $.identifier),
+            alias($._identifier, $.identifier),
             $.string_literal,
             $.number,
             $.keyword,
@@ -2800,7 +2800,6 @@ module.exports = grammar({
       )
     ),
 
-
     while_statement: $ => seq(
       caseInsensitive('while'),
       field('condition', $.expression),
@@ -2838,12 +2837,13 @@ module.exports = grammar({
         $.if_statement_block,
         $.if_statement_no_block,
       ),
-      repeat1(seq(
+
+      repeat1(prec.right(30,seq(
         caseInsensitive('else'),
         $.start_block,
         repeat($.statement),
         $.end_block,
-      ))
+      )))
     )),
 
     if_else_no_block: $ => prec.left(seq(
@@ -2851,11 +2851,11 @@ module.exports = grammar({
         $.if_statement_block,
         $.if_statement_no_block,
       ),
-      repeat1(seq(
+
+      repeat1(prec.right(30,seq(
         caseInsensitive('else'),
         $.statement,
-      )
-      )
+      )))
     )),
 
     else_if: $ => prec.left(10, seq(
@@ -2866,9 +2866,7 @@ module.exports = grammar({
       repeat1(prec.left(20, seq(
         caseInsensitive('else'),
         $.statement
-        // choice($.if_statement_no_block, $.if_statement_block)
       ))))),
-
 
     statement: $ => choice(
       $.expression,
