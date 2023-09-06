@@ -3921,6 +3921,11 @@
     }
   },
   {
+    "type": "source_code",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -4126,6 +4131,10 @@
         },
         {
           "type": "setexp",
+          "named": true
+        },
+        {
+          "type": "source_code",
           "named": true
         },
         {
@@ -4482,6 +4491,46 @@
     "named": false
   },
   {
+    "type": "0",
+    "named": false
+  },
+  {
+    "type": "1",
+    "named": false
+  },
+  {
+    "type": "2",
+    "named": false
+  },
+  {
+    "type": "3",
+    "named": false
+  },
+  {
+    "type": "4",
+    "named": false
+  },
+  {
+    "type": "5",
+    "named": false
+  },
+  {
+    "type": "6",
+    "named": false
+  },
+  {
+    "type": "7",
+    "named": false
+  },
+  {
+    "type": "8",
+    "named": false
+  },
+  {
+    "type": "9",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -4522,6 +4571,10 @@
     "named": false
   },
   {
+    "type": "B",
+    "named": false
+  },
+  {
     "type": "C",
     "named": false
   },
@@ -4530,7 +4583,31 @@
     "named": false
   },
   {
+    "type": "E",
+    "named": false
+  },
+  {
+    "type": "F",
+    "named": false
+  },
+  {
+    "type": "G",
+    "named": false
+  },
+  {
     "type": "GL",
+    "named": false
+  },
+  {
+    "type": "H",
+    "named": false
+  },
+  {
+    "type": "I",
+    "named": false
+  },
+  {
+    "type": "K",
     "named": false
   },
   {
@@ -4542,6 +4619,10 @@
     "named": false
   },
   {
+    "type": "O",
+    "named": false
+  },
+  {
     "type": "OR",
     "named": false
   },
@@ -4550,7 +4631,23 @@
     "named": false
   },
   {
+    "type": "R",
+    "named": false
+  },
+  {
+    "type": "S",
+    "named": false
+  },
+  {
+    "type": "V",
+    "named": false
+  },
+  {
     "type": "W",
+    "named": false
+  },
+  {
+    "type": "X",
     "named": false
   },
   {

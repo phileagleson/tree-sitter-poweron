@@ -92,6 +92,37 @@ module.exports = grammar({
       'KS',
       'XF',
     ),
+
+    source_code: $ => choice(
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+      'F',
+      'G',
+      'H',
+      'I',
+      'K',
+      'N',
+      'O',
+      'P',
+      'R',
+      'S',
+      'V',
+      'X',
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+    ),
+
     _print_keywords: $ => choice(
       caseInsensitive('reportcategory'),
       caseInsensitive('datafile'),
@@ -1211,6 +1242,9 @@ module.exports = grammar({
     tranperform: $ => seq(
       caseInsensitive('tranperform'),
       $.tran_code,
+      optional(
+        $.source_code,
+      ),
       '(',
       $.expression,
       ',',
@@ -2330,8 +2364,12 @@ module.exports = grammar({
       caseInsensitive("dialogpromptlistoption"),
       '(',
       $.expression,
-      ',',
-      $.expression,
+      optional(
+        seq(
+          ',',
+          $.expression
+        ),
+      ),
       optional(
         seq(
           ',',
@@ -2345,8 +2383,12 @@ module.exports = grammar({
       caseInsensitive("dialogpromptdate"),
       '(',
       $.expression,
-      ',',
-      $.expression,
+      optional(
+        seq(
+          ',',
+          $.expression
+        ),
+      ),
       optional(
         seq(
           ',',
@@ -2362,8 +2404,12 @@ module.exports = grammar({
       caseInsensitive("dialogpromptcombostart"),
       '(',
       $.expression,
-      ',',
-      $.expression,
+      optional(
+        seq(
+          ',',
+          $.expression
+        ),
+      ),
       optional(
         seq(
           ',',
@@ -2384,8 +2430,12 @@ module.exports = grammar({
       caseInsensitive("dialogpromptcombooption"),
       '(',
       $.expression,
-      ',',
-      $.expression,
+      optional(
+        seq(
+          ',',
+          $.expression
+        ),
+      ),
       optional(
         seq(
           ',',
@@ -2400,8 +2450,12 @@ module.exports = grammar({
       caseInsensitive("dialogpromptcode"),
       '(',
       $.expression,
-      ',',
-      $.expression,
+      optional(
+        seq(
+          ',',
+          $.expression
+        ),
+      ),
       optional(
         seq(
           ',',
@@ -2416,8 +2470,12 @@ module.exports = grammar({
       caseInsensitive("dialogpromptchar"),
       '(',
       $.expression,
-      ',',
-      $.expression,
+      optional(
+        seq(
+          ',',
+          $.expression
+        )
+      ),
       optional(
         seq(
           ',',
@@ -2831,6 +2889,7 @@ module.exports = grammar({
       repeat($.statement),
       $.end_block,
     ),
+
 
     if_else_block: $ => prec(10, seq(
       choice(
