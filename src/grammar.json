@@ -926,6 +926,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[nN][oO][tT]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[nN][uU][mM][bB][eE][rR]"
           },
           {
@@ -10898,6 +10902,18 @@
           "value": "[iI][fF]"
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[nN][oO][tT]"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "statement"
         },
@@ -10917,6 +10933,18 @@
         {
           "type": "PATTERN",
           "value": "[iI][fF]"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[nN][oO][tT]"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

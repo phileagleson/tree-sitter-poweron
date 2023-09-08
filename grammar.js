@@ -282,6 +282,7 @@ module.exports = grammar({
       caseInsensitive('moneyread'),
       caseInsensitive('month'),
       caseInsensitive('newline'),
+      caseInsensitive('not'),
       caseInsensitive('number'),
       caseInsensitive('numberread'),
       caseInsensitive('or'),
@@ -2877,6 +2878,9 @@ module.exports = grammar({
 
     if_statement_no_block: $ => seq(
       caseInsensitive('if'),
+      optional(
+        caseInsensitive('not')
+      ),
       $.statement,
       caseInsensitive('then'),
       $.statement
@@ -2884,6 +2888,9 @@ module.exports = grammar({
 
     if_statement_block: $ => seq(
       caseInsensitive('if'),
+      optional(
+        caseInsensitive('not')
+      ),
       $.statement,
       caseInsensitive('then'),
       $.start_block,
