@@ -7007,6 +7007,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "include_statement"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "removequeue"
                 },
                 {

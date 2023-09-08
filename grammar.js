@@ -1796,6 +1796,7 @@ module.exports = grammar({
       $.start_block,
       repeat(choice(
         $.setexp,
+        $.include_statement,
         $.removequeue,
         $.setwarn,
         $.clearwarn,
