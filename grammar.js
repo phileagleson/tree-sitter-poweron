@@ -316,6 +316,7 @@ module.exports = grammar({
       caseInsensitive('symconnect'),
       caseInsensitive('systemdate'),
       caseInsensitive('sysusername'),
+      caseInsensitive('sysusernumber'),
       caseInsensitive('terminate'),
       caseInsensitive('then'),
       caseInsensitive('title'),
@@ -1010,6 +1011,7 @@ module.exports = grammar({
       $.suppressnewline,
       $.systemdate,
       $.sysusername,
+      $.sysusernumber,
       $.terminate,
       $.totalfn,
       $.trailers,
@@ -1280,6 +1282,8 @@ module.exports = grammar({
       $.expression,
       ')',
     ),
+
+    sysusernumber: $ => caseInsensitive('sysusernumber'),
 
     suppressnewline: $ => caseInsensitive('suppressnewline'),
 

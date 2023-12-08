@@ -3459,6 +3459,10 @@
           "named": true
         },
         {
+          "type": "sysusernumber",
+          "named": true
+        },
+        {
           "type": "terminate",
           "named": true
         },
@@ -4038,6 +4042,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "sysusernumber",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "target_division",

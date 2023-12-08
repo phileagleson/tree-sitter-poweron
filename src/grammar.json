@@ -1062,6 +1062,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[sS][yY][sS][uU][sS][eE][rR][nN][uU][mM][bB][eE][rR]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[tT][eE][rR][mM][iI][nN][aA][tT][eE]"
           },
           {
@@ -4018,6 +4022,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "sysusernumber"
+        },
+        {
+          "type": "SYMBOL",
           "name": "terminate"
         },
         {
@@ -4927,6 +4935,10 @@
           "value": ")"
         }
       ]
+    },
+    "sysusernumber": {
+      "type": "PATTERN",
+      "value": "[sS][yY][sS][uU][sS][eE][rR][nN][uU][mM][bB][eE][rR]"
     },
     "suppressnewline": {
       "type": "PATTERN",
