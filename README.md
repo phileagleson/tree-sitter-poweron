@@ -1,4 +1,4 @@
-# @phileagleson/treesitter-poweron
+# @dtvillafana/treesitter-poweron
 
 ## About this project   
 
