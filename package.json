@@ -1,6 +1,6 @@
 {
-    "tree-sitter": [ 
-        { 
+    "tree-sitter": [
+        {
             "scope": "source.poweron",
             "external-files": [
                 "src/scanner.cc",
@@ -9,7 +9,8 @@
             "file-types": [
                 "poweron",
                 "po"
-            ]
+            ],
+            "highlights": "queries/highlights.scm"
         }
     ],
     "name": "tree-sitter-poweron",
