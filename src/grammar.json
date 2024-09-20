@@ -97,10 +97,6 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ops"
-        },
-        {
-          "type": "SYMBOL",
           "name": "keyword"
         },
         {
@@ -114,15 +110,6 @@
         {
           "type": "SYMBOL",
           "name": "start_block"
-        }
-      ]
-    },
-    "_ops": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "="
         }
       ]
     },
@@ -4267,13 +4254,8 @@
       ]
     },
     "hpreset": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][rR][eE][sS][eE][tT]"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "[hH][pP][rR][eE][sS][eE][tT]"
     },
     "hplinesperinch": {
       "type": "SEQ",
@@ -5215,13 +5197,8 @@
       ]
     },
     "pullcreditreport": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[pP][uU][lL][lL][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "[pP][uU][lL][lL][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
     },
     "print": {
       "type": "PREC_LEFT",
