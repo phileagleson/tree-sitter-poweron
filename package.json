@@ -1,52 +1,54 @@
 {
-    "tree-sitter": [
-        {
-            "scope": "source.poweron",
-            "external-files": [
-                "src/scanner.cc",
-                "src/parser.h"
-            ],
-            "file-types": [
-                "poweron",
-                "po"
-            ],
-            "highlights": "queries/highlights.scm"
-        }
-    ],
-    "name": "tree-sitter-poweron",
-    "version": "1.0.12",
-    "description": "",
-    "main": "bindings/node",
-    "types": "bindings/node",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "install": "node-gyp-build",
-        "prebuildify": "prebuildify --napi --strip"
-    },
-    "author": "Phil Eagleson <phileagleson@icloud.com>",
-    "license": "MIT",
-    "dependencies": {
-        "node-addon-api": "^7.1.0",
-        "node-gyp-build": "^4.8.0"
-    },
-    "peerDependencies": {
-        "tree-sitter": "^0.21.0"
-    },
-    "peerDependenciesMeta": {
-        "tree_sitter": {
-            "optional": true
-        }
-    },
-    "devDependencies": {
-        "tree-sitter-cli": "^0.19.1",
-        "prebuildify": "^6.0.0"
-    },
-    "files": [
-        "grammar.js",
-        "binding.gyp",
-        "prebuilds/**",
-        "bindings/node/*",
-        "queries/*",
-        "src/**"
-    ]
+  "tree-sitter": [
+    {
+      "scope": "source.poweron",
+      "external-files": [
+        "src/scanner.cc",
+        "src/parser.h"
+      ],
+      "file-types": [
+        "poweron",
+        "po"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "name": "tree-sitter-poweron",
+  "version": "1.0.12",
+  "description": "",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "scripts": {
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
+  },
+  "author": "Phil Eagleson <phileagleson1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "g": "^2.0.1",
+    "node-addon-api": "^8.1.0",
+    "node-gyp-build": "^4.8.2"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.23.0"
+  },
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ]
 }
