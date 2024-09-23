@@ -1880,10 +1880,6 @@ module.exports = grammar({
       caseInsensitive('floor'),
       '(',
       $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
       ')',
     ),
 
