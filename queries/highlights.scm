@@ -1,5 +1,3 @@
-; highlights.scm
-
 (comment) @comment
 (keyword) @keyword
 (target_division) @function.builtin
