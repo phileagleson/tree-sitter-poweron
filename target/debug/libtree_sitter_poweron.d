@@ -1,1 +1,0 @@
-/Users/phil/projects/tree-sitter-poweron/target/debug/libtree_sitter_poweron.rlib: /Users/phil/projects/tree-sitter-poweron/bindings/rust/build.rs /Users/phil/projects/tree-sitter-poweron/bindings/rust/lib.rs /Users/phil/projects/tree-sitter-poweron/src/node-types.json /Users/phil/projects/tree-sitter-poweron/src/parser.c
