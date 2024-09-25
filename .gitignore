@@ -2,3 +2,7 @@ node_modules/
 build/
 parser.c
 pols.log
+target/
+.ccls-cache
+.editorconfig
+
