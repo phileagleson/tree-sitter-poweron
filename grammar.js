@@ -197,6 +197,7 @@ module.exports = grammar({
       caseInsensitive('entercharacter'),
       caseInsensitive('entercode'),
       caseInsensitive('enterdate'),
+      caseInsensitive('enterline'),
       caseInsensitive('entermoney'),
       caseInsensitive('enternumber'),
       caseInsensitive('enterrate'),
@@ -921,6 +922,7 @@ module.exports = grammar({
       $.entercharacter,
       $.entercode,
       $.enterdate,
+      $.enterline,
       $.entermoney,
       $.enterrate,
       $.enteryesno,
@@ -2184,6 +2186,13 @@ module.exports = grammar({
         $.expression,
       )),
       ')',
+    ),
+
+    enterline: $ => seq(
+    caseInsensitive("enterline"),
+    '(',
+      $.expression,
+    ')',
     ),
 
     enterdate: $ => seq(

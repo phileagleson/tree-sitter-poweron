@@ -1118,6 +1118,21 @@
     }
   },
   {
+    "type": "enterline",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "entermoney",
     "named": true,
     "fields": {},
@@ -3063,6 +3078,10 @@
           "named": true
         },
         {
+          "type": "enterline",
+          "named": true
+        },
+        {
           "type": "entermoney",
           "named": true
         },
@@ -3936,6 +3955,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,

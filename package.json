@@ -1,17 +1,11 @@
 {
-  "tree-sitter": [
-    {
-      "scope": "source.poweron",
-      "external-files": [
-        "src/scanner.cc",
-        "src/parser.h"
-      ],
-      "file-types": [
-        "poweron",
-        "po"
-      ],
-      "highlights": "queries/highlights.scm"
-    }
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
   ],
   "name": "tree-sitter-poweron",
   "version": "1.0.12",
@@ -42,13 +36,5 @@
   "devDependencies": {
     "prebuildify": "^6.0.1",
     "tree-sitter-cli": "^0.23.0"
-  },
-  "files": [
-    "grammar.js",
-    "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**"
-  ]
+  }
 }
