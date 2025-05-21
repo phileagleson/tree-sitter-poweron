@@ -205,11 +205,7 @@
       "required": true,
       "types": [
         {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "record_type",
+          "type": "expression",
           "named": true
         }
       ]
@@ -715,6 +711,21 @@
     "type": "dialogdisplay",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "dialogintrotext",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "dialogpromptchar",
@@ -2059,7 +2070,7 @@
     }
   },
   {
-    "type": "headers",
+    "type": "header_block",
     "named": true,
     "fields": {},
     "children": {
@@ -2071,7 +2082,7 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "statement",
           "named": true
         }
       ]
@@ -2978,6 +2989,10 @@
           "named": true
         },
         {
+          "type": "dialogintrotext",
+          "named": true
+        },
+        {
           "type": "dialogpromptchar",
           "named": true
         },
@@ -3263,10 +3278,6 @@
         },
         {
           "type": "header",
-          "named": true
-        },
-        {
-          "type": "headers",
           "named": true
         },
         {
@@ -3581,6 +3592,10 @@
       "types": [
         {
           "type": "end_block",
+          "named": true
+        },
+        {
+          "type": "header_block",
           "named": true
         },
         {

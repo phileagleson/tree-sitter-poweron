@@ -168,6 +168,7 @@ module.exports = grammar({
       caseInsensitive('demand'),
       caseInsensitive('dialogclose'),
       caseInsensitive('dialogdisplay'),
+      caseInsensitive('dialogintrotext'),
       caseInsensitive('dialogpromptchar'),
       caseInsensitive('dialogpromptcode'),
       caseInsensitive('dialogpromptcomboend'),
@@ -413,12 +414,14 @@ module.exports = grammar({
       $.expression,
       repeat($.printkeywords),
       /\n/,
+      optional($.header_block),
       repeat($.statement),
       $.end_block,
     )),
 
     total_division: $ => seq(
       caseInsensitive('total'),
+      /\n/,
       repeat($.statement),
       $.end_block,
     ),
@@ -747,7 +750,7 @@ module.exports = grammar({
         seq(decimal_integer_literal, '.', optional(decimal_digits), optional(exponent_part)),
         seq('.', decimal_digits, optional(exponent_part)),
         seq(decimal_integer_literal, exponent_part),
-        seq(decimal_digits),
+        decimal_digits,
       )
 
       return token(choice(
@@ -902,6 +905,7 @@ module.exports = grammar({
       $.dialogpromptcomboend,
       $.dialogclose,
       $.dialogdisplay,
+      $.dialogintrotext,
       $.dialogpromptdate,
       $.dialogpromptlistoption,
       $.dialogpromptliststart,
@@ -970,7 +974,6 @@ module.exports = grammar({
       $.getfieldname,
       $.getfieldnumber,
       $.header,
-      $.headers,
       $.hour,
       $.hpboxdraw,
       $.hpesc,
@@ -1535,11 +1538,11 @@ module.exports = grammar({
       ')',
     ),
 
-    headers: $ => seq(
+    header_block: $ => prec(100,seq(
       caseInsensitive('headers'),
-      repeat($.expression),
+      repeat($.statement),
       $.end_block,
-    ),
+    )),
 
     header: $ => prec.left(seq(
       caseInsensitive('header'),
@@ -2315,6 +2318,13 @@ module.exports = grammar({
       ')',
     ),
 
+    dialogintrotext: $ => seq(
+      caseInsensitive("dialogintrotext"),
+      '(',
+      $.expression,
+      ')',
+    ),
+
     dialogpromptyesno: $ => seq(
       caseInsensitive("dialogpromptyesno"),
       '(',
@@ -2600,19 +2610,6 @@ module.exports = grammar({
       ')'
     ),
 
-    /* col: $ => prec.right(seq(
-    caseInsensitive("col"),
-    /[=]{1}/,
-    choice(
-      $.number,
-      $.identifier,
-      $.expression,
-      /[0-9]{3}/,
-    ),
-    /\s/,
-    $.expression
-  )), */
-
     copyapp: $ => seq(
       caseInsensitive("copyapp"),
       '(',
@@ -2679,7 +2676,7 @@ module.exports = grammar({
       '(',
       $.record_type,
       ',',
-      $.number,
+      $.expression,
       ')'
     ),
 
