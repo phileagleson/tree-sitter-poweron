@@ -119,12 +119,16 @@ module.exports = grammar({
     _print_keywords: $ => choice(
       caseInsensitive('reportcategory'),
       caseInsensitive('datafile'),
+      caseInsensitive('across'),
+      caseInsensitive('ebcdic'),
       caseInsensitive('recordsize'),
       caseInsensitive('blocksize'),
       caseInsensitive('labels'),
       caseInsensitive('width'),
       caseInsensitive('formlength'),
     ),
+
+    with_keyword: $ => caseInsensitive('with'),
 
     keyword: $ => prec(-1, choice(
       $.at_keywords,
@@ -336,6 +340,7 @@ module.exports = grammar({
       caseInsensitive('while'),
       caseInsensitive('whilelimit'),
       caseInsensitive('width'),
+      caseInsensitive('across'),
       caseInsensitive('winddeconnect'),
       caseInsensitive('winddeexecute'),
       caseInsensitive('winddepokedata'),
@@ -345,7 +350,7 @@ module.exports = grammar({
       caseInsensitive('windowssend'),
       caseInsensitive('winmessagefield'),
       caseInsensitive('winmessagestart'),
-      caseInsensitive('with'),
+      $.with_keyword,
       caseInsensitive('year'),
       caseInsensitive('yesnoprompt'),
       caseInsensitive('yesnoread'),
@@ -430,16 +435,19 @@ module.exports = grammar({
       (
         $.reportcategory,
         $.datafile,
+        $.across,
         $.recordsize,
         $.blocksize,
         $.labels,
         $.width,
         $.formlength,
         $.ascii,
+        $.ebcdic,
       )
     ),
 
     ascii: $ => caseInsensitive('ascii'),
+    ebcdic: $ => caseInsensitive('ebcdic'),
 
     reportcategory: $ => seq(
       caseInsensitive('reportcategory'),
@@ -447,8 +455,10 @@ module.exports = grammar({
       $.expression
     ),
 
-    datafile: $ => seq(
-      caseInsensitive('datafile'),
+    datafile: $ => caseInsensitive('datafile'),
+
+    across: $ => seq(
+      caseInsensitive('across'),
       optional(seq(
         /[=]/,
         $.expression
@@ -471,13 +481,7 @@ module.exports = grammar({
       ))
     ),
 
-    labels: $ => seq(
-      caseInsensitive('labels'),
-      optional(seq(
-        /[=]/,
-        $.expression
-      ))
-    ),
+    labels: $ => caseInsensitive('labels'),
 
     width: $ => seq(
       caseInsensitive('width'),
@@ -1749,7 +1753,7 @@ module.exports = grammar({
     forrecordwith: $ => seq(
       caseInsensitive('for'),
       $.record_type,
-      caseInsensitive('with'),
+      $.with_keyword,
       $.expression,
       $.expression,
       $.start_block,
@@ -1786,7 +1790,7 @@ module.exports = grammar({
       repeat1($.record_type),
       optional(
         seq(
-          caseInsensitive('with'),
+          $.with_keyword,
           $.expression
         )
       ),
@@ -2963,7 +2967,7 @@ module.exports = grammar({
         $.poweron_function,
         $.record_type,
       ),
-      caseInsensitive('with'),
+      $.with_keyword,
       $.expression,
     )),
 
@@ -2981,7 +2985,7 @@ module.exports = grammar({
         $.poweron_function,
         $.record_type,
       ),
-      caseInsensitive('with'),
+      $.with_keyword,
       $.expression,
     )),
 
@@ -3000,7 +3004,7 @@ module.exports = grammar({
         $.poweron_function,
         $.record_type,
       ),
-      caseInsensitive('with'),
+      $.with_keyword,
       $.expression,
     )),
 

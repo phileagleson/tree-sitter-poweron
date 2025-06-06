@@ -294,6 +294,14 @@
         },
         {
           "type": "PATTERN",
+          "value": "[aA][cC][rR][oO][sS][sS]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[eE][bB][cC][dD][iI][cC]"
+        },
+        {
+          "type": "PATTERN",
           "value": "[rR][eE][cC][oO][rR][dD][sS][iI][zZ][eE]"
         },
         {
@@ -313,6 +321,10 @@
           "value": "[fF][oO][rR][mM][lL][eE][nN][gG][tT][hH]"
         }
       ]
+    },
+    "with_keyword": {
+      "type": "PATTERN",
+      "value": "[wW][iI][tT][hH]"
     },
     "keyword": {
       "type": "PREC",
@@ -1158,6 +1170,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[aA][cC][rR][oO][sS][sS]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[wW][iI][nN][dD][dD][eE][cC][oO][nN][nN][eE][cC][tT]"
           },
           {
@@ -1193,8 +1209,8 @@
             "value": "[wW][iI][nN][mM][eE][sS][sS][aA][gG][eE][sS][tT][aA][rR][tT]"
           },
           {
-            "type": "PATTERN",
-            "value": "[wW][iI][tT][hH]"
+            "type": "SYMBOL",
+            "name": "with_keyword"
           },
           {
             "type": "PATTERN",
@@ -1506,6 +1522,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "across"
+        },
+        {
+          "type": "SYMBOL",
           "name": "recordsize"
         },
         {
@@ -1527,12 +1547,20 @@
         {
           "type": "SYMBOL",
           "name": "ascii"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ebcdic"
         }
       ]
     },
     "ascii": {
       "type": "PATTERN",
       "value": "[aA][sS][cC][iI][iI]"
+    },
+    "ebcdic": {
+      "type": "PATTERN",
+      "value": "[eE][bB][cC][dD][iI][cC]"
     },
     "reportcategory": {
       "type": "SEQ",
@@ -1552,11 +1580,15 @@
       ]
     },
     "datafile": {
+      "type": "PATTERN",
+      "value": "[dD][aA][tT][aA][fF][iI][lL][eE]"
+    },
+    "across": {
       "type": "SEQ",
       "members": [
         {
           "type": "PATTERN",
-          "value": "[dD][aA][tT][aA][fF][iI][lL][eE]"
+          "value": "[aA][cC][rR][oO][sS][sS]"
         },
         {
           "type": "CHOICE",
@@ -1642,34 +1674,8 @@
       ]
     },
     "labels": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[lL][aA][bB][eE][lL][sS]"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[=]"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
+      "type": "PATTERN",
+      "value": "[lL][aA][bB][eE][lL][sS]"
     },
     "width": {
       "type": "PREC_LEFT",
@@ -6852,8 +6858,8 @@
           "name": "record_type"
         },
         {
-          "type": "PATTERN",
-          "value": "[wW][iI][tT][hH]"
+          "type": "SYMBOL",
+          "name": "with_keyword"
         },
         {
           "type": "SYMBOL",
@@ -6982,8 +6988,8 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "PATTERN",
-                    "value": "[wW][iI][tT][hH]"
+                    "type": "SYMBOL",
+                    "name": "with_keyword"
                   },
                   {
                     "type": "SYMBOL",
@@ -11276,8 +11282,8 @@
             ]
           },
           {
-            "type": "PATTERN",
-            "value": "[wW][iI][tT][hH]"
+            "type": "SYMBOL",
+            "name": "with_keyword"
           },
           {
             "type": "SYMBOL",
@@ -11336,8 +11342,8 @@
             ]
           },
           {
-            "type": "PATTERN",
-            "value": "[wW][iI][tT][hH]"
+            "type": "SYMBOL",
+            "name": "with_keyword"
           },
           {
             "type": "SYMBOL",
@@ -11400,8 +11406,8 @@
             ]
           },
           {
-            "type": "PATTERN",
-            "value": "[wW][iI][tT][hH]"
+            "type": "SYMBOL",
+            "name": "with_keyword"
           },
           {
             "type": "SYMBOL",

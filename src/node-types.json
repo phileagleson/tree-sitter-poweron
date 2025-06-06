@@ -159,6 +159,21 @@
     }
   },
   {
+    "type": "across",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "any_expression",
     "named": true,
     "fields": {},
@@ -191,6 +206,10 @@
         },
         {
           "type": "poweron_function",
+          "named": true
+        },
+        {
+          "type": "with_keyword",
           "named": true
         }
       ]
@@ -573,21 +592,6 @@
         },
         {
           "type": "record_type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "datafile",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "expression",
           "named": true
         }
       ]
@@ -1704,6 +1708,10 @@
         {
           "type": "until_expression",
           "named": true
+        },
+        {
+          "type": "with_keyword",
+          "named": true
         }
       ]
     }
@@ -1779,6 +1787,10 @@
         },
         {
           "type": "statement",
+          "named": true
+        },
+        {
+          "type": "with_keyword",
           "named": true
         }
       ]
@@ -2507,20 +2519,9 @@
         {
           "type": "tran_code",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "labels",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
+        },
         {
-          "type": "expression",
+          "type": "with_keyword",
           "named": true
         }
       ]
@@ -2734,6 +2735,10 @@
         {
           "type": "poweron_function",
           "named": true
+        },
+        {
+          "type": "with_keyword",
+          "named": true
         }
       ]
     }
@@ -2771,6 +2776,10 @@
         },
         {
           "type": "poweron_function",
+          "named": true
+        },
+        {
+          "type": "with_keyword",
           "named": true
         }
       ]
@@ -3618,6 +3627,10 @@
       "required": true,
       "types": [
         {
+          "type": "across",
+          "named": true
+        },
+        {
           "type": "ascii",
           "named": true
         },
@@ -3627,6 +3640,10 @@
         },
         {
           "type": "datafile",
+          "named": true
+        },
+        {
+          "type": "ebcdic",
           "named": true
         },
         {
@@ -4715,11 +4732,23 @@
     "named": true
   },
   {
+    "type": "datafile",
+    "named": true
+  },
+  {
     "type": "datasize",
     "named": true
   },
   {
     "type": "date",
+    "named": true
+  },
+  {
+    "type": "ebcdic",
+    "named": true
+  },
+  {
+    "type": "labels",
     "named": true
   },
   {
@@ -4752,6 +4781,10 @@
   },
   {
     "type": "string_literal",
+    "named": true
+  },
+  {
+    "type": "with_keyword",
     "named": true
   }
 ]
