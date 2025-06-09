@@ -966,6 +966,14 @@
           },
           {
             "type": "PATTERN",
+            "value": "[rR][iI][gG][hH][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[lL][eE][fF][tT]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[nN][oO][tT]"
           },
           {
@@ -4015,6 +4023,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "right"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "left"
+        },
+        {
+          "type": "SYMBOL",
           "name": "numberfn"
         },
         {
@@ -5027,6 +5043,14 @@
     "newline": {
       "type": "PATTERN",
       "value": "[nN][eE][wW][lL][iI][nN][eE]"
+    },
+    "right": {
+      "type": "PATTERN",
+      "value": "[rR][iI][gG][hH][tT]"
+    },
+    "left": {
+      "type": "PATTERN",
+      "value": "[lL][eE][fF][tT]"
     },
     "stopblink": {
       "type": "PATTERN",

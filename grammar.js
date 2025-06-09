@@ -289,6 +289,8 @@ module.exports = grammar({
       caseInsensitive('moneyread'),
       caseInsensitive('month'),
       caseInsensitive('newline'),
+      caseInsensitive('right'),
+      caseInsensitive('left'),
       caseInsensitive('not'),
       caseInsensitive('not'),
       caseInsensitive('number'),
@@ -1007,6 +1009,8 @@ module.exports = grammar({
       $.moneyread,
       $.month,
       $.newline,
+      $.right,
+      $.left,
       $.numberfn,
       $.numberread,
       $.outputclose,
@@ -1305,6 +1309,8 @@ module.exports = grammar({
     suppressnewline: $ => caseInsensitive('suppressnewline'),
 
     newline: $ => caseInsensitive('newline'),
+    right: $ => caseInsensitive('right'),
+    left: $ => caseInsensitive('left'),
 
     stopblink: $ => caseInsensitive('stopblink'),
 

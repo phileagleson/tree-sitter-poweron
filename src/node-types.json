@@ -2528,6 +2528,11 @@
     }
   },
   {
+    "type": "left",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "length",
     "named": true,
     "fields": {},
@@ -3362,6 +3367,10 @@
           "named": true
         },
         {
+          "type": "left",
+          "named": true
+        },
+        {
           "type": "length",
           "named": true
         },
@@ -3471,6 +3480,10 @@
         },
         {
           "type": "repeatchr",
+          "named": true
+        },
+        {
+          "type": "right",
           "named": true
         },
         {
@@ -3857,6 +3870,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "right",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "screenxypos",
