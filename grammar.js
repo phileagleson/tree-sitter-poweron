@@ -292,7 +292,7 @@ module.exports = grammar({
       caseInsensitive('right'),
       caseInsensitive('left'),
       caseInsensitive('not'),
-      caseInsensitive('not'),
+      caseInsensitive('none'),
       caseInsensitive('number'),
       caseInsensitive('numberread'),
       caseInsensitive('or'),
@@ -2928,7 +2928,7 @@ module.exports = grammar({
       ),
 
       repeat1(prec.right(30, seq(
-        caseInsensitive('else'),
+        field("else_block",caseInsensitive('else')),
         $.start_block,
         repeat($.statement),
         $.end_block,
@@ -2942,7 +2942,7 @@ module.exports = grammar({
       ),
 
       repeat1(prec.right(30, seq(
-        caseInsensitive('else'),
+        field("else_block",caseInsensitive('else')),
         $.statement,
       )))
     )),
@@ -2953,7 +2953,7 @@ module.exports = grammar({
         $.if_statement_no_block,
       ),
       repeat1(prec.left(20, seq(
-        caseInsensitive('else'),
+        field("else_block",caseInsensitive('else')),
         $.statement
       ))))),
 
