@@ -22,6 +22,8 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.define_statement, $.expression],
+    [$.argument_list, $.binary_expression],
+    [$.argument_list]
   ],
 
   precedences: $ => [
@@ -154,7 +156,6 @@ module.exports = grammar({
       caseInsensitive('chrvalue'),
       caseInsensitive('clearwarning'),
       caseInsensitive('coderead'),
-      caseInsensitive('col'),
       caseInsensitive('copyapp'),
       caseInsensitive('create'),
       caseInsensitive('createfinancefromcredrep'),
@@ -296,9 +297,9 @@ module.exports = grammar({
       caseInsensitive('number'),
       caseInsensitive('numberread'),
       caseInsensitive('or'),
-      caseInsensitive('outputclose'),
-      caseInsensitive('outputopen'),
       caseInsensitive('outputswitch'),
+      caseInsensitive('outputopen'),
+      caseInsensitive('outputclose'),
       caseInsensitive('passwordhash'),
       caseInsensitive('popupmessage'),
       caseInsensitive('print title'),
@@ -723,11 +724,8 @@ module.exports = grammar({
 
     subIndex: $ => seq(
       '(',
-      choice($.expression),
-      repeat(seq(
-        ',',
-        choice($.expression),
-      )),
+      $.expression,
+      repeat(seq(',',$.expression)),
       ')'
     ),
 
@@ -884,7 +882,7 @@ module.exports = grammar({
       caseInsensitive('windowsprint'),
     ),
 
-    poweron_function: $ => choice(
+    poweron_function_1: $ => choice(
       $.abs,
       $.anyservice,
       $.anywarning,
@@ -893,7 +891,6 @@ module.exports = grammar({
       $.charactersearch,
       $.chrvalue,
       $.coderead,
-      $.col,
       $.copyapp,
       $.createfinancefromcredrep,
       $.ctrlchr,
@@ -1054,6 +1051,25 @@ module.exports = grammar({
       $.yesnoprompt,
       $.yesnoread,
     ),
+
+    _poweron_functions: $ => choice(
+     $.outputopen,
+     $.outputclose
+    ),
+
+    poweron_function: $ => prec.right(seq(
+     $._poweron_functions,
+     '(',
+     optional($.argument_list),
+     optional(')')
+    )),
+
+    argument_list: $ => seq(
+    field("param",$.expression),
+     repeat(seq(',',field("param",$.expression))),
+    ),
+
+
 
     hpypos: $ => seq(
       caseInsensitive('hpypos'),
@@ -1403,31 +1419,8 @@ module.exports = grammar({
       ')',
     ),
 
-    outputopen: $ => seq(
-      caseInsensitive('outputopen'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    outputclose: $ => seq(
-      caseInsensitive('outputclose'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
+    outputopen: $ => caseInsensitive('outputopen'),
+    outputclose: $ => caseInsensitive('outputclose'),
 
     numberread: $ => seq(
       caseInsensitive('numberread'),
@@ -1818,7 +1811,7 @@ module.exports = grammar({
       $.fmtype,
       optional(caseInsensitive('targetfile')),
       $.recordPath,
-      $.fmperformoptions,
+      prec.right(1,$.fmperformoptions),
       $.start_block,
       repeat(choice(
         $.setexp,
@@ -1833,20 +1826,13 @@ module.exports = grammar({
 
     fmperformoptions: $ => seq(
       '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ',',
-      $.expression,
-      ')',
+      optional($.expression_list),
+      optional(')'),
+    ),
+
+    expression_list: $=> seq(
+     $.expression,
+     repeat(seq(',',$.expression)),
     ),
 
     recordPath: $ => prec.left(10, repeat1(seq(
