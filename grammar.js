@@ -22,8 +22,11 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.define_statement, $.expression],
-    [$.argument_list, $.binary_expression],
-    [$.argument_list]
+    [$.data_type, $.datefn],
+    [$.data_type, $.floatfn],
+    [$.data_type, $.moneyfn],
+    [$.data_type, $.numberfn],
+    [$.data_type, $.ratefn],
   ],
 
   precedences: $ => [
@@ -135,7 +138,7 @@ module.exports = grammar({
     keyword: $ => prec(-1, choice(
       $.at_keywords,
       $.tran_code,
-      caseInsensitive('abs'),
+caseInsensitive('abs'),
       caseInsensitive('accountchange'),
       caseInsensitive('acs'),
       caseInsensitive('afterlast'),
@@ -156,6 +159,7 @@ module.exports = grammar({
       caseInsensitive('chrvalue'),
       caseInsensitive('clearwarning'),
       caseInsensitive('coderead'),
+      caseInsensitive('col'),
       caseInsensitive('copyapp'),
       caseInsensitive('create'),
       caseInsensitive('createfinancefromcredrep'),
@@ -297,9 +301,9 @@ module.exports = grammar({
       caseInsensitive('number'),
       caseInsensitive('numberread'),
       caseInsensitive('or'),
-      caseInsensitive('outputswitch'),
-      caseInsensitive('outputopen'),
       caseInsensitive('outputclose'),
+      caseInsensitive('outputopen'),
+      caseInsensitive('outputswitch'),
       caseInsensitive('passwordhash'),
       caseInsensitive('popupmessage'),
       caseInsensitive('print title'),
@@ -717,7 +721,7 @@ module.exports = grammar({
       $.array_identifier,
     ),
 
-    array_identifier: $ => prec(10, seq(
+    array_identifier: $ => prec(10,seq(
       field("name", alias($._identifier, $.identifier)),
       field("index", $.subIndex)
     )),
@@ -881,8 +885,35 @@ module.exports = grammar({
       caseInsensitive('windows'),
       caseInsensitive('windowsprint'),
     ),
-
-    poweron_function_1: $ => choice(
+      //$.datasize,
+      //$.dialogclose,
+      //$.dialogdisplay,
+      //$.dialogpromptcomboend,
+      //$.header,
+      //$.htmlviewdisplay,
+      //$.insertqueue,
+      //$.hpesc,
+      //$.left,
+      //$.right,
+      //$.newline,
+      //$.overdrawavailablecalc,
+      //$.overdrawavailableinit,
+      //$.pullcreditreport,
+      //$.removequeue,
+      //$.stopblink,
+      //$.suppressnewline,
+      //$.systemdate,
+      //$.sysusername,
+      //$.sysusernumber,
+      //$.terminate,
+      //$.totalfn,
+      //$.trailers,
+      //$.tranperform,
+      //$.whilelimit,
+      //$.width,
+      //$.dim,
+    
+    _poweron_functions: $ => prec(-1,choice(
       $.abs,
       $.anyservice,
       $.anywarning,
@@ -894,21 +925,17 @@ module.exports = grammar({
       $.copyapp,
       $.createfinancefromcredrep,
       $.ctrlchr,
-      $.datasize,
       $.datefn,
       $.dateoffset,
       $.dateread,
       $.datevalue,
       $.day,
       $.dayofweek,
-      $.dialogpromptchar,
       $.dialogpromptcode,
+      $.dialogintrotext,
+      $.dialogpromptchar,
       $.dialogpromptcombooption,
       $.dialogpromptcombostart,
-      $.dialogpromptcomboend,
-      $.dialogclose,
-      $.dialogdisplay,
-      $.dialogintrotext,
       $.dialogpromptdate,
       $.dialogpromptlistoption,
       $.dialogpromptliststart,
@@ -921,7 +948,6 @@ module.exports = grammar({
       $.dialogstartgroupbox,
       $.dialogtextlistoption,
       $.dialogtextliststart,
-      $.dim,
       $.divprojectinit,
       $.emailline,
       $.emailsend,
@@ -955,7 +981,6 @@ module.exports = grammar({
       $.floatfn,
       $.floatvalue,
       $.floor,
-      $.fmperform,
       $.format,
       $.format,
       $.ftpclose,
@@ -976,10 +1001,8 @@ module.exports = grammar({
       $.getfieldmnemonic,
       $.getfieldname,
       $.getfieldnumber,
-      $.header,
       $.hour,
       $.hpboxdraw,
-      $.hpesc,
       $.hpfont,
       $.hplinedraw,
       $.hplinesperinch,
@@ -988,12 +1011,10 @@ module.exports = grammar({
       $.hpunderline,
       $.hpxpos,
       $.hpypos,
-      $.htmlviewdisplay,
       $.htmlviewline,
       $.htmlviewopen,
       $.initcreditreport,
       $.initsubroutine,
-      $.insertqueue,
       $.int,
       $.length,
       $.loanprojectinit,
@@ -1005,42 +1026,24 @@ module.exports = grammar({
       $.moneyfn,
       $.moneyread,
       $.month,
-      $.newline,
-      $.right,
-      $.left,
       $.numberfn,
       $.numberread,
-      $.outputclose,
-      $.outputopen,
       $.outputswitch,
-      $.overdrawavailableinit,
-      $.overdrawavailablecalc,
+      $.outputopen,
+      $.outputclose,
       $.passwordhash,
       $.popupmessage,
       $.print,
-      $.pullcreditreport,
       $.pwr,
       $.queuecreditreport,
       $.ratefn,
       $.rateread,
-      $.removequeue,
       $.repeatchr,
       $.screenxypos,
       $.segment,
-      $.stopblink,
-      $.suppressnewline,
-      $.systemdate,
-      $.sysusername,
-      $.sysusernumber,
-      $.terminate,
-      $.totalfn,
-      $.trailers,
-      $.tranperform,
       $.uppercase,
       $.validatefieldset,
       $.value,
-      $.whilelimit,
-      $.width,
       $.winddeconnect,
       $.winddeexecute,
       $.winddepokedata,
@@ -1050,18 +1053,13 @@ module.exports = grammar({
       $.year,
       $.yesnoprompt,
       $.yesnoread,
-    ),
-
-    _poweron_functions: $ => choice(
-     $.outputopen,
-     $.outputclose
-    ),
+    )),
 
     poweron_function: $ => prec.right(seq(
      $._poweron_functions,
      '(',
      optional($.argument_list),
-     optional(')')
+     ')'
     )),
 
     argument_list: $ => seq(
@@ -1069,192 +1067,161 @@ module.exports = grammar({
      repeat(seq(',',field("param",$.expression))),
     ),
 
-
-
-    hpypos: $ => seq(
-      caseInsensitive('hpypos'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    hpxpos: $ => seq(
-      caseInsensitive('hpxpos'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    overdrawavailableinit: $ => caseInsensitive('overdrawavailableinit'),
-
-    overdrawavailablecalc: $ => caseInsensitive('overdrawavailablecalc'),
-
-    systemdate: $ => caseInsensitive('systemdate'),
-
-    hpunderline: $ => seq(
-      caseInsensitive('hpunderline'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    hpsetup: $ => seq(
-      caseInsensitive('hpsetup'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
+    abs: $ => caseInsensitive('abs'),
+    anyservice: $ => caseInsensitive("anyservice"),
+    anywarning: $ => caseInsensitive("anywarning"),
+    capitalize: $ => caseInsensitive("capitalize"),
+    characterread: $ => caseInsensitive("characterread"),
+    charactersearch: $ => caseInsensitive('charactersearch'),
+    chrvalue: $ => caseInsensitive("chrvalue"),
+    coderead: $ => caseInsensitive("coderead"),
+    copyapp: $ => caseInsensitive("copyapp"),
+    createfinancefromcredrep: $ => caseInsensitive("createfinancefromcredrep"),
+    ctrlchr: $ => caseInsensitive("ctrlchr"),
+    datefn: $ => caseInsensitive("date"),
+    dateoffset: $ => caseInsensitive("dateoffset"),
+    dateread: $ => caseInsensitive("dateread"),
+    datevalue: $ => caseInsensitive('datevalue'),
+    day: $ => caseInsensitive("day"),
+    dayofweek: $ => caseInsensitive("dayofweek"),
+    dialogintrotext: $ => caseInsensitive("dialogintrotext"),
+    dialogpromptchar: $ => caseInsensitive("dialogpromptchar"),
+    dialogpromptcode: $ => caseInsensitive("dialogpromptcode"),
+    dialogpromptcombooption: $ => caseInsensitive("dialogpromptcombooption"),
+    dialogpromptcombostart: $ => caseInsensitive("dialogpromptcombostart"),
+    dialogpromptdate: $ => caseInsensitive("dialogpromptdate"),
+    dialogpromptlistoption: $ => caseInsensitive('dialogpromptlistoption'),
+    dialogpromptliststart: $ => caseInsensitive('dialogpromptliststart'),
+    dialogpromptmoney: $ => caseInsensitive('dialogpromptmoney'),
+    dialogpromptnumber: $ => caseInsensitive('dialogpromptnumber'),
+    dialogpromptpassword: $ => caseInsensitive('dialogpromptpassword'),
+    dialogpromptrate: $ => caseInsensitive('dialogpromptrate'),
+    dialogpromptyesno: $ => caseInsensitive('dialogpromptyesno'),
+    dialogstart: $ => caseInsensitive('dialogstart'),
+    dialogstartgroupbox: $ => caseInsensitive('dialogstartgroupbox'),
+    dialogtextlistoption: $ => caseInsensitive('dialogtextlistoption'),
+    dialogtextliststart: $ => caseInsensitive('dialogtextliststart'),
+    dim: $ => caseInsensitive('dim'),
+    divprojectinit: $ => caseInsensitive('divprojectinit'),
+    emailline: $ => caseInsensitive('emailline'),
+    emailsend: $ => caseInsensitive('emailsend'),
+    emailstart: $ => caseInsensitive('emailstart'),
+    entercharacter: $ => caseInsensitive('entercharacter'),
+    entercode: $ => caseInsensitive('entercode'),
+    enterdate: $ => caseInsensitive('enterdate'),
+    enterline: $ => caseInsensitive('enterline'),
+    entermoney: $ => caseInsensitive('entermoney'),
+    enterrate: $ => caseInsensitive('enterrate'),
+    enteryesno: $ => caseInsensitive('enteryesno'),
+    execute: $ => caseInsensitive('execute'),
+    exp: $ => caseInsensitive('exp'),
+    filearchiveadd: $ => caseInsensitive('filearchiveadd'),
+    filearchiveextract: $ => caseInsensitive('filearchiveextract'),
+    fileclose: $ => caseInsensitive('fileclose'),
+    filecreate: $ => caseInsensitive('filecreate'),
+    filedecrypt: $ => caseInsensitive('filedecrypt'),
+    filedelete: $ => caseInsensitive('filedelete'),
+    fileencrypt: $ => caseInsensitive('fileencrypt'),
+    filegetpos: $ => caseInsensitive('filegetpos'),
+    filelistclose: $ => caseInsensitive('filelistclose'),
+    filelistopen: $ => caseInsensitive('filelistopen'),
+    filelistread: $ => caseInsensitive('filelistread'),
+    fileopen: $ => caseInsensitive('fileopen'),
+    fileread: $ => caseInsensitive('fileread'),
+    filereadline: $ => caseInsensitive('filereadline'),
+    filesetpos: $ => caseInsensitive('filesetpos'),
+    filewrite: $ => caseInsensitive('filewrite'),
+    filewriteline: $ => caseInsensitive('filewriteline'),
+    floatfn: $ => caseInsensitive('float'),
+    floatvalue: $ => caseInsensitive('floatvalue'),
+    floor: $ => caseInsensitive('floor'),
+    format: $ => caseInsensitive('format'),
+    format: $ => caseInsensitive('format'),
+    ftpclose: $ => caseInsensitive('ftpclose'),
+    ftpcmd: $ => caseInsensitive('ftpcmd'),
+    ftpget: $ => caseInsensitive('ftpget'),
+    ftplogin: $ => caseInsensitive('ftplogin'),
+    ftpopen: $ => caseInsensitive('ftpopen'),
+    ftpput: $ => caseInsensitive('ftpput'),
+    fullyear: $ => caseInsensitive('fullyear'),
+    getdatachar: $ => caseInsensitive('getdatachar'),
+    getdatadate: $ => caseInsensitive('getdatadate'),
+    getdatamoney: $ => caseInsensitive('getdatamoney'),
+    getdatanumber: $ => caseInsensitive('getdatanumber'),
+    getdatarate: $ => caseInsensitive('getdatarate'),
+    getfielddatamax: $ => caseInsensitive('getfielddatamax'),
+    getfielddatatype: $ => caseInsensitive('getfielddatatype'),
+    getfieldhelpfile: $ => caseInsensitive('getfieldhelpfile'),
+    getfieldmnemonic: $ => caseInsensitive('getfieldmnemonic'),
+    getfieldname: $ => caseInsensitive('getfieldname'),
+    getfieldnumber: $ => caseInsensitive('getfieldnumber'),
+    hour: $ => caseInsensitive('hour'),
+    hpboxdraw: $ => caseInsensitive('hpboxdraw'),
+    hpfont: $ => caseInsensitive('hpfont'),
+    hplinedraw: $ => caseInsensitive('hplinedraw'),
+    hplinesperinch: $ => caseInsensitive('hplinesperinch'),
     hpreset: $ => caseInsensitive('hpreset'),
+    hpsetup: $ => caseInsensitive('hpsetup'),
+    hpunderline: $ => caseInsensitive('hpunderline'),
+    hpxpos: $ => caseInsensitive('hpxpos'),
+    hpypos: $ => caseInsensitive('hpypos'),
+    htmlviewline: $ => caseInsensitive('htmlviewline'),
+    htmlviewopen: $ => caseInsensitive('htmlviewopen'),
+    initcreditreport: $ => caseInsensitive('initcreditreport'),
+    initsubroutine: $ => caseInsensitive('initsubroutine'),
+    int: $ => caseInsensitive('int'),
+    length: $ => caseInsensitive('length'),
+    loanprojectinit: $ => caseInsensitive('loanprojectinit'),
+    log: $ => caseInsensitive('log'),
+    lowercase: $ => caseInsensitive('lowercase'),
+    md5hash: $ => caseInsensitive('md5hash'),
+    minute: $ => caseInsensitive('minute'),
+    mod: $ => caseInsensitive('mod'),
+    moneyfn: $ => caseInsensitive('money'),
+    moneyread: $ => caseInsensitive('moneyread'),
+    month: $ => caseInsensitive('month'),
+    numberfn: $ => caseInsensitive('number'),
+    numberread: $ => caseInsensitive('numberread'),
+    outputclose: $ => caseInsensitive('outputclose'),
+    outputopen: $ => caseInsensitive('outputopen'),
+    outputswitch: $ => caseInsensitive('outputswitch'),
+    overdrawavailablecalc: $ => caseInsensitive('overdrawavailablecalc'),
+    overdrawavailableinit: $ => caseInsensitive('overdrawavailableinit'),
+    passwordhash: $ => caseInsensitive('passwordhash'),
+    popupmessage: $ => caseInsensitive('popupmessage'),
+    print: $ => caseInsensitive('print'),
+    pwr: $ => caseInsensitive('pwr'),
+    queuecreditreport: $ => caseInsensitive('queuecreditreport'),
+    ratefn: $ => caseInsensitive('rate'),
+    rateread: $ => caseInsensitive('rateread'),
+    repeatchr: $ => caseInsensitive('repeatchr'),
+    screenxypos: $ => caseInsensitive('screenxypos'),
+    segment: $ => caseInsensitive('segment'),
+    systemdate: $ => caseInsensitive('systemdate'),
+    uppercase: $ => caseInsensitive('uppercase'),
+    validatefieldset: $ => caseInsensitive('validatefieldset'),
+    value: $ => caseInsensitive('value'),
+    winddeconnect: $ => caseInsensitive('winddeconnect'),
+    winddeexecute: $ => caseInsensitive('winddeexecute'),
+    winddepokedata: $ => caseInsensitive('winddepokedata'),
+    windowssend: $ => caseInsensitive('windowssend'),
+    winmessagefield: $ => caseInsensitive('winmessagefield'),
+    winmessagestart: $ => caseInsensitive('winmessagestart'),
+    year: $ => caseInsensitive('year'),
+    yesnoprompt: $ => caseInsensitive('yesnoprompt'),
+    yesnoread: $ => caseInsensitive('yesnoread'),
 
-    hplinesperinch: $ => seq(
-      caseInsensitive('hplinesperinch'),
-      '(',
-      $.expression,
-      ')',
-    ),
+    unique_functions: $ => prec(-2,choice(
+    $.fmperform,
+    $.col,
+    $.datasize,
+    )),
 
-    hplinedraw: $ => seq(
-      caseInsensitive('hplinedraw'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    hpfont: $ => seq(
-      caseInsensitive('hpfont'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
 
     hpesc: $ => prec.left(seq(
       caseInsensitive('hpesc'),
       $.expression,
     )),
-
-    hpboxdraw: $ => seq(
-      caseInsensitive('hpboxdraw'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    hour: $ => seq(
-      caseInsensitive('hour'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    yesnoread: $ => seq(
-      caseInsensitive('yesnoread'),
-      '(',
-      $.expression,
-      repeat(seq(
-        ',',
-        $.expression
-      )),
-      ')',
-    ),
-
-    yesnoprompt: $ => seq(
-      caseInsensitive('yesnoprompt'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    year: $ => seq(
-      caseInsensitive('year'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    winmessagestart: $ => seq(
-      caseInsensitive('winmessagestart'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    winmessagefield: $ => seq(
-      caseInsensitive('winmessagefield'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    windowssend: $ => seq(
-      caseInsensitive('windowssend'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    winddepokedata: $ => seq(
-      caseInsensitive('winddepokedata'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    winddeexecute: $ => seq(
-      caseInsensitive('winddeexecute'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    winddeconnect: $ => seq(
-      caseInsensitive('winddeconnect'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
 
     width: $ => prec.left(seq(
       caseInsensitive('width'),
@@ -1313,40 +1280,19 @@ module.exports = grammar({
       $.expression,
     )),
 
-    sysusername: $ => seq(
-      caseInsensitive('sysusername'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
+    //    [Keywords]
+    sysusername: $ => caseInsensitive('sysusername'),
     sysusernumber: $ => caseInsensitive('sysusernumber'),
-
     suppressnewline: $ => caseInsensitive('suppressnewline'),
-
     newline: $ => caseInsensitive('newline'),
     right: $ => caseInsensitive('right'),
     left: $ => caseInsensitive('left'),
-
     stopblink: $ => caseInsensitive('stopblink'),
+    outputopen: $ => caseInsensitive('outputopen'),
+    outputclose: $ => caseInsensitive('outputclose'),
+    terminate: $ => prec(1, caseInsensitive('terminate'),),
+    htmlviewdisplay: $ => prec(1, caseInsensitive('htmlviewdisplay'),),
 
-    screenxypos: $ => seq(
-      caseInsensitive('screenxypos'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    repeatchr: $ => seq(
-      caseInsensitive('repeatchr'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
 
     removequeue: $ => prec.left(seq(
       caseInsensitive('remove'),
@@ -1354,169 +1300,12 @@ module.exports = grammar({
       caseInsensitive('queue'),
     )),
 
-    rateread: $ => seq(
-      caseInsensitive('rateread'),
-      '(',
-      $.expression,
-      repeat(seq(
-        ',',
-        $.expression
-      )),
-      ')',
-    ),
-
-    queuecreditreport: $ => seq(
-      caseInsensitive('queuecreditreport'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    pwr: $ => seq(
-      caseInsensitive('pwr'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
     pullcreditreport: $ => caseInsensitive('pullcreditreport'),
 
     print: $ => prec.left(seq(
       caseInsensitive('print'),
       $.expression,
     )),
-
-    popupmessage: $ => seq(
-      caseInsensitive('popupmessage'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    passwordhash: $ => seq(
-      caseInsensitive('passwordhash'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    outputswitch: $ => seq(
-      caseInsensitive('outputswitch'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    outputopen: $ => caseInsensitive('outputopen'),
-    outputclose: $ => caseInsensitive('outputclose'),
-
-    numberread: $ => seq(
-      caseInsensitive('numberread'),
-      '(',
-      $.expression,
-      repeat(seq(
-        ',',
-        $.expression
-      )),
-      ')',
-    ),
-
-    numberfn: $ => seq(
-      caseInsensitive('number'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    month: $ => seq(
-      caseInsensitive('month'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    moneyread: $ => seq(
-      caseInsensitive('moneyread'),
-      '(',
-      $.expression,
-      repeat(seq(
-        ',',
-        $.expression
-      )),
-      ')',
-    ),
-
-    moneyfn: $ => seq(
-      caseInsensitive('money'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    mod: $ => seq(
-      caseInsensitive('mod'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    minute: $ => seq(
-      caseInsensitive('minute'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    md5hash: $ => seq(
-      caseInsensitive('md5hash'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    lowercase: $ => seq(
-      caseInsensitive('lowercase'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    log: $ => seq(
-      caseInsensitive('log'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    loanprojectinit: $ => seq(
-      caseInsensitive('loanprojectinit'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    int: $ => seq(
-      caseInsensitive('int'),
-      '(',
-      $.expression,
-      ')',
-    ),
 
     insertqueue: $ => prec.left(seq(
       caseInsensitive('insert'),
@@ -1526,20 +1315,6 @@ module.exports = grammar({
       caseInsensitive('priority'),
       $.expression
     )),
-
-    initsubroutine: $ => seq(
-      caseInsensitive('initsubroutine'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    initcreditreport: $ => seq(
-      caseInsensitive('initcreditreport'),
-      '(',
-      $.expression,
-      ')',
-    ),
 
     header_block: $ => prec(100,seq(
       caseInsensitive('headers'),
@@ -1552,202 +1327,6 @@ module.exports = grammar({
       '=',
       $.expression
     )),
-
-    getfielddatamax: $ => seq(
-      caseInsensitive('getfielddatamax'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    getfielddatatype: $ => seq(
-      caseInsensitive('getfielddatatype'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    getfieldhelpfile: $ => seq(
-      caseInsensitive('getfieldhelpfile'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    getfieldmnemonic: $ => seq(
-      caseInsensitive('getfieldmnemonic'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    getfieldname: $ => seq(
-      caseInsensitive('getfieldname'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    getfieldnumber: $ => seq(
-      caseInsensitive('getfieldnumber'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    getdatarate: $ => seq(
-      caseInsensitive('getdatarate'),
-      '(',
-      $.expression,
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      ')',
-    ),
-
-    getdatanumber: $ => seq(
-      caseInsensitive('getdatanumber'),
-      '(',
-      $.expression,
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      ')',
-    ),
-
-    getdatamoney: $ => seq(
-      caseInsensitive('getdatamoney'),
-      '(',
-      $.expression,
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      ')',
-    ),
-
-    getdatadate: $ => seq(
-      caseInsensitive('getdatadate'),
-      '(',
-      $.expression,
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      ')',
-    ),
-
-    getdatachar: $ => seq(
-      caseInsensitive('getdatachar'),
-      '(',
-      $.expression,
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      optional(seq(',', $.expression)),
-      ')',
-    ),
-
-    fullyear: $ => seq(
-      caseInsensitive('fullyear'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    ftpput: $ => seq(
-      caseInsensitive('ftpput'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    ftpopen: $ => seq(
-      caseInsensitive('ftpopen'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    ftplogin: $ => seq(
-      caseInsensitive('ftpget'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    ftpget: $ => seq(
-      caseInsensitive('ftpget'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    ftpcmd: $ => seq(
-      caseInsensitive('ftpcmd'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    ftpclose: $ => seq(
-      caseInsensitive('ftpclose'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
 
     forrecordwith: $ => seq(
       caseInsensitive('for'),
@@ -1767,15 +1346,6 @@ module.exports = grammar({
       $.start_block,
       repeat($.statement),
       $.end_block,
-    ),
-
-    format: $ => seq(
-      caseInsensitive('format'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
     ),
 
     until_expression: $ => seq(
@@ -1799,19 +1369,12 @@ module.exports = grammar({
       optional($.until_expression),
     )),
 
-    uppercase: $ => seq(
-      caseInsensitive('uppercase'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
     fmperform: $ => prec.right(10, seq(
       caseInsensitive('fmperform'),
       $.fmtype,
       optional(caseInsensitive('targetfile')),
-      $.recordPath,
-      prec.right(1,$.fmperformoptions),
+      prec(-1,$.recordPath),
+      prec(1,$.fmperformoptions),
       $.start_block,
       repeat(choice(
         $.setexp,
@@ -1824,11 +1387,11 @@ module.exports = grammar({
       $.end_block,
     )),
 
-    fmperformoptions: $ => seq(
+    fmperformoptions: $ => prec.right(seq(
       '(',
       optional($.expression_list),
       optional(')'),
-    ),
+    )),
 
     expression_list: $=> seq(
      $.expression,
@@ -1877,400 +1440,6 @@ module.exports = grammar({
       $.expression
     ),
 
-
-    floor: $ => seq(
-      caseInsensitive('floor'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    floatvalue: $ => seq(
-      caseInsensitive('floatvalue'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    floatfn: $ => seq(
-      caseInsensitive('float'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    filewriteline: $ => seq(
-      caseInsensitive('filewriteline'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        )
-      ),
-      ')',
-    ),
-
-    filewrite: $ => seq(
-      caseInsensitive('filewrite'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        )
-      ),
-      ')',
-    ),
-
-    filesetpos: $ => seq(
-      caseInsensitive('filesetpos'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    terminate: $ => prec(1, caseInsensitive('terminate'),),
-
-    htmlviewdisplay: $ => prec(1, caseInsensitive('htmlviewdisplay'),),
-
-    htmlviewline: $ => seq(
-      caseInsensitive('htmlviewline'),
-      '(',
-      $.expression,
-      ')'
-    ),
-
-    htmlviewopen: $ => prec.left(1, seq(
-      caseInsensitive('htmlviewopen'),
-      optional(
-        seq(
-          '(',
-          $.expression,
-          ')',
-        ),
-      ),
-    ),
-    ),
-
-    fileread: $ => seq(
-      caseInsensitive('fileread'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filelistread: $ => seq(
-      caseInsensitive('filelistread'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filelistopen: $ => seq(
-      caseInsensitive('filelistopen'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filelistclose: $ => seq(
-      caseInsensitive('filelistclose'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    filegetpos: $ => seq(
-      caseInsensitive('filegetpos'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    fileencrypt: $ => seq(
-      caseInsensitive('fileencrypt'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filedelete: $ => seq(
-      caseInsensitive('filedelete'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filedecrypt: $ => seq(
-      caseInsensitive('filedecrypt'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filecreate: $ => seq(
-      caseInsensitive('filecreate'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    fileclose: $ => seq(
-      caseInsensitive('fileclose'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filearchiveextract: $ => seq(
-      caseInsensitive('filearchiveextract'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filearchiveadd: $ => seq(
-      caseInsensitive('filearchiveadd'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    exp: $ => seq(
-      caseInsensitive('exp'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    execute: $ => seq(
-      caseInsensitive('execute'),
-      '(',
-      $.expression,
-      ',',
-      optional(
-        seq(
-          $.expression,
-          ',',
-        ),
-      ),
-      $.expression,
-      ')',
-    ),
-
-    enteryesno: $ => seq(
-      caseInsensitive('enteryesno'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ')',
-    ),
-
-    enterrate: $ => seq(
-      caseInsensitive('enterrate'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ')',
-    ),
-
-    enternumber: $ => seq(
-      caseInsensitive('enternumber'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ')',
-    ),
-
-    entermoney: $ => seq(
-      caseInsensitive('entermoney'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ')',
-    ),
-
-    enterline: $ => seq(
-    caseInsensitive("enterline"),
-    '(',
-      $.expression,
-    ')',
-    ),
-
-    enterdate: $ => seq(
-      caseInsensitive("enterdate"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ')',
-    ),
-
-    entercode: $ => seq(
-      caseInsensitive("entercode"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ')',
-    ),
-
-    entercharacter: $ => seq(
-      caseInsensitive("entercharacter"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(seq(
-        ',',
-        $.expression,
-      )),
-      ')',
-    ),
-
-    emailstart: $ => seq(
-      caseInsensitive("emailstart"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    emailsend: $ => seq(
-      caseInsensitive("emailsend"),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    emailline: $ => seq(
-      caseInsensitive("emailline"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    divprojectinit: $ => seq(
-      caseInsensitive("divprojectinit"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
     dim: $ => prec.left(seq(
       caseInsensitive("dim"),
       '=',
@@ -2282,493 +1451,10 @@ module.exports = grammar({
       $.expression
     )),
 
-    dialogtextliststart: $ => seq(
-      caseInsensitive("dialogtextliststart"),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    dialogtextlistoption: $ => seq(
-      caseInsensitive("dialogtextlistoption"),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    dialogstartgroupbox: $ => seq(
-      caseInsensitive("dialogstartgroupbox"),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    dialogstart: $ => seq(
-      caseInsensitive("dialogstart"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    dialogintrotext: $ => seq(
-      caseInsensitive("dialogintrotext"),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    dialogpromptyesno: $ => seq(
-      caseInsensitive("dialogpromptyesno"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    dialogpromptpassword: $ => seq(
-      caseInsensitive("dialogpromptpassword"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      ')',
-    ),
-
-    dialogpromptmoney: $ => seq(
-      caseInsensitive("dialogpromptmoney"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-
-    dialogpromptnumber: $ => seq(
-      caseInsensitive("dialogpromptnumber"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    dialogpromptrate: $ => seq(
-      caseInsensitive("dialogpromptrate"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    dialogpromptliststart: $ => seq(
-      caseInsensitive("dialogpromptliststart"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-
-    dialogpromptlistoption: $ => seq(
-      caseInsensitive("dialogpromptlistoption"),
-      '(',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      ')',
-    ),
-
-    dialogpromptdate: $ => seq(
-      caseInsensitive("dialogpromptdate"),
-      '(',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      ')',
-    ),
-
-
-
-    dialogpromptcombostart: $ => seq(
-      caseInsensitive("dialogpromptcombostart"),
-      '(',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      ')',
-    ),
-
+    // keywords or functions? check eDocs
     dialogpromptcomboend: $ => caseInsensitive("dialogpromptcomboend"),
     dialogclose: $ => caseInsensitive("dialogclose"),
     dialogdisplay: $ => caseInsensitive("dialogdisplay"),
-
-
-
-
-    dialogpromptcombooption: $ => seq(
-      caseInsensitive("dialogpromptcombooption"),
-      '(',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      ')',
-    ),
-
-
-    dialogpromptcode: $ => seq(
-      caseInsensitive("dialogpromptcode"),
-      '(',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      ')',
-    ),
-
-
-    dialogpromptchar: $ => seq(
-      caseInsensitive("dialogpromptchar"),
-      '(',
-      $.expression,
-      optional(
-        seq(
-          ',',
-          $.expression
-        )
-      ),
-      optional(
-        seq(
-          ',',
-          $.expression
-        ),
-      ),
-      ')',
-    ),
-
-    dayofweek: $ => seq(
-      caseInsensitive("dayofweek"),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-
-    day: $ => seq(
-      caseInsensitive("day"),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    dateread: $ => seq(
-      caseInsensitive("dateread"),
-      '(',
-      $.expression,
-      repeat(seq(
-        ',',
-        $.expression
-      )),
-      ')'
-    ),
-
-    dateoffset: $ => seq(
-      caseInsensitive("dateoffset"),
-      '(',
-      $.expression,
-      ',',
-      optional('-'),
-      $.expression,
-      ',',
-      $.expression,
-      ')'
-    ),
-
-    datefn: $ => seq(
-      caseInsensitive("date"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')'
-    ),
-
-    /* datasize: $ => prec.left(seq(
-      caseInsensitive("datasize"),
-      '=',
-      choice(
-          $.number,
-          $.identifier
-      ),
-      /\s/,
-      $.expression
-  )), */
-
-    ctrlchr: $ => seq(
-      caseInsensitive("ctrlchr"),
-      '(',
-      choice(
-        $.number,
-        $.identifier,
-      ),
-      ')'
-    ),
-
-    createfinancefromcredrep: $ => seq(
-      caseInsensitive("createfinancefromcredrep"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    coderead: $ => seq(
-      caseInsensitive("coderead"),
-      '(',
-      $.expression,
-      repeat(seq(
-        ',',
-        $.expression
-      )),
-      ')'
-    ),
-
-    copyapp: $ => seq(
-      caseInsensitive("copyapp"),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.identifier,
-      ')'
-    ),
-
-    chrvalue: $ => seq(
-      caseInsensitive("chrvalue"),
-      '(',
-      $.expression,
-      ')'
-    ),
-
-    characterread: $ => seq(
-      caseInsensitive("characterread"),
-      '(',
-      $.expression,
-      repeat(seq(
-        ',',
-        $.expression
-      )),
-      ')',
-    ),
-
-    capitalize: $ => seq(
-      caseInsensitive("capitalize"),
-      '(',
-      $.expression,
-      ')'
-    ),
-
-    anywarning: $ => seq(
-      caseInsensitive("anywarning"),
-      '(',
-      $.record_type,
-      ',',
-      $.expression,
-      ')'
-    ),
-
-    anyservice: $ => seq(
-      caseInsensitive("anyservice"),
-      '(',
-      $.record_type,
-      ',',
-      $.expression,
-      ')'
-    ),
-
-    abs: $ => seq(
-      caseInsensitive('abs'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    datevalue: $ => seq(
-      caseInsensitive('datevalue'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    ratefn: $ => seq(
-      caseInsensitive('rate'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    value: $ => seq(
-      caseInsensitive('value'),
-      '(',
-      $.expression,
-      ')',
-    ),
-
-    format: $ => seq(
-      caseInsensitive('format'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    segment: $ => seq(
-      caseInsensitive('segment'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')'
-    ),
-
-    charactersearch: $ => seq(
-      caseInsensitive('charactersearch'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ')'
-    ),
-
-    length: $ => seq(
-      caseInsensitive('length'),
-      '(',
-      $.expression,
-      ')'
-    ),
-
-    fileopen: $ => seq(
-      caseInsensitive('fileopen'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')',
-    ),
-
-    filereadline: $ => seq(
-      caseInsensitive('filereadline'),
-      '(',
-      $.expression,
-      ',',
-      $.expression,
-      ',',
-      $.expression,
-      ')'
-    ),
-
-    /* comment: $ => token(
-      /[\[]{1}[\s\w:\.\{\}\-",\/=:\*#~\$\^\?\(\)"\\\|;!%<>@©�&'+]*[\]]{1}/gm
-  ), */
 
     expression: $ => prec(10, choice(
       $.primary_expression,
@@ -2831,6 +1517,7 @@ module.exports = grammar({
 
     primary_expression: $ => prec.left(choice(
       $.poweron_function,
+      alias($.unique_functions,$.poweron_function),
       $.parenthesized_expression,
       $.keyword,
       $.identifier,

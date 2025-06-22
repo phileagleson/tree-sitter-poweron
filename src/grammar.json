@@ -1,5 +1,4 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "poweron",
   "rules": {
     "source_file": {
@@ -423,6 +422,10 @@
           {
             "type": "PATTERN",
             "value": "[cC][oO][dD][eE][rR][eE][aA][dD]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][oO][lL]"
           },
           {
             "type": "PATTERN",
@@ -990,7 +993,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "[oO][uU][tT][pP][uU][tT][sS][wW][iI][tT][cC][hH]"
+            "value": "[oO][uU][tT][pP][uU][tT][cC][lL][oO][sS][eE]"
           },
           {
             "type": "PATTERN",
@@ -998,7 +1001,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "[oO][uU][tT][pP][uU][tT][cC][lL][oO][sS][eE]"
+            "value": "[oO][uU][tT][pP][uU][tT][sS][wW][iI][tT][cC][hH]"
           },
           {
             "type": "PATTERN",
@@ -3508,691 +3511,570 @@
         }
       ]
     },
-    "poweron_function_1": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "abs"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "anyservice"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "anywarning"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "capitalize"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "characterread"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "charactersearch"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "chrvalue"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "coderead"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "copyapp"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "createfinancefromcredrep"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ctrlchr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "datasize"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "datefn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dateoffset"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dateread"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "datevalue"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "day"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dayofweek"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptchar"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptcode"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptcombooption"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptcombostart"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptcomboend"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogclose"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogdisplay"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogintrotext"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptdate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptlistoption"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptliststart"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptmoney"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptnumber"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptpassword"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptrate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogpromptyesno"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogstart"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogstartgroupbox"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogtextlistoption"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dialogtextliststart"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dim"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "divprojectinit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "emailline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "emailsend"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "emailstart"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "entercharacter"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "entercode"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "enterdate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "enterline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "entermoney"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "enterrate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "enteryesno"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "execute"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "exp"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filearchiveadd"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filearchiveextract"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "fileclose"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filecreate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filedecrypt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filedelete"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "fileencrypt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filegetpos"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filelistclose"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filelistopen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filelistread"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "fileopen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "fileread"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filereadline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filesetpos"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filewrite"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "filewriteline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "floatfn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "floatvalue"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "floor"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "fmperform"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "format"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "format"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ftpclose"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ftpcmd"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ftpget"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ftplogin"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ftpopen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ftpput"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "fullyear"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getdatachar"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getdatadate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getdatamoney"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getdatanumber"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getdatarate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getfielddatamax"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getfielddatatype"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getfieldhelpfile"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getfieldmnemonic"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getfieldname"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "getfieldnumber"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "header"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hour"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpboxdraw"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpesc"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpfont"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hplinedraw"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hplinesperinch"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpreset"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpsetup"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpunderline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpxpos"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hpypos"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "htmlviewdisplay"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "htmlviewline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "htmlviewopen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "initcreditreport"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "initsubroutine"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "insertqueue"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "int"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "length"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "loanprojectinit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "log"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "lowercase"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "md5hash"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "minute"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "mod"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "moneyfn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "moneyread"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "month"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "newline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "right"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "left"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "numberfn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "numberread"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "outputclose"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "outputopen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "outputswitch"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "overdrawavailableinit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "overdrawavailablecalc"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "passwordhash"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "popupmessage"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "print"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "pullcreditreport"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "pwr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "queuecreditreport"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ratefn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "rateread"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "removequeue"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "repeatchr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "screenxypos"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "segment"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "stopblink"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "suppressnewline"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "systemdate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "sysusername"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "sysusernumber"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "terminate"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "totalfn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "trailers"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "tranperform"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "uppercase"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "validatefieldset"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "value"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "whilelimit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "width"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "winddeconnect"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "winddeexecute"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "winddepokedata"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "windowssend"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "winmessagefield"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "winmessagestart"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "year"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "yesnoprompt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "yesnoread"
-        }
-      ]
-    },
     "_poweron_functions": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "outputopen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "outputclose"
-        }
-      ]
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "abs"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "anyservice"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "anywarning"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "capitalize"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "characterread"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "charactersearch"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "chrvalue"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "coderead"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "copyapp"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "createfinancefromcredrep"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ctrlchr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "datefn"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dateoffset"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dateread"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "datevalue"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "day"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dayofweek"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptcode"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogintrotext"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptchar"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptcombooption"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptcombostart"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptdate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptlistoption"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptliststart"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptmoney"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptnumber"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptpassword"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptrate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptyesno"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogstart"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogstartgroupbox"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogtextlistoption"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogtextliststart"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "divprojectinit"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "emailline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "emailsend"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "emailstart"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "entercharacter"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "entercode"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enterdate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enterline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "entermoney"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enterrate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enteryesno"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "execute"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "exp"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filearchiveadd"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filearchiveextract"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "fileclose"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filecreate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filedecrypt"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filedelete"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "fileencrypt"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filegetpos"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filelistclose"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filelistopen"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filelistread"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "fileopen"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "fileread"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filereadline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filesetpos"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filewrite"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filewriteline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "floatfn"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "floatvalue"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "floor"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "format"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "format"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ftpclose"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ftpcmd"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ftpget"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ftplogin"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ftpopen"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ftpput"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "fullyear"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getdatachar"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getdatadate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getdatamoney"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getdatanumber"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getdatarate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getfielddatamax"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getfielddatatype"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getfieldhelpfile"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getfieldmnemonic"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getfieldname"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "getfieldnumber"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hour"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpboxdraw"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpfont"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hplinedraw"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hplinesperinch"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpreset"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpsetup"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpunderline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpxpos"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpypos"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "htmlviewline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "htmlviewopen"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "initcreditreport"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "initsubroutine"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "int"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "length"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "loanprojectinit"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "log"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "lowercase"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "md5hash"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "minute"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mod"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "moneyfn"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "moneyread"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "month"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "numberfn"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "numberread"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "outputswitch"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "outputopen"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "outputclose"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "passwordhash"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "popupmessage"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "print"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "pwr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "queuecreditreport"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ratefn"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "rateread"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "repeatchr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "screenxypos"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "segment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "uppercase"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "validatefieldset"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "value"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "winddeconnect"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "winddeexecute"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "winddepokedata"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "windowssend"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "winmessagefield"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "winmessagestart"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "year"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "yesnoprompt"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "yesnoread"
+          }
+        ]
+      }
     },
     "poweron_function": {
       "type": "PREC_RIGHT",
@@ -4221,16 +4103,8 @@
             ]
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ")"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }
@@ -4268,218 +4142,143 @@
         }
       ]
     },
-    "hpypos": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][yY][pP][oO][sS]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "hpxpos": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][xX][pP][oO][sS]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "overdrawavailableinit": {
+    "abs": {
       "type": "PATTERN",
-      "value": "[oO][vV][eE][rR][dD][rR][aA][wW][aA][vV][aA][iI][lL][aA][bB][lL][eE][iI][nN][iI][tT]"
+      "value": "[aA][bB][sS]"
     },
-    "overdrawavailablecalc": {
+    "anyservice": {
       "type": "PATTERN",
-      "value": "[oO][vV][eE][rR][dD][rR][aA][wW][aA][vV][aA][iI][lL][aA][bB][lL][eE][cC][aA][lL][cC]"
+      "value": "[aA][nN][yY][sS][eE][rR][vV][iI][cC][eE]"
     },
-    "systemdate": {
+    "anywarning": {
       "type": "PATTERN",
-      "value": "[sS][yY][sS][tT][eE][mM][dD][aA][tT][eE]"
+      "value": "[aA][nN][yY][wW][aA][rR][nN][iI][nN][gG]"
     },
-    "hpunderline": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][uU][nN][dD][eE][rR][lL][iI][nN][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "hpsetup": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][sS][eE][tT][uU][pP]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "hpreset": {
+    "capitalize": {
       "type": "PATTERN",
-      "value": "[hH][pP][rR][eE][sS][eE][tT]"
+      "value": "[cC][aA][pP][iI][tT][aA][lL][iI][zZ][eE]"
     },
-    "hplinesperinch": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][lL][iI][nN][eE][sS][pP][eE][rR][iI][nN][cC][hH]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
+    "characterread": {
+      "type": "PATTERN",
+      "value": "[cC][hH][aA][rR][aA][cC][tT][eE][rR][rR][eE][aA][dD]"
     },
-    "hplinedraw": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][lL][iI][nN][eE][dD][rR][aA][wW]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
+    "charactersearch": {
+      "type": "PATTERN",
+      "value": "[cC][hH][aA][rR][aA][cC][tT][eE][rR][sS][eE][aA][rR][cC][hH]"
     },
-    "hpfont": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][fF][oO][nN][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
+    "chrvalue": {
+      "type": "PATTERN",
+      "value": "[cC][hH][rR][vV][aA][lL][uU][eE]"
     },
-    "hpesc": {
+    "coderead": {
+      "type": "PATTERN",
+      "value": "[cC][oO][dD][eE][rR][eE][aA][dD]"
+    },
+    "copyapp": {
+      "type": "PATTERN",
+      "value": "[cC][oO][pP][yY][aA][pP][pP]"
+    },
+    "createfinancefromcredrep": {
+      "type": "PATTERN",
+      "value": "[cC][rR][eE][aA][tT][eE][fF][iI][nN][aA][nN][cC][eE][fF][rR][oO][mM][cC][rR][eE][dD][rR][eE][pP]"
+    },
+    "ctrlchr": {
+      "type": "PATTERN",
+      "value": "[cC][tT][rR][lL][cC][hH][rR]"
+    },
+    "datefn": {
+      "type": "PATTERN",
+      "value": "[dD][aA][tT][eE]"
+    },
+    "dateoffset": {
+      "type": "PATTERN",
+      "value": "[dD][aA][tT][eE][oO][fF][fF][sS][eE][tT]"
+    },
+    "dateread": {
+      "type": "PATTERN",
+      "value": "[dD][aA][tT][eE][rR][eE][aA][dD]"
+    },
+    "datevalue": {
+      "type": "PATTERN",
+      "value": "[dD][aA][tT][eE][vV][aA][lL][uU][eE]"
+    },
+    "day": {
+      "type": "PATTERN",
+      "value": "[dD][aA][yY]"
+    },
+    "dayofweek": {
+      "type": "PATTERN",
+      "value": "[dD][aA][yY][oO][fF][wW][eE][eE][kK]"
+    },
+    "dialogintrotext": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][iI][nN][tT][rR][oO][tT][eE][xX][tT]"
+    },
+    "dialogpromptchar": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][hH][aA][rR]"
+    },
+    "dialogpromptcode": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][dD][eE]"
+    },
+    "dialogpromptcombooption": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][oO][pP][tT][iI][oO][nN]"
+    },
+    "dialogpromptcombostart": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][sS][tT][aA][rR][tT]"
+    },
+    "dialogpromptdate": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][dD][aA][tT][eE]"
+    },
+    "dialogpromptlistoption": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
+    },
+    "dialogpromptliststart": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
+    },
+    "dialogpromptmoney": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][mM][oO][nN][eE][yY]"
+    },
+    "dialogpromptnumber": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][nN][uU][mM][bB][eE][rR]"
+    },
+    "dialogpromptpassword": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][pP][aA][sS][sS][wW][oO][rR][dD]"
+    },
+    "dialogpromptrate": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][rR][aA][tT][eE]"
+    },
+    "dialogpromptyesno": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][yY][eE][sS][nN][oO]"
+    },
+    "dialogstart": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT]"
+    },
+    "dialogstartgroupbox": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT][gG][rR][oO][uU][pP][bB][oO][xX]"
+    },
+    "dialogtextlistoption": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
+    },
+    "dialogtextliststart": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
+    },
+    "dim": {
       "type": "PREC_LEFT",
       "value": 0,
       "content": {
@@ -4487,402 +4286,432 @@
         "members": [
           {
             "type": "PATTERN",
-            "value": "[hH][pP][eE][sS][cC]"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "expression"
-          }
-        ]
-      }
-    },
-    "hpboxdraw": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][pP][bB][oO][xX][dD][rR][aA][wW]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "hour": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][oO][uU][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "yesnoread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[yY][eE][sS][nN][oO][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "yesnoprompt": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[yY][eE][sS][nN][oO][pP][rR][oO][mM][pP][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "year": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[yY][eE][aA][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "winmessagestart": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][nN][mM][eE][sS][sS][aA][gG][eE][sS][tT][aA][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "winmessagefield": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][nN][mM][eE][sS][sS][aA][gG][eE][fF][iI][eE][lL][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "windowssend": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][nN][dD][oO][wW][sS][sS][eE][nN][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "winddepokedata": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][nN][dD][dD][eE][pP][oO][kK][eE][dD][aA][tT][aA]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "winddeexecute": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][nN][dD][dD][eE][eE][xX][eE][cC][uU][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "winddeconnect": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[wW][iI][nN][dD][dD][eE][cC][oO][nN][nN][eE][cC][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "whilelimit": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[wW][hH][iI][lL][eE][lL][iI][mM][iI][tT]"
+            "value": "[dD][iI][mM]"
           },
           {
             "type": "STRING",
             "value": "="
           },
           {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\s"
+          },
+          {
             "type": "SYMBOL",
             "name": "expression"
           }
         ]
       }
+    },
+    "divprojectinit": {
+      "type": "PATTERN",
+      "value": "[dD][iI][vV][pP][rR][oO][jJ][eE][cC][tT][iI][nN][iI][tT]"
+    },
+    "emailline": {
+      "type": "PATTERN",
+      "value": "[eE][mM][aA][iI][lL][lL][iI][nN][eE]"
+    },
+    "emailsend": {
+      "type": "PATTERN",
+      "value": "[eE][mM][aA][iI][lL][sS][eE][nN][dD]"
+    },
+    "emailstart": {
+      "type": "PATTERN",
+      "value": "[eE][mM][aA][iI][lL][sS][tT][aA][rR][tT]"
+    },
+    "entercharacter": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][cC][hH][aA][rR][aA][cC][tT][eE][rR]"
+    },
+    "entercode": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][cC][oO][dD][eE]"
+    },
+    "enterdate": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][dD][aA][tT][eE]"
+    },
+    "enterline": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][lL][iI][nN][eE]"
+    },
+    "entermoney": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][mM][oO][nN][eE][yY]"
+    },
+    "enterrate": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][rR][aA][tT][eE]"
+    },
+    "enteryesno": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][yY][eE][sS][nN][oO]"
+    },
+    "execute": {
+      "type": "PATTERN",
+      "value": "[eE][xX][eE][cC][uU][tT][eE]"
+    },
+    "exp": {
+      "type": "PATTERN",
+      "value": "[eE][xX][pP]"
+    },
+    "filearchiveadd": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][aA][rR][cC][hH][iI][vV][eE][aA][dD][dD]"
+    },
+    "filearchiveextract": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][aA][rR][cC][hH][iI][vV][eE][eE][xX][tT][rR][aA][cC][tT]"
+    },
+    "fileclose": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][cC][lL][oO][sS][eE]"
+    },
+    "filecreate": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][cC][rR][eE][aA][tT][eE]"
+    },
+    "filedecrypt": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][dD][eE][cC][rR][yY][pP][tT]"
+    },
+    "filedelete": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][dD][eE][lL][eE][tT][eE]"
+    },
+    "fileencrypt": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][eE][nN][cC][rR][yY][pP][tT]"
+    },
+    "filegetpos": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][gG][eE][tT][pP][oO][sS]"
+    },
+    "filelistclose": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][lL][iI][sS][tT][cC][lL][oO][sS][eE]"
+    },
+    "filelistopen": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][lL][iI][sS][tT][oO][pP][eE][nN]"
+    },
+    "filelistread": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][lL][iI][sS][tT][rR][eE][aA][dD]"
+    },
+    "fileopen": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][oO][pP][eE][nN]"
+    },
+    "fileread": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][rR][eE][aA][dD]"
+    },
+    "filereadline": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][rR][eE][aA][dD][lL][iI][nN][eE]"
+    },
+    "filesetpos": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][sS][eE][tT][pP][oO][sS]"
+    },
+    "filewrite": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][wW][rR][iI][tT][eE]"
+    },
+    "filewriteline": {
+      "type": "PATTERN",
+      "value": "[fF][iI][lL][eE][wW][rR][iI][tT][eE][lL][iI][nN][eE]"
+    },
+    "floatfn": {
+      "type": "PATTERN",
+      "value": "[fF][lL][oO][aA][tT]"
+    },
+    "floatvalue": {
+      "type": "PATTERN",
+      "value": "[fF][lL][oO][aA][tT][vV][aA][lL][uU][eE]"
+    },
+    "floor": {
+      "type": "PATTERN",
+      "value": "[fF][lL][oO][oO][rR]"
+    },
+    "format": {
+      "type": "PATTERN",
+      "value": "[fF][oO][rR][mM][aA][tT]"
+    },
+    "ftpclose": {
+      "type": "PATTERN",
+      "value": "[fF][tT][pP][cC][lL][oO][sS][eE]"
+    },
+    "ftpcmd": {
+      "type": "PATTERN",
+      "value": "[fF][tT][pP][cC][mM][dD]"
+    },
+    "ftpget": {
+      "type": "PATTERN",
+      "value": "[fF][tT][pP][gG][eE][tT]"
+    },
+    "ftplogin": {
+      "type": "PATTERN",
+      "value": "[fF][tT][pP][lL][oO][gG][iI][nN]"
+    },
+    "ftpopen": {
+      "type": "PATTERN",
+      "value": "[fF][tT][pP][oO][pP][eE][nN]"
+    },
+    "ftpput": {
+      "type": "PATTERN",
+      "value": "[fF][tT][pP][pP][uU][tT]"
+    },
+    "fullyear": {
+      "type": "PATTERN",
+      "value": "[fF][uU][lL][lL][yY][eE][aA][rR]"
+    },
+    "getdatachar": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][dD][aA][tT][aA][cC][hH][aA][rR]"
+    },
+    "getdatadate": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][dD][aA][tT][aA][dD][aA][tT][eE]"
+    },
+    "getdatamoney": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][dD][aA][tT][aA][mM][oO][nN][eE][yY]"
+    },
+    "getdatanumber": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][dD][aA][tT][aA][nN][uU][mM][bB][eE][rR]"
+    },
+    "getdatarate": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][dD][aA][tT][aA][rR][aA][tT][eE]"
+    },
+    "getfielddatamax": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][fF][iI][eE][lL][dD][dD][aA][tT][aA][mM][aA][xX]"
+    },
+    "getfielddatatype": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][fF][iI][eE][lL][dD][dD][aA][tT][aA][tT][yY][pP][eE]"
+    },
+    "getfieldhelpfile": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][fF][iI][eE][lL][dD][hH][eE][lL][pP][fF][iI][lL][eE]"
+    },
+    "getfieldmnemonic": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][fF][iI][eE][lL][dD][mM][nN][eE][mM][oO][nN][iI][cC]"
+    },
+    "getfieldname": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][fF][iI][eE][lL][dD][nN][aA][mM][eE]"
+    },
+    "getfieldnumber": {
+      "type": "PATTERN",
+      "value": "[gG][eE][tT][fF][iI][eE][lL][dD][nN][uU][mM][bB][eE][rR]"
+    },
+    "hour": {
+      "type": "PATTERN",
+      "value": "[hH][oO][uU][rR]"
+    },
+    "hpboxdraw": {
+      "type": "PATTERN",
+      "value": "[hH][pP][bB][oO][xX][dD][rR][aA][wW]"
+    },
+    "hpfont": {
+      "type": "PATTERN",
+      "value": "[hH][pP][fF][oO][nN][tT]"
+    },
+    "hplinedraw": {
+      "type": "PATTERN",
+      "value": "[hH][pP][lL][iI][nN][eE][dD][rR][aA][wW]"
+    },
+    "hplinesperinch": {
+      "type": "PATTERN",
+      "value": "[hH][pP][lL][iI][nN][eE][sS][pP][eE][rR][iI][nN][cC][hH]"
+    },
+    "hpreset": {
+      "type": "PATTERN",
+      "value": "[hH][pP][rR][eE][sS][eE][tT]"
+    },
+    "hpsetup": {
+      "type": "PATTERN",
+      "value": "[hH][pP][sS][eE][tT][uU][pP]"
+    },
+    "hpunderline": {
+      "type": "PATTERN",
+      "value": "[hH][pP][uU][nN][dD][eE][rR][lL][iI][nN][eE]"
+    },
+    "hpxpos": {
+      "type": "PATTERN",
+      "value": "[hH][pP][xX][pP][oO][sS]"
+    },
+    "hpypos": {
+      "type": "PATTERN",
+      "value": "[hH][pP][yY][pP][oO][sS]"
+    },
+    "htmlviewline": {
+      "type": "PATTERN",
+      "value": "[hH][tT][mM][lL][vV][iI][eE][wW][lL][iI][nN][eE]"
+    },
+    "htmlviewopen": {
+      "type": "PATTERN",
+      "value": "[hH][tT][mM][lL][vV][iI][eE][wW][oO][pP][eE][nN]"
+    },
+    "initcreditreport": {
+      "type": "PATTERN",
+      "value": "[iI][nN][iI][tT][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
+    },
+    "initsubroutine": {
+      "type": "PATTERN",
+      "value": "[iI][nN][iI][tT][sS][uU][bB][rR][oO][uU][tT][iI][nN][eE]"
+    },
+    "int": {
+      "type": "PATTERN",
+      "value": "[iI][nN][tT]"
+    },
+    "length": {
+      "type": "PATTERN",
+      "value": "[lL][eE][nN][gG][tT][hH]"
+    },
+    "loanprojectinit": {
+      "type": "PATTERN",
+      "value": "[lL][oO][aA][nN][pP][rR][oO][jJ][eE][cC][tT][iI][nN][iI][tT]"
+    },
+    "log": {
+      "type": "PATTERN",
+      "value": "[lL][oO][gG]"
+    },
+    "lowercase": {
+      "type": "PATTERN",
+      "value": "[lL][oO][wW][eE][rR][cC][aA][sS][eE]"
+    },
+    "md5hash": {
+      "type": "PATTERN",
+      "value": "[mM][dD][55][hH][aA][sS][hH]"
+    },
+    "minute": {
+      "type": "PATTERN",
+      "value": "[mM][iI][nN][uU][tT][eE]"
+    },
+    "mod": {
+      "type": "PATTERN",
+      "value": "[mM][oO][dD]"
+    },
+    "moneyfn": {
+      "type": "PATTERN",
+      "value": "[mM][oO][nN][eE][yY]"
+    },
+    "moneyread": {
+      "type": "PATTERN",
+      "value": "[mM][oO][nN][eE][yY][rR][eE][aA][dD]"
+    },
+    "month": {
+      "type": "PATTERN",
+      "value": "[mM][oO][nN][tT][hH]"
+    },
+    "numberfn": {
+      "type": "PATTERN",
+      "value": "[nN][uU][mM][bB][eE][rR]"
+    },
+    "numberread": {
+      "type": "PATTERN",
+      "value": "[nN][uU][mM][bB][eE][rR][rR][eE][aA][dD]"
+    },
+    "outputclose": {
+      "type": "PATTERN",
+      "value": "[oO][uU][tT][pP][uU][tT][cC][lL][oO][sS][eE]"
+    },
+    "outputopen": {
+      "type": "PATTERN",
+      "value": "[oO][uU][tT][pP][uU][tT][oO][pP][eE][nN]"
+    },
+    "outputswitch": {
+      "type": "PATTERN",
+      "value": "[oO][uU][tT][pP][uU][tT][sS][wW][iI][tT][cC][hH]"
+    },
+    "overdrawavailablecalc": {
+      "type": "PATTERN",
+      "value": "[oO][vV][eE][rR][dD][rR][aA][wW][aA][vV][aA][iI][lL][aA][bB][lL][eE][cC][aA][lL][cC]"
+    },
+    "overdrawavailableinit": {
+      "type": "PATTERN",
+      "value": "[oO][vV][eE][rR][dD][rR][aA][wW][aA][vV][aA][iI][lL][aA][bB][lL][eE][iI][nN][iI][tT]"
+    },
+    "passwordhash": {
+      "type": "PATTERN",
+      "value": "[pP][aA][sS][sS][wW][oO][rR][dD][hH][aA][sS][hH]"
+    },
+    "popupmessage": {
+      "type": "PATTERN",
+      "value": "[pP][oO][pP][uU][pP][mM][eE][sS][sS][aA][gG][eE]"
+    },
+    "print": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[pP][rR][iI][nN][tT]"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "pwr": {
+      "type": "PATTERN",
+      "value": "[pP][wW][rR]"
+    },
+    "queuecreditreport": {
+      "type": "PATTERN",
+      "value": "[qQ][uU][eE][uU][eE][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
+    },
+    "ratefn": {
+      "type": "PATTERN",
+      "value": "[rR][aA][tT][eE]"
+    },
+    "rateread": {
+      "type": "PATTERN",
+      "value": "[rR][aA][tT][eE][rR][eE][aA][dD]"
+    },
+    "repeatchr": {
+      "type": "PATTERN",
+      "value": "[rR][eE][pP][eE][aA][tT][cC][hH][rR]"
+    },
+    "screenxypos": {
+      "type": "PATTERN",
+      "value": "[sS][cC][rR][eE][eE][nN][xX][yY][pP][oO][sS]"
+    },
+    "segment": {
+      "type": "PATTERN",
+      "value": "[sS][eE][gG][mM][eE][nN][tT]"
+    },
+    "systemdate": {
+      "type": "PATTERN",
+      "value": "[sS][yY][sS][tT][eE][mM][dD][aA][tT][eE]"
+    },
+    "uppercase": {
+      "type": "PATTERN",
+      "value": "[uU][pP][pP][eE][rR][cC][aA][sS][eE]"
     },
     "validatefieldset": {
       "type": "SEQ",
@@ -4920,6 +4749,105 @@
           "value": ")"
         }
       ]
+    },
+    "value": {
+      "type": "PATTERN",
+      "value": "[vV][aA][lL][uU][eE]"
+    },
+    "winddeconnect": {
+      "type": "PATTERN",
+      "value": "[wW][iI][nN][dD][dD][eE][cC][oO][nN][nN][eE][cC][tT]"
+    },
+    "winddeexecute": {
+      "type": "PATTERN",
+      "value": "[wW][iI][nN][dD][dD][eE][eE][xX][eE][cC][uU][tT][eE]"
+    },
+    "winddepokedata": {
+      "type": "PATTERN",
+      "value": "[wW][iI][nN][dD][dD][eE][pP][oO][kK][eE][dD][aA][tT][aA]"
+    },
+    "windowssend": {
+      "type": "PATTERN",
+      "value": "[wW][iI][nN][dD][oO][wW][sS][sS][eE][nN][dD]"
+    },
+    "winmessagefield": {
+      "type": "PATTERN",
+      "value": "[wW][iI][nN][mM][eE][sS][sS][aA][gG][eE][fF][iI][eE][lL][dD]"
+    },
+    "winmessagestart": {
+      "type": "PATTERN",
+      "value": "[wW][iI][nN][mM][eE][sS][sS][aA][gG][eE][sS][tT][aA][rR][tT]"
+    },
+    "year": {
+      "type": "PATTERN",
+      "value": "[yY][eE][aA][rR]"
+    },
+    "yesnoprompt": {
+      "type": "PATTERN",
+      "value": "[yY][eE][sS][nN][oO][pP][rR][oO][mM][pP][tT]"
+    },
+    "yesnoread": {
+      "type": "PATTERN",
+      "value": "[yY][eE][sS][nN][oO][rR][eE][aA][dD]"
+    },
+    "unique_functions": {
+      "type": "PREC",
+      "value": -2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "fmperform"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "col"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "datasize"
+          }
+        ]
+      }
+    },
+    "hpesc": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[hH][pP][eE][sS][cC]"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "whilelimit": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[wW][hH][iI][lL][eE][lL][iI][mM][iI][tT]"
+          },
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
     },
     "tranperform": {
       "type": "SEQ",
@@ -5081,25 +5009,8 @@
       }
     },
     "sysusername": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[sS][yY][sS][uU][sS][eE][rR][nN][aA][mM][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "[sS][yY][sS][uU][sS][eE][rR][nN][aA][mM][eE]"
     },
     "sysusernumber": {
       "type": "PATTERN",
@@ -5125,63 +5036,21 @@
       "type": "PATTERN",
       "value": "[sS][tT][oO][pP][bB][lL][iI][nN][kK]"
     },
-    "screenxypos": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[sS][cC][rR][eE][eE][nN][xX][yY][pP][oO][sS]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
+    "terminate": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "PATTERN",
+        "value": "[tT][eE][rR][mM][iI][nN][aA][tT][eE]"
+      }
     },
-    "repeatchr": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[rR][eE][pP][eE][aA][tT][cC][hH][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
+    "htmlviewdisplay": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "PATTERN",
+        "value": "[hH][tT][mM][lL][vV][iI][eE][wW][dD][iI][sS][pP][lL][aA][yY]"
+      }
     },
     "removequeue": {
       "type": "PREC_LEFT",
@@ -5212,524 +5081,9 @@
         ]
       }
     },
-    "rateread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[rR][aA][tT][eE][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "queuecreditreport": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[qQ][uU][eE][uU][eE][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "pwr": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[pP][wW][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
     "pullcreditreport": {
       "type": "PATTERN",
       "value": "[pP][uU][lL][lL][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
-    },
-    "print": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[pP][rR][iI][nN][tT]"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "expression"
-          }
-        ]
-      }
-    },
-    "popupmessage": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[pP][oO][pP][uU][pP][mM][eE][sS][sS][aA][gG][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "passwordhash": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[pP][aA][sS][sS][wW][oO][rR][dD][hH][aA][sS][hH]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "outputswitch": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[oO][uU][tT][pP][uU][tT][sS][wW][iI][tT][cC][hH]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "outputopen": {
-      "type": "PATTERN",
-      "value": "[oO][uU][tT][pP][uU][tT][oO][pP][eE][nN]"
-    },
-    "outputclose": {
-      "type": "PATTERN",
-      "value": "[oO][uU][tT][pP][uU][tT][cC][lL][oO][sS][eE]"
-    },
-    "numberread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[nN][uU][mM][bB][eE][rR][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "numberfn": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[nN][uU][mM][bB][eE][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "month": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[mM][oO][nN][tT][hH]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "moneyread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[mM][oO][nN][eE][yY][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "moneyfn": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[mM][oO][nN][eE][yY]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "mod": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[mM][oO][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "minute": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[mM][iI][nN][uU][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "md5hash": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[mM][dD][55][hH][aA][sS][hH]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "lowercase": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][wW][eE][rR][cC][aA][sS][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "log": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][gG]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "loanprojectinit": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[lL][oO][aA][nN][pP][rR][oO][jJ][eE][cC][tT][iI][nN][iI][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "int": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[iI][nN][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
     },
     "insertqueue": {
       "type": "PREC_LEFT",
@@ -5771,48 +5125,6 @@
           }
         ]
       }
-    },
-    "initsubroutine": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[iI][nN][iI][tT][sS][uU][bB][rR][oO][uU][tT][iI][nN][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "initcreditreport": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[iI][nN][iI][tT][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
     },
     "header_block": {
       "type": "PREC",
@@ -5858,1004 +5170,6 @@
           }
         ]
       }
-    },
-    "getfielddatamax": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][fF][iI][eE][lL][dD][dD][aA][tT][aA][mM][aA][xX]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getfielddatatype": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][fF][iI][eE][lL][dD][dD][aA][tT][aA][tT][yY][pP][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getfieldhelpfile": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][fF][iI][eE][lL][dD][hH][eE][lL][pP][fF][iI][lL][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getfieldmnemonic": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][fF][iI][eE][lL][dD][mM][nN][eE][mM][oO][nN][iI][cC]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getfieldname": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][fF][iI][eE][lL][dD][nN][aA][mM][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getfieldnumber": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][fF][iI][eE][lL][dD][nN][uU][mM][bB][eE][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getdatarate": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][dD][aA][tT][aA][rR][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getdatanumber": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][dD][aA][tT][aA][nN][uU][mM][bB][eE][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getdatamoney": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][dD][aA][tT][aA][mM][oO][nN][eE][yY]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getdatadate": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][dD][aA][tT][aA][dD][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "getdatachar": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[gG][eE][tT][dD][aA][tT][aA][cC][hH][aA][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "fullyear": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][uU][lL][lL][yY][eE][aA][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ftpput": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][tT][pP][pP][uU][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ftpopen": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][tT][pP][oO][pP][eE][nN]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ftplogin": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][tT][pP][gG][eE][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ftpget": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][tT][pP][gG][eE][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ftpcmd": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][tT][pP][cC][mM][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ftpclose": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][tT][pP][cC][lL][oO][sS][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
     },
     "forrecordwith": {
       "type": "SEQ",
@@ -6926,35 +5240,6 @@
         {
           "type": "SYMBOL",
           "name": "end_block"
-        }
-      ]
-    },
-    "format": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][oO][rR][mM][aA][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
         }
       ]
     },
@@ -7043,27 +5328,6 @@
         ]
       }
     },
-    "uppercase": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[uU][pP][pP][eE][rR][cC][aA][sS][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
     "fmperform": {
       "type": "PREC_RIGHT",
       "value": 10,
@@ -7091,11 +5355,15 @@
             ]
           },
           {
-            "type": "SYMBOL",
-            "name": "recordPath"
+            "type": "PREC",
+            "value": -1,
+            "content": {
+              "type": "SYMBOL",
+              "name": "recordPath"
+            }
           },
           {
-            "type": "PREC_RIGHT",
+            "type": "PREC",
             "value": 1,
             "content": {
               "type": "SYMBOL",
@@ -7146,37 +5414,41 @@
       }
     },
     "fmperformoptions": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "expression_list"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": ")"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression_list"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ")"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "expression_list": {
       "type": "SEQ",
@@ -7234,13 +5506,8 @@
                       "type": "CHOICE",
                       "members": [
                         {
-                          "type": "ALIAS",
-                          "content": {
-                            "type": "SYMBOL",
-                            "name": "_identifier"
-                          },
-                          "named": true,
-                          "value": "identifier"
+                          "type": "SYMBOL",
+                          "name": "identifier"
                         },
                         {
                           "type": "SYMBOL",
@@ -7339,1906 +5606,6 @@
         }
       ]
     },
-    "floor": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][lL][oO][oO][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "floatvalue": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][lL][oO][aA][tT][vV][aA][lL][uU][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "floatfn": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][lL][oO][aA][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filewriteline": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][wW][rR][iI][tT][eE][lL][iI][nN][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filewrite": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][wW][rR][iI][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filesetpos": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][sS][eE][tT][pP][oO][sS]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "terminate": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "PATTERN",
-        "value": "[tT][eE][rR][mM][iI][nN][aA][tT][eE]"
-      }
-    },
-    "htmlviewdisplay": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "PATTERN",
-        "value": "[hH][tT][mM][lL][vV][iI][eE][wW][dD][iI][sS][pP][lL][aA][yY]"
-      }
-    },
-    "htmlviewline": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[hH][tT][mM][lL][vV][iI][eE][wW][lL][iI][nN][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "htmlviewopen": {
-      "type": "PREC_LEFT",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[hH][tT][mM][lL][vV][iI][eE][wW][oO][pP][eE][nN]"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "("
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "expression"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ")"
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "fileread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filelistread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][lL][iI][sS][tT][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filelistopen": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][lL][iI][sS][tT][oO][pP][eE][nN]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filelistclose": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][lL][iI][sS][tT][cC][lL][oO][sS][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filegetpos": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][gG][eE][tT][pP][oO][sS]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "fileencrypt": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][eE][nN][cC][rR][yY][pP][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filedelete": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][dD][eE][lL][eE][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filedecrypt": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][dD][eE][cC][rR][yY][pP][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filecreate": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][cC][rR][eE][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "fileclose": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][cC][lL][oO][sS][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filearchiveextract": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][aA][rR][cC][hH][iI][vV][eE][eE][xX][tT][rR][aA][cC][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filearchiveadd": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][aA][rR][cC][hH][iI][vV][eE][aA][dD][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "exp": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][xX][pP]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "execute": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][xX][eE][cC][uU][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                },
-                {
-                  "type": "STRING",
-                  "value": ","
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "enteryesno": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][yY][eE][sS][nN][oO]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "enterrate": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][rR][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "enternumber": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][nN][uU][mM][bB][eE][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "entermoney": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][mM][oO][nN][eE][yY]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "enterline": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][lL][iI][nN][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "enterdate": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][dD][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "entercode": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][cC][oO][dD][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "entercharacter": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][nN][tT][eE][rR][cC][hH][aA][rR][aA][cC][tT][eE][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "emailstart": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][mM][aA][iI][lL][sS][tT][aA][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "emailsend": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][mM][aA][iI][lL][sS][eE][nN][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "emailline": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[eE][mM][aA][iI][lL][lL][iI][nN][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "divprojectinit": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][vV][pP][rR][oO][jJ][eE][cC][tT][iI][nN][iI][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dim": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[dD][iI][mM]"
-          },
-          {
-            "type": "STRING",
-            "value": "="
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "number"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "identifier"
-              }
-            ]
-          },
-          {
-            "type": "PATTERN",
-            "value": "\\s"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "expression"
-          }
-        ]
-      }
-    },
-    "dialogtextliststart": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogtextlistoption": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogstartgroupbox": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT][gG][rR][oO][uU][pP][bB][oO][xX]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogstart": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogintrotext": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][iI][nN][tT][rR][oO][tT][eE][xX][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptyesno": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][yY][eE][sS][nN][oO]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptpassword": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][pP][aA][sS][sS][wW][oO][rR][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptmoney": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][mM][oO][nN][eE][yY]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptnumber": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][nN][uU][mM][bB][eE][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptrate": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][rR][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptliststart": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][sS][tT][aA][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptlistoption": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptdate": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][dD][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptcombostart": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][sS][tT][aA][rR][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
     "dialogpromptcomboend": {
       "type": "PATTERN",
       "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][eE][nN][dD]"
@@ -9250,987 +5617,6 @@
     "dialogdisplay": {
       "type": "PATTERN",
       "value": "[dD][iI][aA][lL][oO][gG][dD][iI][sS][pP][lL][aA][yY]"
-    },
-    "dialogpromptcombooption": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][mM][bB][oO][oO][pP][tT][iI][oO][nN]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptcode": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][oO][dD][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dialogpromptchar": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][cC][hH][aA][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dayofweek": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][aA][yY][oO][fF][wW][eE][eE][kK]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "day": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][aA][yY]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dateread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][aA][tT][eE][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dateoffset": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][aA][tT][eE][oO][fF][fF][sS][eE][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "-"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "datefn": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ctrlchr": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][tT][rR][lL][cC][hH][rR]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "number"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "identifier"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "createfinancefromcredrep": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][rR][eE][aA][tT][eE][fF][iI][nN][aA][nN][cC][eE][fF][rR][oO][mM][cC][rR][eE][dD][rR][eE][pP]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "coderead": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][oO][dD][eE][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "copyapp": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][oO][pP][yY][aA][pP][pP]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "chrvalue": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][hH][rR][vV][aA][lL][uU][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "characterread": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][hH][aA][rR][aA][cC][tT][eE][rR][rR][eE][aA][dD]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "capitalize": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][aA][pP][iI][tT][aA][lL][iI][zZ][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "anywarning": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[aA][nN][yY][wW][aA][rR][nN][iI][nN][gG]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "record_type"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "anyservice": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[aA][nN][yY][sS][eE][rR][vV][iI][cC][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "record_type"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "abs": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[aA][bB][sS]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "datevalue": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[dD][aA][tT][eE][vV][aA][lL][uU][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "ratefn": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[rR][aA][tT][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "value": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[vV][aA][lL][uU][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "segment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[sS][eE][gG][mM][eE][nN][tT]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "charactersearch": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[cC][hH][aA][rR][aA][cC][tT][eE][rR][sS][eE][aA][rR][cC][hH]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "length": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[lL][eE][nN][gG][tT][hH]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "fileopen": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][oO][pP][eE][nN]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "filereadline": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[fF][iI][lL][eE][rR][eE][aA][dD][lL][iI][nN][eE]"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
     },
     "expression": {
       "type": "PREC",
@@ -10825,6 +6211,15 @@
           {
             "type": "SYMBOL",
             "name": "poweron_function"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "unique_functions"
+            },
+            "named": true,
+            "value": "poweron_function"
           },
           {
             "type": "SYMBOL",
@@ -11514,11 +6909,24 @@
       "expression"
     ],
     [
-      "argument_list",
-      "binary_expression"
+      "data_type",
+      "datefn"
     ],
     [
-      "argument_list"
+      "data_type",
+      "floatfn"
+    ],
+    [
+      "data_type",
+      "moneyfn"
+    ],
+    [
+      "data_type",
+      "numberfn"
+    ],
+    [
+      "data_type",
+      "ratefn"
     ]
   ],
   "precedences": [
