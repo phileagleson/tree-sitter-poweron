@@ -1095,6 +1095,7 @@ module.exports = grammar({
     enterdate: $ => caseInsensitive('enterdate'),
     enternumber: $ => caseInsensitive('enternumber'),
     entermoney: $ => caseInsensitive('entermoney'),
+    enterline: $ => caseInsensitive('enterline'),
     enterrate: $ => caseInsensitive('enterrate'),
     enteryesno: $ => caseInsensitive('enteryesno'),
     execute: $ => caseInsensitive('execute'),
