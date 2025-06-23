@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "poweron",
   "rules": {
     "source_file": {
@@ -389,6 +390,18 @@
           },
           {
             "type": "PATTERN",
+            "value": "[bB][eE][lL][lL]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[bB][lL][iI][nN][kK]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[bB][rR][iI][gG][hH][tT]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[bB][yY]"
           },
           {
@@ -418,6 +431,10 @@
           {
             "type": "PATTERN",
             "value": "[cC][lL][eE][aA][rR][wW][aA][rR][nN][iI][nN][gG]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[cC][lL][eE][aA][rR][sS][eE][rR][vV][iI][cC][eE]"
           },
           {
             "type": "PATTERN",
@@ -497,6 +514,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][eE][nN][dD][gG][rR][oO][uU][pP][bB][oO][xX]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[dD][iI][aA][lL][oO][gG][iI][nN][tT][rR][oO][tT][eE][xX][tT]"
           },
           {
@@ -533,6 +554,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][lL][iI][sS][tT][eE][nN][dD]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[dD][iI][aA][lL][oO][gG][pP][rR][oO][mM][pP][tT][mM][oO][nN][eE][yY]"
           },
           {
@@ -561,6 +586,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][sS][tT][aA][rR][tT][gG][rR][oO][uU][pP][iI][nN][gG]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][oO][pP][tT][iI][oO][nN]"
           },
           {
@@ -569,11 +598,19 @@
           },
           {
             "type": "PATTERN",
+            "value": "[dD][iI][aA][lL][oO][gG][tT][eE][xX][tT][lL][iI][sS][tT][eE][nN][dD]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[dD][iI][mM]"
           },
           {
             "type": "PATTERN",
             "value": "[dD][iI][vV][pP][rR][oO][jJ][eE][cC][tT][iI][nN][iI][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[dD][iI][vV][pP][rR][oO][jJ][eE][cC][tT][cC][aA][lL][cC]"
           },
           {
             "type": "PATTERN",
@@ -634,6 +671,10 @@
           {
             "type": "PATTERN",
             "value": "[eE][nN][tT][eE][rR][yY][eE][sS][nN][oO]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[eE][vV][eE][rR][yY]"
           },
           {
             "type": "PATTERN",
@@ -970,6 +1011,10 @@
           {
             "type": "PATTERN",
             "value": "[lL][eE][fF][tT]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[wW][rR][aA][pP]"
           },
           {
             "type": "PATTERN",
@@ -1470,8 +1515,17 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "header_block"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "header_block"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "header"
+                  }
+                ]
               },
               {
                 "type": "BLANK"
@@ -3587,15 +3641,15 @@
           },
           {
             "type": "SYMBOL",
-            "name": "dialogpromptcode"
-          },
-          {
-            "type": "SYMBOL",
             "name": "dialogintrotext"
           },
           {
             "type": "SYMBOL",
             "name": "dialogpromptchar"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptcode"
           },
           {
             "type": "SYMBOL",
@@ -3688,6 +3742,10 @@
           {
             "type": "SYMBOL",
             "name": "entermoney"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enternumber"
           },
           {
             "type": "SYMBOL",
@@ -3791,10 +3849,6 @@
           },
           {
             "type": "SYMBOL",
-            "name": "format"
-          },
-          {
-            "type": "SYMBOL",
             "name": "ftpclose"
           },
           {
@@ -3884,10 +3938,6 @@
           {
             "type": "SYMBOL",
             "name": "hplinesperinch"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "hpreset"
           },
           {
             "type": "SYMBOL",
@@ -4019,11 +4069,11 @@
           },
           {
             "type": "SYMBOL",
-            "name": "sysusername"
+            "name": "segment"
           },
           {
             "type": "SYMBOL",
-            "name": "segment"
+            "name": "sysusername"
           },
           {
             "type": "SYMBOL",
@@ -4344,13 +4394,17 @@
       "type": "PATTERN",
       "value": "[eE][nN][tT][eE][rR][dD][aA][tT][eE]"
     },
-    "enterline": {
+    "enternumber": {
       "type": "PATTERN",
-      "value": "[eE][nN][tT][eE][rR][lL][iI][nN][eE]"
+      "value": "[eE][nN][tT][eE][rR][nN][uU][mM][bB][eE][rR]"
     },
     "entermoney": {
       "type": "PATTERN",
       "value": "[eE][nN][tT][eE][rR][mM][oO][nN][eE][yY]"
+    },
+    "enterline": {
+      "type": "PATTERN",
+      "value": "[eE][nN][tT][eE][rR][lL][iI][nN][eE]"
     },
     "enterrate": {
       "type": "PATTERN",
@@ -4817,7 +4871,15 @@
           },
           {
             "type": "SYMBOL",
+            "name": "header_block"
+          },
+          {
+            "type": "SYMBOL",
             "name": "hpesc"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpreset"
           },
           {
             "type": "SYMBOL",
@@ -4854,6 +4916,10 @@
           {
             "type": "SYMBOL",
             "name": "print"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "every"
           },
           {
             "type": "SYMBOL",
@@ -5193,6 +5259,23 @@
         ]
       }
     },
+    "every": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[eE][vV][eE][rR][yY]"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
     "insertqueue": {
       "type": "PREC_LEFT",
       "value": 0,
@@ -5509,6 +5592,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "clearservice"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "insertqueue"
                 }
               ]
@@ -5698,6 +5785,19 @@
         }
       ]
     },
+    "clearservice": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[cC][lL][eE][aA][rR][sS][eE][rR][vV][iI][cC][eE]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
     "setexp": {
       "type": "SEQ",
       "members": [
@@ -5726,6 +5826,10 @@
     "dialogclose": {
       "type": "PATTERN",
       "value": "[dD][iI][aA][lL][oO][gG][cC][lL][oO][sS][eE]"
+    },
+    "dialogendgroupbox": {
+      "type": "PATTERN",
+      "value": "[dD][iI][aA][lL][oO][gG][eE][nN][dD][gG][rR][oO][uU][pP][bB][oO][xX]"
     },
     "dialogdisplay": {
       "type": "PATTERN",

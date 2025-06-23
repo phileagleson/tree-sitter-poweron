@@ -426,6 +426,21 @@
     "fields": {}
   },
   {
+    "type": "clearservice",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "clearwarn",
     "named": true,
     "fields": {},
@@ -494,11 +509,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "datafile",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "datefn",
@@ -673,11 +683,6 @@
     "fields": {}
   },
   {
-    "type": "ebcdic",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "else_if",
     "named": true,
     "fields": {},
@@ -746,6 +751,11 @@
     "fields": {}
   },
   {
+    "type": "enternumber",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "enterrate",
     "named": true,
     "fields": {}
@@ -754,6 +764,21 @@
     "type": "enteryesno",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "every",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "execute",
@@ -922,6 +947,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "clearservice",
+          "named": true
+        },
         {
           "type": "clearwarn",
           "named": true
@@ -1556,11 +1585,6 @@
     }
   },
   {
-    "type": "labels",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "left",
     "named": true,
     "fields": {}
@@ -1982,11 +2006,19 @@
           "named": true
         },
         {
+          "type": "enternumber",
+          "named": true
+        },
+        {
           "type": "enterrate",
           "named": true
         },
         {
           "type": "enteryesno",
+          "named": true
+        },
+        {
+          "type": "every",
           "named": true
         },
         {
@@ -2159,6 +2191,10 @@
         },
         {
           "type": "header",
+          "named": true
+        },
+        {
+          "type": "header_block",
           "named": true
         },
         {
@@ -2484,6 +2520,10 @@
           "named": true
         },
         {
+          "type": "header",
+          "named": true
+        },
+        {
           "type": "header_block",
           "named": true
         },
@@ -2802,6 +2842,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -3426,6 +3467,10 @@
     "named": true
   },
   {
+    "type": "datafile",
+    "named": true
+  },
+  {
     "type": "datasize",
     "named": true
   },
@@ -3435,6 +3480,14 @@
   },
   {
     "type": "dialogpromptpassword",
+    "named": true
+  },
+  {
+    "type": "ebcdic",
+    "named": true
+  },
+  {
+    "type": "labels",
     "named": true
   },
   {
