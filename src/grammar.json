@@ -3995,10 +3995,6 @@
           },
           {
             "type": "SYMBOL",
-            "name": "print"
-          },
-          {
-            "type": "SYMBOL",
             "name": "pwr"
           },
           {
@@ -4020,6 +4016,10 @@
           {
             "type": "SYMBOL",
             "name": "screenxypos"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "sysusername"
           },
           {
             "type": "SYMBOL",
@@ -4660,23 +4660,6 @@
       "type": "PATTERN",
       "value": "[pP][oO][pP][uU][pP][mM][eE][sS][sS][aA][gG][eE]"
     },
-    "print": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[pP][rR][iI][nN][tT]"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "expression"
-          }
-        ]
-      }
-    },
     "pwr": {
       "type": "PATTERN",
       "value": "[pP][wW][rR]"
@@ -4708,6 +4691,10 @@
     "systemdate": {
       "type": "PATTERN",
       "value": "[sS][yY][sS][tT][eE][mM][dD][aA][tT][eE]"
+    },
+    "sysusername": {
+      "type": "PATTERN",
+      "value": "[sS][yY][sS][uU][sS][eE][rR][nN][aA][mM][eE]"
     },
     "uppercase": {
       "type": "PATTERN",
@@ -4791,15 +4778,11 @@
       "value": "[yY][eE][sS][nN][oO][rR][eE][aA][dD]"
     },
     "unique_functions": {
-      "type": "PREC",
-      "value": -2,
+      "type": "PREC_LEFT",
+      "value": -1,
       "content": {
         "type": "CHOICE",
         "members": [
-          {
-            "type": "SYMBOL",
-            "name": "fmperform"
-          },
           {
             "type": "SYMBOL",
             "name": "col"
@@ -4807,6 +4790,118 @@
           {
             "type": "SYMBOL",
             "name": "datasize"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogclose"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogdisplay"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dialogpromptcomboend"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dim"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "fmperform"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "header"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hpesc"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "htmlviewdisplay"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "htmlviewopen"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "insertqueue"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "left"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "newline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "overdrawavailablecalc"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "overdrawavailableinit"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "pullcreditreport"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "print"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "removequeue"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "right"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "stopblink"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "suppressnewline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "systemdate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "sysusernumber"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "terminate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "totalfn"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "trailers"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "tranperform"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "whilelimit"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "width"
           }
         ]
       }
@@ -5008,10 +5103,6 @@
         ]
       }
     },
-    "sysusername": {
-      "type": "PATTERN",
-      "value": "[sS][yY][sS][uU][sS][eE][rR][nN][aA][mM][eE]"
-    },
     "sysusernumber": {
       "type": "PATTERN",
       "value": "[sS][yY][sS][uU][sS][eE][rR][nN][uU][mM][bB][eE][rR]"
@@ -5084,6 +5175,23 @@
     "pullcreditreport": {
       "type": "PATTERN",
       "value": "[pP][uU][lL][lL][cC][rR][eE][dD][iI][tT][rR][eE][pP][oO][rR][tT]"
+    },
+    "print": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[pP][rR][iI][nN][tT]"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
     },
     "insertqueue": {
       "type": "PREC_LEFT",
@@ -5506,8 +5614,13 @@
                       "type": "CHOICE",
                       "members": [
                         {
-                          "type": "SYMBOL",
-                          "name": "identifier"
+                          "type": "ALIAS",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "_identifier"
+                          },
+                          "named": true,
+                          "value": "identifier"
                         },
                         {
                           "type": "SYMBOL",
@@ -6907,6 +7020,10 @@
     [
       "define_statement",
       "expression"
+    ],
+    [
+      "_poweron_functions",
+      "unique_functions"
     ],
     [
       "data_type",
