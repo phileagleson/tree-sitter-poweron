@@ -1559,12 +1559,14 @@ module.exports = grammar({
       $.foreachdoend,
     ),
 
+    to: $=>caseInsensitive("to"),
+
     for_loop: $ => seq(
       caseInsensitive('for'),
       $.identifier,
       '=',
       $.expression,
-      caseInsensitive('to'),
+      $.to,
       $.expression,
       optional(
         seq(

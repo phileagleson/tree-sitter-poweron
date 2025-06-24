@@ -6494,6 +6494,10 @@
         }
       ]
     },
+    "to": {
+      "type": "PATTERN",
+      "value": "[tT][oO]"
+    },
     "for_loop": {
       "type": "SEQ",
       "members": [
@@ -6514,8 +6518,8 @@
           "name": "expression"
         },
         {
-          "type": "PATTERN",
-          "value": "[tT][oO]"
+          "type": "SYMBOL",
+          "name": "to"
         },
         {
           "type": "SYMBOL",

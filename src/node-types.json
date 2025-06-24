@@ -1041,6 +1041,10 @@
         {
           "type": "statement",
           "named": true
+        },
+        {
+          "type": "to",
+          "named": true
         }
       ]
     }
@@ -2962,6 +2966,11 @@
   },
   {
     "type": "terminate",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "to",
     "named": true,
     "fields": {}
   },
