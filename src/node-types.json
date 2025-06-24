@@ -683,6 +683,11 @@
     "fields": {}
   },
   {
+    "type": "else",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "else_if",
     "named": true,
     "fields": {},
@@ -690,6 +695,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "else",
+          "named": true
+        },
         {
           "type": "if_statement_block",
           "named": true
@@ -1405,6 +1414,10 @@
       "required": true,
       "types": [
         {
+          "type": "else",
+          "named": true
+        },
+        {
           "type": "end_block",
           "named": true
         },
@@ -1435,6 +1448,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "else",
+          "named": true
+        },
         {
           "type": "if_statement_block",
           "named": true
@@ -1500,6 +1517,10 @@
         {
           "type": "statement",
           "named": true
+        },
+        {
+          "type": "then",
+          "named": true
         }
       ]
     }
@@ -1514,6 +1535,10 @@
       "types": [
         {
           "type": "statement",
+          "named": true
+        },
+        {
+          "type": "then",
           "named": true
         }
       ]
@@ -2966,6 +2991,11 @@
   },
   {
     "type": "terminate",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "then",
     "named": true,
     "fields": {}
   },

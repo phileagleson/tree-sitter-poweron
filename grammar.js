@@ -1597,13 +1597,16 @@ module.exports = grammar({
       $.else_if,
     ),
 
+    then: $=> caseInsensitive("then"),
+    else: $=> caseInsensitive("else"),
+
     if_statement_no_block: $ => seq(
       caseInsensitive('if'),
       optional(
         caseInsensitive('not')
       ),
       $.statement,
-      caseInsensitive('then'),
+      $.then,
       $.statement
     ),
 
@@ -1613,7 +1616,7 @@ module.exports = grammar({
         caseInsensitive('not')
       ),
       $.statement,
-      caseInsensitive('then'),
+      $.then,
       $.start_block,
       repeat($.statement),
       $.end_block,
@@ -1627,7 +1630,7 @@ module.exports = grammar({
       ),
 
       repeat1(prec.right(30, seq(
-        field("else_block",caseInsensitive('else')),
+        $.else,
         $.start_block,
         repeat($.statement),
         $.end_block,
@@ -1641,7 +1644,7 @@ module.exports = grammar({
       ),
 
       repeat1(prec.right(30, seq(
-        field("else_block",caseInsensitive('else')),
+        $.else,
         $.statement,
       )))
     )),
@@ -1652,7 +1655,7 @@ module.exports = grammar({
         $.if_statement_no_block,
       ),
       repeat1(prec.left(20, seq(
-        field("else_block",caseInsensitive('else')),
+        $.else,
         $.statement
       ))))),
 
