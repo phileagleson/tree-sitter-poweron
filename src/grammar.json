@@ -3399,11 +3399,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "field_name"
+          "name": "_field_name"
         }
       ]
     },
-    "field_name": {
+    "_field_name": {
       "type": "PREC_LEFT",
       "value": 0,
       "content": {
@@ -5670,6 +5670,10 @@
         }
       ]
     },
+    "loc": {
+      "type": "PATTERN",
+      "value": "[lL][oO][cC]"
+    },
     "recordPath": {
       "type": "PREC_LEFT",
       "value": 10,
@@ -5689,8 +5693,8 @@
                       "name": "record_type"
                     },
                     {
-                      "type": "PATTERN",
-                      "value": "[lL][oO][cC]"
+                      "type": "SYMBOL",
+                      "name": "loc"
                     }
                   ]
                 },
@@ -5798,20 +5802,24 @@
         }
       ]
     },
+    "set": {
+      "type": "PATTERN",
+      "value": "[sS][eE][tT]"
+    },
     "setexp": {
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[sS][eE][tT]"
+          "type": "SYMBOL",
+          "name": "set"
         },
         {
           "type": "SYMBOL",
-          "name": "field_name"
+          "name": "_field_name"
         },
         {
-          "type": "PATTERN",
-          "value": "[tT][oO]"
+          "type": "SYMBOL",
+          "name": "to"
         },
         {
           "type": "SYMBOL",

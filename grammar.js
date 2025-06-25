@@ -849,10 +849,10 @@ module.exports = grammar({
     database_field: $ => seq(
       repeat1($.record_type),
       /[:]{1}/,
-      $.field_name
+      $._field_name
     ),
 
-    field_name: $ => prec.left(seq(
+    _field_name: $ => prec.left(seq(
       alias($.identifier, $.field_name),
       repeat(
         choice(
@@ -1417,11 +1417,13 @@ module.exports = grammar({
      repeat(seq(',',$.expression)),
     ),
 
+    loc: $=>caseInsensitive('loc'),
+
     recordPath: $ => prec.left(10, repeat1(seq(
       seq(
         choice(
           $.record_type,
-          caseInsensitive('loc'),
+          $.loc,
         ),
         optional(
           choice(
@@ -1457,10 +1459,12 @@ module.exports = grammar({
       $.expression,
     ),
 
+    set:$=>caseInsensitive('set'),
+    
     setexp: $ => seq(
-      caseInsensitive('set'),
-      $.field_name,
-      caseInsensitive('to'),
+      $.set,
+      $._field_name,
+      $.to,
       $.expression
     ),
 

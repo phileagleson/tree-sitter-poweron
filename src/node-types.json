@@ -494,17 +494,28 @@
   {
     "type": "database_field",
     "named": true,
-    "fields": {},
+    "fields": {
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "field_name",
+          "type": "expression",
           "named": true
         },
         {
-          "type": "record_type",
+          "type": "field_name",
           "named": true
         }
       ]
@@ -817,32 +828,13 @@
   {
     "type": "field_name",
     "named": true,
-    "fields": {
-      "index": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "number",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "array_identifier",
-          "named": true
-        },
-        {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "field_name",
           "named": true
         }
       ]
@@ -1644,6 +1636,11 @@
   },
   {
     "type": "loanprojectinit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "loc",
     "named": true,
     "fields": {}
   },
@@ -2688,7 +2685,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "identifier",
@@ -2696,6 +2693,10 @@
         },
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "loc",
           "named": true
         },
         {
@@ -2792,9 +2793,25 @@
     }
   },
   {
+    "type": "set",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "setexp",
     "named": true,
-    "fields": {},
+    "fields": {
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -2805,6 +2822,14 @@
         },
         {
           "type": "field_name",
+          "named": true
+        },
+        {
+          "type": "set",
+          "named": true
+        },
+        {
+          "type": "to",
           "named": true
         }
       ]
