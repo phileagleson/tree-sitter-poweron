@@ -1594,17 +1594,17 @@ module.exports = grammar({
     ),
 
     if_statement: $ => choice(
-      $.if_statement_no_block,
-      $.if_statement_block,
-      $.if_else_no_block,
-      $.if_else_block,
-      $.else_if,
+      $._if_statement_no_block,
+      $._if_statement_block,
+      $._if_else_no_block,
+      $._if_else_block,
+      $._else_if,
     ),
 
     then: $=> caseInsensitive("then"),
     else: $=> caseInsensitive("else"),
 
-    if_statement_no_block: $ => seq(
+    _if_statement_no_block: $ => seq(
       caseInsensitive('if'),
       optional(
         caseInsensitive('not')
@@ -1614,7 +1614,7 @@ module.exports = grammar({
       $.statement
     ),
 
-    if_statement_block: $ => seq(
+    _if_statement_block: $ => seq(
       caseInsensitive('if'),
       optional(
         caseInsensitive('not')
@@ -1627,10 +1627,10 @@ module.exports = grammar({
     ),
 
 
-    if_else_block: $ => prec(10, seq(
+    _if_else_block: $ => prec(10, seq(
       choice(
-        $.if_statement_block,
-        $.if_statement_no_block,
+        $._if_statement_block,
+        $._if_statement_no_block,
       ),
 
       repeat1(prec.right(30, seq(
@@ -1641,10 +1641,10 @@ module.exports = grammar({
       )))
     )),
 
-    if_else_no_block: $ => prec.left(seq(
+    _if_else_no_block: $ => prec.left(seq(
       choice(
-        $.if_statement_block,
-        $.if_statement_no_block,
+        $._if_statement_block,
+        $._if_statement_no_block,
       ),
 
       repeat1(prec.right(30, seq(
@@ -1653,10 +1653,10 @@ module.exports = grammar({
       )))
     )),
 
-    else_if: $ => prec.left(10, seq(
+    _else_if: $ => prec.left(10, seq(
       choice(
-        $.if_statement_block,
-        $.if_statement_no_block,
+        $._if_statement_block,
+        $._if_statement_no_block,
       ),
       repeat1(prec.left(20, seq(
         $.else,

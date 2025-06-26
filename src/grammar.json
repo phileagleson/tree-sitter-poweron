@@ -6613,23 +6613,23 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "if_statement_no_block"
+          "name": "_if_statement_no_block"
         },
         {
           "type": "SYMBOL",
-          "name": "if_statement_block"
+          "name": "_if_statement_block"
         },
         {
           "type": "SYMBOL",
-          "name": "if_else_no_block"
+          "name": "_if_else_no_block"
         },
         {
           "type": "SYMBOL",
-          "name": "if_else_block"
+          "name": "_if_else_block"
         },
         {
           "type": "SYMBOL",
-          "name": "else_if"
+          "name": "_else_if"
         }
       ]
     },
@@ -6641,7 +6641,7 @@
       "type": "PATTERN",
       "value": "[eE][lL][sS][eE]"
     },
-    "if_statement_no_block": {
+    "_if_statement_no_block": {
       "type": "SEQ",
       "members": [
         {
@@ -6674,7 +6674,7 @@
         }
       ]
     },
-    "if_statement_block": {
+    "_if_statement_block": {
       "type": "SEQ",
       "members": [
         {
@@ -6718,7 +6718,7 @@
         }
       ]
     },
-    "if_else_block": {
+    "_if_else_block": {
       "type": "PREC",
       "value": 10,
       "content": {
@@ -6729,11 +6729,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "if_statement_block"
+                "name": "_if_statement_block"
               },
               {
                 "type": "SYMBOL",
-                "name": "if_statement_no_block"
+                "name": "_if_statement_no_block"
               }
             ]
           },
@@ -6771,7 +6771,7 @@
         ]
       }
     },
-    "if_else_no_block": {
+    "_if_else_no_block": {
       "type": "PREC_LEFT",
       "value": 0,
       "content": {
@@ -6782,11 +6782,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "if_statement_block"
+                "name": "_if_statement_block"
               },
               {
                 "type": "SYMBOL",
-                "name": "if_statement_no_block"
+                "name": "_if_statement_no_block"
               }
             ]
           },
@@ -6813,7 +6813,7 @@
         ]
       }
     },
-    "else_if": {
+    "_else_if": {
       "type": "PREC_LEFT",
       "value": 10,
       "content": {
@@ -6824,11 +6824,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "if_statement_block"
+                "name": "_if_statement_block"
               },
               {
                 "type": "SYMBOL",
-                "name": "if_statement_no_block"
+                "name": "_if_statement_no_block"
               }
             ]
           },
