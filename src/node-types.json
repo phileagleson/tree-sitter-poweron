@@ -2297,6 +2297,10 @@
           "named": true
         },
         {
+          "type": "sysactualdate",
+          "named": true
+        },
+        {
           "type": "systemdate",
           "named": true
         },
@@ -2846,6 +2850,11 @@
   },
   {
     "type": "suppressnewline",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sysactualdate",
     "named": true,
     "fields": {}
   },

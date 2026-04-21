@@ -1186,6 +1186,7 @@ module.exports = grammar({
     repeatchr: $ => caseInsensitive('repeatchr'),
     screenxypos: $ => caseInsensitive('screenxypos'),
     segment: $ => caseInsensitive('segment'),
+    sysactualdate: $ => caseInsensitive('sysactualdate'),
     systemdate: $ => caseInsensitive('systemdate'),
     sysusername: $=> caseInsensitive('sysusername'),
     uppercase: $ => caseInsensitive('uppercase'),
