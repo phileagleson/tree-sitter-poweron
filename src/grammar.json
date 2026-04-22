@@ -1154,6 +1154,10 @@
           },
           {
             "type": "PATTERN",
+            "value": "[sS][yY][sS][aA][cC][tT][uU][aA][lL][dD][aA][tT][eE]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[sS][yY][sS][uU][sS][eE][rR][nN][aA][mM][eE]"
           },
           {
@@ -4073,6 +4077,22 @@
           },
           {
             "type": "SYMBOL",
+            "name": "stopblink"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "suppressnewline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "systemdate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "sysactualdate"
+          },
+          {
+            "type": "SYMBOL",
             "name": "sysusername"
           },
           {
@@ -4741,6 +4761,10 @@
     "segment": {
       "type": "PATTERN",
       "value": "[sS][eE][gG][mM][eE][nN][tT]"
+    },
+    "sysactualdate": {
+      "type": "PATTERN",
+      "value": "[sS][yY][sS][aA][cC][tT][uU][aA][lL][dD][aA][tT][eE]"
     },
     "systemdate": {
       "type": "PATTERN",
@@ -7246,5 +7270,6 @@
     "primary_expression",
     "statement",
     "define_statement"
-  ]
+  ],
+  "reserved": {}
 }

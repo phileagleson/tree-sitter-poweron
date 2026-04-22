@@ -2297,6 +2297,10 @@
           "named": true
         },
         {
+          "type": "sysactualdate",
+          "named": true
+        },
+        {
           "type": "systemdate",
           "named": true
         },
@@ -2850,6 +2854,11 @@
     "fields": {}
   },
   {
+    "type": "sysactualdate",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "systemdate",
     "named": true,
     "fields": {}
@@ -3393,7 +3402,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "datafile",
