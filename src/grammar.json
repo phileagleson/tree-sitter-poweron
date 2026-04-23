@@ -4085,11 +4085,11 @@
           },
           {
             "type": "SYMBOL",
-            "name": "systemdate"
+            "name": "sysactualdate"
           },
           {
             "type": "SYMBOL",
-            "name": "sysactualdate"
+            "name": "systemdate"
           },
           {
             "type": "SYMBOL",
@@ -4414,17 +4414,17 @@
       "type": "PATTERN",
       "value": "[eE][nN][tT][eE][rR][dD][aA][tT][eE]"
     },
-    "enternumber": {
+    "enterline": {
       "type": "PATTERN",
-      "value": "[eE][nN][tT][eE][rR][nN][uU][mM][bB][eE][rR]"
+      "value": "[eE][nN][tT][eE][rR][lL][iI][nN][eE]"
     },
     "entermoney": {
       "type": "PATTERN",
       "value": "[eE][nN][tT][eE][rR][mM][oO][nN][eE][yY]"
     },
-    "enterline": {
+    "enternumber": {
       "type": "PATTERN",
-      "value": "[eE][nN][tT][eE][rR][lL][iI][nN][eE]"
+      "value": "[eE][nN][tT][eE][rR][nN][uU][mM][bB][eE][rR]"
     },
     "enterrate": {
       "type": "PATTERN",
@@ -4964,6 +4964,10 @@
           {
             "type": "SYMBOL",
             "name": "systemdate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "sysactualdate"
           },
           {
             "type": "SYMBOL",
