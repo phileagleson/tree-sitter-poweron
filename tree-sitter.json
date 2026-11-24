@@ -6,7 +6,7 @@
       "scope": "source.poweron",
       "path": ".",
       "external-files": [
-        "src/scanner.cc",
+        "src/scanner.c",
         "src/parser.h"
       ],
       "file-types": [

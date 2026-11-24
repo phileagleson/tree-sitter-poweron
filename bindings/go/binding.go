@@ -2,7 +2,7 @@ package tree_sitter_poweron
 
 // #cgo CFLAGS: -std=c11 -fPIC
 // #include "../../src/parser.c"
-// #include "../../src/scanner.cc"
+// #include "../../src/scanner.c"
 import "C"
 
 import "unsafe"
