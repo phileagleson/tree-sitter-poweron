@@ -21,6 +21,9 @@
   (for_statement)
   (fmperform)
   (tranperform)
+  (forrecord)
+  (forrecordwith)
+  (foreachdoend)
 ] @indent.begin
 
 ; @indent.branch de-indents the current line to the scope's opener level.
